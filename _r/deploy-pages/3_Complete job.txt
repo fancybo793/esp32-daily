@@ -1,4 +1,0 @@
-﻿2026-11-01T13:33:36.1936464Z Evaluate and set environment url
-2026-11-01T13:33:36.1940480Z Evaluated environment url: https://fancybo793.github.io/esp32-daily/
-2026-11-01T13:33:36.1941254Z Cleaning up orphan processes
-2026-11-01T13:33:36.2205245Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/deploy-pages@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

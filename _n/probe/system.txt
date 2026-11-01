@@ -1,8 +1,0 @@
-2026-11-01T13:34:36.8720000Z Requested labels: ubuntu-latest
-2026-11-01T13:34:36.8720000Z Job defined at: fancybo793/esp32-daily/.github/workflows/debug-net.yml@refs/heads/main
-2026-11-01T13:34:36.8720000Z Waiting for a runner to pick up this job...
-2026-11-01T13:34:36.8700000Z Evaluating probe.if
-2026-11-01T13:34:36.8700000Z Evaluating: success()
-2026-11-01T13:34:36.8700000Z Result: true
-2026-11-01T13:34:37.3550000Z Job is about to start running on the hosted runner: GitHub Actions 1000000451
-2026-11-01T13:34:37.3550000Z Job is waiting for a hosted runner to come online.

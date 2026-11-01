@@ -1,8 +1,0 @@
-2026-11-01T13:38:43.0300000Z Requested labels: ubuntu-latest
-2026-11-01T13:38:43.0300000Z Job defined at: fancybo793/esp32-daily/.github/workflows/daily.yml@refs/heads/main
-2026-11-01T13:38:43.0300000Z Waiting for a runner to pick up this job...
-2026-11-01T13:38:43.0270000Z Evaluating collect.if
-2026-11-01T13:38:43.0270000Z Evaluating: success()
-2026-11-01T13:38:43.0270000Z Result: true
-2026-11-01T13:38:43.4450000Z Job is waiting for a hosted runner to come online.
-2026-11-01T13:38:43.4460000Z Job is about to start running on the hosted runner: GitHub Actions 1000000454
