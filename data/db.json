@@ -338,6 +338,131 @@
      "created": "2026-09-29"
     }
    ]
+  },
+  {
+   "date": "2026-11-03",
+   "items": [
+    {
+     "id": "20261103-douli-esp32",
+     "kind": "hw",
+     "t": "项目名：豆梨个人语音陪伴助手",
+     "d": "豆梨是一款个人语音陪伴助手，支持桌面与Android客户端，具备偏好记忆功能，通过ESP32设备接入实现智能交互。项目采用JavaScript开发，但README中未提及具体硬件配置，对硬件有一定要求。",
+     "hw": "一块ESP32开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Syfyivan/douli-esp32",
+     "stars": 167,
+     "created": "2026-10-17"
+    },
+    {
+     "id": "20261103-anan-iphone-use",
+     "kind": "hw",
+     "t": "项目名：ESP32麦克风固件iPhone USB输入",
+     "d": "为M5Stack StopWatch开发，支持iPhone USB和蓝牙鼠标键盘输入。无需模型，不提供截图功能。集成Anan代理，指导硬件适配。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ananhq/anan-iphone-use",
+     "stars": 146,
+     "created": "2026-10-13"
+    },
+    {
+     "id": "20261103-desk-robot",
+     "kind": "hw",
+     "t": "项目名：桌面机器人 Rocky",
+     "d": "ESP32 驱动的桌面机器人，拥有面部表情、语音交互和摄像头。通过 Python 编程实现语音识别和语言模型问答，化身《海王星计划》中的 Rocky，与您互动。",
+     "hw": "ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/cgro00/desk-robot",
+     "stars": 130,
+     "created": "2026-09-18"
+    },
+    {
+     "id": "20261103-esp32-sdr-trx",
+     "kind": "hw",
+     "t": "esp32-sdr-trx：基于 ESP32-S3 的软件定义收发机",
+     "d": "esp32-sdr-trx 项目利用 ESP32-S3 开发板构建软件定义收发机。接收器作为 rtl_tcp 服务器，覆盖 1.84-2.79 GHz；发射器在 13cm 业余频段（2320-2450 MHz）支持 FM、SSB 语音和 RTTY，通过软件极调制实现，并使用温度传感器补偿载波热漂移。实验性设计，发射操作需持有业余无线电执照。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/jochenhammes/esp32-sdr-trx",
+     "stars": 125,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261103-cozmo-esp32",
+     "kind": "hw",
+     "t": "项目名：Cozmo ESP32 - 动态OLED面孔，语音交互，控制Mac的机器人",
+     "d": "ESP32打造桌面机器人，OLED动态面孔，葡萄牙语语音交互，控制Mac，玩剪刀石头布。无需手机，独立运行。",
+     "hw": "ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fabriciowth/cozmo-esp32",
+     "stars": 113,
+     "created": "2026-09-19"
+    },
+    {
+     "id": "20261103-esp-ai",
+     "kind": "ai",
+     "t": "Ivy AI：一块 ESP32‑S3 实现全离线语音助手",
+     "d": "让芯片做到全离线人机对话：一块 ESP32‑S3 结合短句识别、Tiny LLM 与 TTS，支持\"Hey Ivy\"唤醒与本地语音交互，唯一网络行使 NTP 同步。凭借 8 MB PSRAM 限制，模型体积和多轮对话受限。实现低功耗、可即插即用的语音助手，却无法处理长文本翻译或联网服务，硬件内存是最大的瓶颈。",
+     "hw": "Freenove FNK0104B",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/iamankushpandit/esp_ai",
+     "stars": 79,
+     "created": "2026-09-19"
+    },
+    {
+     "id": "20261103-iphone-agent-harness",
+     "kind": "ai",
+     "t": "iPhone Agent Harness：用$2 ESP32 自动化你的 iPhone",
+     "d": "让 AI 通过一块 $2 级 ESP32 充当蓝牙 HID 桥，直接操控 Safari、输入文字、调整控件，支持跨 App 的简短工作流。技术亮点在于利用 ESP32 的 Bluetooth HID 兼容性与 Wi‑Fi 集成，实现本地会话与屏幕抓取。但必须有电脑在旁闪录固件，并且桥必须保持在蓝牙范围内。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/cccat6/iphone-agent-harness",
+     "stars": 33,
+     "created": "2026-10-17"
+    },
+    {
+     "id": "20261103-orion",
+     "kind": "ai",
+     "t": "项目名：桌面语音助手Orion",
+     "d": "打造个人桌面语音助手，一键安装ESP32-S3板，支持阿拉伯语和英语语音交互。",
+     "hw": "LilyGO T-CameraPlus-S3",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/MultiX0/orion",
+     "stars": 25,
+     "created": "2026-09-30"
+    },
+    {
+     "id": "20261103-passportsim",
+     "kind": "ai",
+     "t": "项目名：FoloToy AI Passport 软件模拟器",
+     "d": "无需设备即可开发和调试 FoloToy AI Passport 固件，支持在浏览器或桌面运行 ESP-IDF 固件，简化了调试过程，但需要一定的嵌入式开发基础。",
+     "hw": "ESP32-C3 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/BlackHole1/passportsim",
+     "stars": 24,
+     "created": "2026-09-29"
+    },
+    {
+     "id": "20261103-nous-girl-stackchan",
+     "kind": "ai",
+     "t": "项目名：开源语音伴侣固件",
+     "d": "为M5Stack StackChan（CoreS3，ESP32-S3）打造的开源语音伴侣固件，基于xiaozhi，拥有动漫面孔、舞蹈、DJ和派对模式，支持表情包和邮件功能。目前处于Beta测试阶段。",
+     "hw": "M5Stack StackChan K151 (CoreS3)",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/dax8it/nous-girl-stackchan",
+     "stars": 21,
+     "created": "2026-10-28"
+    }
+   ]
   }
  ],
  "legacy": [
