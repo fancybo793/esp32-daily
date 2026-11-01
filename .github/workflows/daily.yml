@@ -4,7 +4,12 @@ name: daily-collect
 on:
   schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch:        # 也可以在 Actions 页面手动点一下立即跑
+  workflow_dispatch:
+    inputs:
+      force_date:
+        description: '指定日期 YYYY-MM-DD（留空=今天）。用于补跑或测试'
+        required: false
+        default: ''
 
 permissions:
   contents: write           # 允许把新数据提交回仓库
@@ -30,6 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODEL: openai/gpt-4o-mini
           LOOKBACK_DAYS: '45'
+          FORCE_DATE: ${{ inputs.force_date }}
           REMOTE_URLS: https://raw.githubusercontent.com/${{ github.repository }}/main/data/db.json,https://cdn.jsdelivr.net/gh/${{ github.repository }}@main/data/db.json
         run: node tools/collect.mjs
 
