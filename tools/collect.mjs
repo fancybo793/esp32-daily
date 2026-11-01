@@ -20,8 +20,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DB_PATH = path.join(ROOT, 'data', 'db.json');
 
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
-const MODEL = process.env.MODEL || 'openai/gpt-4o-mini';
-const MODELS_URL = process.env.MODELS_URL || 'https://models.github.ai/inference/chat/completions';
+const MODEL = process.env.MODEL || 'openai';
+const TEXT_API = (process.env.TEXT_API || 'https://text.pollinations.ai').replace(/\/+$/, '');
 const LOOKBACK = Number(process.env.LOOKBACK_DAYS || 45);
 
 const log = (...a) => console.log(...a);
@@ -131,43 +131,41 @@ function scoreKind(repo) {
 }
 
 /* ---------- 文案 ---------- */
-async function askModel(repo, readme, strict = false) {
-  if (!TOKEN) return null;
-  const sys = '你是中文硬件媒体的编辑，为 ESP32 项目撰写卡片文案。只输出一个 JSON 对象，不要代码块、不要解释。';
-  const user = [
+// 用一个免密钥的公共文本接口（默认 text.pollinations.ai）把 README 变成中文卡片文案。
+// 它不需要任何 API key，代价是稳定性不如付费模型，失败时自动退回模板文案。
+async function askModel(repo, readme, strict = false, readmeLimit = 400, noWait = false) {
+  const prompt = [
+    '你是中文硬件媒体的编辑，为 ESP32 项目撰写卡片文案。只输出一个 JSON 对象，不要代码块、不要解释。',
     `仓库：${repo.full_name}`,
-    `名称：${repo.name}`,
     `描述：${repo.description || '(无)'}`,
     `语言：${repo.language || '未知'}　星标：${repo.stargazers_count}　创建：${repo.created_at.slice(0, 10)}`,
     `topics：${(repo.topics || []).join(', ') || '(无)'}`,
-    `README 摘录：\n${readme || '(抓不到 README)'}`,
+    `README 摘录：${(readme || '(抓不到 README)').slice(0, readmeLimit)}`,
     '',
-    '请输出 JSON，字段：',
-    '  t  —— 中文标题，格式「项目名：一句话点题」，不超过 40 字',
-    '  d  —— 80~140 字中文简介，说清它做了什么、技术亮点在哪，可以点出一个真实的坑或限制',
-    '  hw —— 「上手需要」一句话，写到具体板子型号或关键器件；README 没提到就写「一块 ESP32 开发板」',
-    '  lv —— 只能是 入门 / 进阶 / 硬核 三者之一',
-    '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；README 里是英文就直接译成中文，不要保留英文长句。',
-    strict ? '特别注意：t 和 d 必须全部是中文，不要出现英文描述句。' : ''
+    '输出 JSON，字段：t（中文标题，格式「项目名：一句话点题」，40 字内）、d（80~140 字中文简介，说清做了什么、亮点、可提一个限制）、hw（上手需要，写到板子型号）、lv（入门/进阶/硬核）。',
+    '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；英文要译成中文。',
+    strict ? '特别注意：t 和 d 必须全部是中文。' : ''
   ].filter(Boolean).join('\n');
 
+  const url = `${TEXT_API}/${encodeURIComponent(prompt)}?model=${encodeURIComponent(MODEL)}&json=true&seed=${Math.floor(Math.random() * 1e6)}`;
+
   try {
-    const r = await fetch(MODELS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${TOKEN}` },
-      body: JSON.stringify({
-        model: MODEL,
-        temperature: 0.3,
-        max_tokens: 700,
-        messages: [{ role: 'system', content: sys }, { role: 'user', content: user }]
-      })
-    });
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 60000);
+    const r = await fetch(url, { signal: ctl.signal, headers: { 'User-Agent': 'esp32-daily-bot' } });
+    clearTimeout(timer);
     if (!r.ok) {
-      log(`  ! 模型返回 ${r.status}，改用模板文案`);
+      // 402/429 = 免费额度限流（每 45 秒一条），等一轮再来；400/404 = 提示词太长，缩短重试
+      if ((r.status === 402 || r.status === 429) && !noWait) {
+        log(`  · 接口限流（${r.status}），等 45 秒重试`);
+        await new Promise(res => setTimeout(res, 45000));
+        return askModel(repo, readme, strict, readmeLimit, true);
+      }
+      if (readmeLimit > 150) return askModel(repo, readme, strict, 150);
+      log(`  ! 文案接口返回 ${r.status}，改用模板文案`);
       return null;
     }
-    const j = await r.json();
-    let txt = j?.choices?.[0]?.message?.content || '';
+    let txt = (await r.text()).trim();
     txt = txt.replace(/^```(json)?/i, '').replace(/```$/, '').trim();
     const m = txt.match(/\{[\s\S]*\}/);
     if (!m) return null;
@@ -183,7 +181,7 @@ async function askModel(repo, readme, strict = false) {
       lv: ['入门', '进阶', '硬核'].includes(o.lv) ? o.lv : '进阶'
     };
   } catch (e) {
-    log(`  ! 模型调用失败：${e.message}`);
+    log(`  ! 文案生成失败：${e.message}`);
     return null;
   }
 }
@@ -275,7 +273,7 @@ async function main() {
       stars: repo.stargazers_count,
       created: repo.created_at.slice(0, 10)
     });
-    await new Promise(r => setTimeout(r, 400));
+    await new Promise(r => setTimeout(r, 5000));   // 公共接口限流，留点间隔
   }
 
   db.days.push({ date: today, items });
