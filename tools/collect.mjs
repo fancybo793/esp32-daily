@@ -131,10 +131,10 @@ function scoreKind(repo) {
 }
 
 /* ---------- 文案 ---------- */
-// 用一个免密钥的公共文本接口（默认 text.pollinations.ai）把 README 变成中文卡片文案。
-// 它不需要任何 API key，代价是稳定性不如付费模型，失败时自动退回模板文案。
-async function askModel(repo, readme, strict = false, readmeLimit = 400, noWait = false) {
-  const prompt = [
+// 用免密钥的公共文本接口（默认 text.pollinations.ai）把 README 变成中文卡片文案。
+// 优先走 POST（无 URL 长度限制），失败再走 GET，最后退回机器翻译。
+function buildPrompt(repo, readme, strict, readmeLimit) {
+  return [
     '你是中文硬件媒体的编辑，为 ESP32 项目撰写卡片文案。只输出一个 JSON 对象，不要代码块、不要解释。',
     `仓库：${repo.full_name}`,
     `描述：${repo.description || '(无)'}`,
@@ -146,44 +146,83 @@ async function askModel(repo, readme, strict = false, readmeLimit = 400, noWait 
     '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；英文要译成中文。',
     strict ? '特别注意：t 和 d 必须全部是中文。' : ''
   ].filter(Boolean).join('\n');
+}
 
-  const url = `${TEXT_API}/${encodeURIComponent(prompt)}?model=${encodeURIComponent(MODEL)}&json=true&seed=${Math.floor(Math.random() * 1e6)}`;
+function parseCard(txt) {
+  if (!txt) return null;
+  const cleaned = String(txt).replace(/^```(json)?/i, '').replace(/```$/, '').trim();
+  const m = cleaned.match(/\{[\s\S]*\}/);
+  if (!m) return null;
+  let o;
+  try { o = JSON.parse(m[0]); } catch (e) { return null; }
+  if (!o || !o.t || !o.d) return null;
+  return {
+    t: String(o.t).slice(0, 60),
+    d: String(o.d).slice(0, 220),
+    hw: String(o.hw || '一块 ESP32 开发板').slice(0, 80),
+    lv: ['入门', '进阶', '硬核'].includes(o.lv) ? o.lv : '进阶'
+  };
+}
 
+async function postText(prompt) {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 90000);
   try {
-    const ctl = new AbortController();
-    const timer = setTimeout(() => ctl.abort(), 60000);
+    const r = await fetch(`${TEXT_API}/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'User-Agent': 'esp32-daily-bot' },
+      body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }] }),
+      signal: ctl.signal
+    });
+    clearTimeout(timer);
+    if (!r.ok) return { status: r.status, text: null };
+    return { status: 200, text: await r.text() };
+  } catch (e) {
+    clearTimeout(timer);
+    return { status: 0, text: null };
+  }
+}
+
+async function getText(prompt) {
+  const url = `${TEXT_API}/${encodeURIComponent(prompt)}?model=${encodeURIComponent(MODEL)}&json=true&seed=${Math.floor(Math.random() * 1e6)}`;
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 60000);
+  try {
     const r = await fetch(url, { signal: ctl.signal, headers: { 'User-Agent': 'esp32-daily-bot' } });
     clearTimeout(timer);
-    if (!r.ok) {
-      // 402/429 = 免费额度限流（每 45 秒一条），等一轮再来；400/404 = 提示词太长，缩短重试
-      if ((r.status === 402 || r.status === 429) && !noWait) {
-        log(`  · 接口限流（${r.status}），等 45 秒重试`);
-        await new Promise(res => setTimeout(res, 45000));
-        return askModel(repo, readme, strict, readmeLimit, true);
-      }
-      if (readmeLimit > 150) return askModel(repo, readme, strict, 150);
-      log(`  ! 文案接口返回 ${r.status}，改用模板文案`);
-      return null;
-    }
-    let txt = (await r.text()).trim();
-    txt = txt.replace(/^```(json)?/i, '').replace(/```$/, '').trim();
-    const m = txt.match(/\{[\s\S]*\}/);
-    if (!m) return null;
-    const o = JSON.parse(m[0]);
-    if (!o.t || !o.d) return null;
-    if (!/[\u4e00-\u9fa5]/.test(String(o.t) + String(o.d))) {
-      return strict ? null : askModel(repo, readme, true);   // 没写出中文就再要一次
-    }
-    return {
-      t: String(o.t).slice(0, 60),
-      d: String(o.d).slice(0, 220),
-      hw: String(o.hw || '一块 ESP32 开发板').slice(0, 80),
-      lv: ['入门', '进阶', '硬核'].includes(o.lv) ? o.lv : '进阶'
-    };
+    if (!r.ok) return { status: r.status, text: null };
+    return { status: 200, text: await r.text() };
   } catch (e) {
-    log(`  ! 文案生成失败：${e.message}`);
-    return null;
+    clearTimeout(timer);
+    return { status: 0, text: null };
   }
+}
+
+async function askModel(repo, readme, strict = false) {
+  for (const limit of [800, 300]) {
+    const prompt = buildPrompt(repo, readme, strict, limit);
+
+    // 1) POST：免费额度是每 45 秒一条，撞上就等一轮再来
+    let res = await postText(prompt);
+    if (res.status === 402 || res.status === 429) {
+      log('  · POST 限流，等 45 秒');
+      await new Promise(r => setTimeout(r, 46000));
+      res = await postText(prompt);
+    }
+    let card = parseCard(res.text);
+    if (card && /[\u4e00-\u9fa5]/.test(card.t + card.d)) {
+      await new Promise(r => setTimeout(r, 46000));   // 给下一条留出限流窗口
+      return card;
+    }
+
+    // 2) GET：走 URL 传参，提示词要短
+    const g = await getText(prompt);
+    card = parseCard(g.text);
+    if (card && /[\u4e00-\u9fa5]/.test(card.t + card.d)) return card;
+
+    log(`  ! 文案接口未返回可用内容（POST ${res.status} / GET ${g.status}）`);
+  }
+  return null;
 }
 
 function fallbackText(repo) {
@@ -304,7 +343,7 @@ async function main() {
       stars: repo.stargazers_count,
       created: repo.created_at.slice(0, 10)
     });
-    await new Promise(r => setTimeout(r, 5000));   // 公共接口限流，留点间隔
+    await new Promise(r => setTimeout(r, 1500));   // 兜底路径也留一点间隔
   }
 
   db.days.push({ date: today, items });
