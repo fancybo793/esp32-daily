@@ -446,7 +446,7 @@ function renderFav(){
 function renderStats(){
   const nDays = (DB.days || []).length;
   const latest = (DB.days || []).map(d=>d.date).sort().pop() || '';
-  const fresh = latest === keyOf(new Date());
+  const fresh = latest >= keyOf(new Date());
   $('#stats').innerHTML =
     '<span class="stat' + (fresh ? ' fresh' : '') + '">' + (fresh ? '今日已更新' : '最近更新 ' + (latest ? latest.slice(5) : '—')) + '</span>'
     + '<span class="stat">已抓取 <b>' + nDays + '</b> 天</span>'

@@ -1,0 +1,13 @@
+﻿2026-11-01T13:38:52.3297581Z ##[group]Run git config user.name "esp32-daily-bot"
+2026-11-01T13:38:52.3297971Z [36;1mgit config user.name "esp32-daily-bot"[0m
+2026-11-01T13:38:52.3298346Z [36;1mgit config user.email "esp32-daily-bot@users.noreply.github.com"[0m
+2026-11-01T13:38:52.3298670Z [36;1mgit add -A[0m
+2026-11-01T13:38:52.3298885Z [36;1mif git diff --staged --quiet; then[0m
+2026-11-01T13:38:52.3299126Z [36;1m  echo "没有变化，不提交"[0m
+2026-11-01T13:38:52.3299340Z [36;1melse[0m
+2026-11-01T13:38:52.3299608Z [36;1m  git commit -m "chore: daily collect $(TZ=Asia/Shanghai date +%F)"[0m
+2026-11-01T13:38:52.3299911Z [36;1m  git push[0m
+2026-11-01T13:38:52.3300127Z [36;1mfi[0m
+2026-11-01T13:38:52.3328224Z shell: /usr/bin/bash -e {0}
+2026-11-01T13:38:52.3328491Z ##[endgroup]
+2026-11-01T13:38:52.3463898Z 没有变化，不提交

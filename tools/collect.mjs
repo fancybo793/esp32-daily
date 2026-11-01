@@ -257,10 +257,10 @@ async function fallbackTranslated(repo) {
   const base = fallbackText(repo);
   const zhDesc = await translateCN(repo.description || '');
   if (!zhDesc) return base;
-  const short = zhDesc.replace(/[。.\s]+$/, '').slice(0, 26);
+  const firstClause = (zhDesc.split(/[。；;，,]/)[0] || zhDesc).replace(/\s+/g, ' ').trim().slice(0, 24);
   return {
-    t: `${repo.name}：${short}`,
-    d: `${zhDesc.replace(/[。.]$/, '')}。仓库 ${repo.created_at.slice(0, 10)} 创建，主要语言 ${repo.language || '未知'}，当前 ${repo.stargazers_count} 星。自动流程未拿到完整说明，硬件细节建议点开原仓库确认。`,
+    t: `${repo.name}：${firstClause}`,
+    d: `${zhDesc.replace(/[。.\s]+$/, '')}。（${repo.created_at.slice(0, 10)} · ${repo.language || '未知'} · ${repo.stargazers_count}★，文案为自动翻译，细节以原仓库为准）`,
     hw: '一块 ESP32 开发板',
     lv: '进阶'
   };

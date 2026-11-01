@@ -1,0 +1,56 @@
+﻿2026-11-01T13:38:52.3541161Z ##[group]Run actions/upload-pages-artifact@v3
+2026-11-01T13:38:52.3541475Z with:
+2026-11-01T13:38:52.3541652Z   path: site
+2026-11-01T13:38:52.3541978Z   name: github-pages
+2026-11-01T13:38:52.3542188Z   retention-days: 1
+2026-11-01T13:38:52.3542370Z ##[endgroup]
+2026-11-01T13:38:52.3592422Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run]
+2026-11-01T13:38:52.3617739Z ##[group]Run echo ::group::Archive artifact
+2026-11-01T13:38:52.3618060Z [36;1mecho ::group::Archive artifact[0m
+2026-11-01T13:38:52.3618294Z [36;1mtar \[0m
+2026-11-01T13:38:52.3618522Z [36;1m  --dereference --hard-dereference \[0m
+2026-11-01T13:38:52.3618785Z [36;1m  --directory "$INPUT_PATH" \[0m
+2026-11-01T13:38:52.3619049Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2026-11-01T13:38:52.3619304Z [36;1m  --exclude=.git \[0m
+2026-11-01T13:38:52.3619519Z [36;1m  --exclude=.github \[0m
+2026-11-01T13:38:52.3619726Z [36;1m  .[0m
+2026-11-01T13:38:52.3619909Z [36;1mecho ::endgroup::[0m
+2026-11-01T13:38:52.4003478Z shell: /usr/bin/sh -e {0}
+2026-11-01T13:38:52.4003796Z env:
+2026-11-01T13:38:52.4004000Z   INPUT_PATH: site
+2026-11-01T13:38:52.4004201Z ##[endgroup]
+2026-11-01T13:38:52.4055702Z ##[group]Archive artifact
+2026-11-01T13:38:52.4067887Z ./
+2026-11-01T13:38:52.4068255Z ./index.html
+2026-11-01T13:38:52.4070285Z ##[endgroup]
+2026-11-01T13:38:52.4082100Z ##[end-action id=__actions_upload-pages-artifact.__run;outcome=success;conclusion=success;duration_ms=48]
+2026-11-01T13:38:52.4086039Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+2026-11-01T13:38:52.4090998Z ##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-01T13:38:52.4093809Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+2026-11-01T13:38:52.4097127Z ##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-01T13:38:52.4098770Z ##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+2026-11-01T13:38:52.4131668Z ##[group]Run actions/upload-artifact@v4
+2026-11-01T13:38:52.4132168Z with:
+2026-11-01T13:38:52.4132351Z   name: github-pages
+2026-11-01T13:38:52.4132567Z   path: /home/runner/work/_temp/artifact.tar
+2026-11-01T13:38:52.4132813Z   retention-days: 1
+2026-11-01T13:38:52.4133030Z   if-no-files-found: error
+2026-11-01T13:38:52.4133267Z   compression-level: 6
+2026-11-01T13:38:52.4133528Z   overwrite: false
+2026-11-01T13:38:52.4133722Z   include-hidden-files: false
+2026-11-01T13:38:52.4133940Z ##[endgroup]
+2026-11-01T13:38:52.5555336Z (node:2230) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-01T13:38:52.5556582Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-01T13:38:52.5595045Z With the provided path, there will be 1 file uploaded
+2026-11-01T13:38:52.5599357Z Artifact name is valid!
+2026-11-01T13:38:52.5600093Z Root directory input is valid!
+2026-11-01T13:38:52.8640813Z Beginning upload of artifact content to blob storage
+2026-11-01T13:38:52.8887294Z (node:2230) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-01T13:38:53.0397674Z Uploaded bytes 34736
+2026-11-01T13:38:53.0773717Z Finished uploading artifact content to blob storage!
+2026-11-01T13:38:53.0774555Z SHA256 digest of uploaded artifact zip is 133cc95bc1edf57244b01f1b81b27986cb864a8c488e11e9f2749280fd9c579f
+2026-11-01T13:38:53.0775125Z Finalizing artifact upload
+2026-11-01T13:38:53.4832839Z Artifact github-pages.zip successfully finalized. Artifact ID 13086410380
+2026-11-01T13:38:53.4833902Z Artifact github-pages has been successfully uploaded! Final size is 34736 bytes. Artifact ID is 13086410380
+2026-11-01T13:38:53.4838813Z Artifact download URL: https://github.com/fancybo793/esp32-daily/actions/runs/41312255845/artifacts/13086410380
+2026-11-01T13:38:53.4953372Z ##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=1085]
