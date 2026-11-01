@@ -5,6 +5,131 @@
  },
  "days": [
   {
+   "date": "2026-10-30",
+   "items": [
+    {
+     "id": "20261030-zongzhu-bot",
+     "kind": "hw",
+     "t": "zongzhu-bot：宗主：Waveshare 1.75C 圆屏 ESP32 上的 Gro",
+     "d": "宗主：Waveshare 1.75C 圆屏 ESP32 上的 Grok Bot 语音终端，会眨眼的眼睛表情、字幕与朗读，含固件和后端源码（2.5.2.9）　（2026-10-16 创建，主要语言 C++，当前 240 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Liu-zhongxian/zongzhu-bot",
+     "stars": 240,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261030-e-paper-art-display",
+     "kind": "hw",
+     "t": "e-paper-art-display：An ESP32 based e-paper art display",
+     "d": "An ESP32 based e-paper art display　（2026-09-30 创建，主要语言 C，当前 224 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FutureSharks/e-paper-art-display",
+     "stars": 224,
+     "created": "2026-09-30"
+    },
+    {
+     "id": "20261030-wifi-sensing-kit",
+     "kind": "hw",
+     "t": "wifi-sensing-kit：Teach three $10 ESP32-S3 boards to",
+     "d": "Teach three $10 ESP32-S3 boards to recognise what you're doing from WiFi alone, with your webcam as the teacher　（2026-10-10 创建，主要语言 HTML，当前 202 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/andrisgauracs/wifi-sensing-kit",
+     "stars": 202,
+     "created": "2026-10-10"
+    },
+    {
+     "id": "20261030-visionstate",
+     "kind": "hw",
+     "t": "VisionState：Turn your cameras into Home Assist",
+     "d": "Turn your cameras into Home Assistant sensors with a local AI: garage door open/closed, people and cars, water, gas and power meters read by any camera or ESP32-CAM. 100% local, any CPU.　（2026-09-28 创建，主要语言 Python，当前 187 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/oleost/VisionState",
+     "stars": 187,
+     "created": "2026-09-28"
+    },
+    {
+     "id": "20261030-esp-sdr-zephyr",
+     "kind": "hw",
+     "t": "esp-sdr-zephyr：ESP32 2.4 GHz SDR",
+     "d": "ESP32 2.4 GHz SDR　（2026-10-07 创建，主要语言 C，当前 175 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/cyber-murmel/esp-sdr-zephyr",
+     "stars": 175,
+     "created": "2026-10-07"
+    },
+    {
+     "id": "20261030-groki-bot",
+     "kind": "ai",
+     "t": "groki-bot：Groki Bot desktop robot (M5Stack C",
+     "d": "Groki Bot desktop robot (M5Stack CoreS3): firmware, a voice and MCP gateway for your computer, and a hand-off to Grok Bot agents　（2026-09-23 创建，主要语言 C++，当前 201 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/JosssphZhou/groki-bot",
+     "stars": 201,
+     "created": "2026-09-23"
+    },
+    {
+     "id": "20261030-whistle-esp32",
+     "kind": "ai",
+     "t": "whistle-esp32：Whistle speech-to-text running ful",
+     "d": "Whistle speech-to-text running fully on an ESP32-S3: hold a button, say a colour in one of 7 languages, the LED does it. No network.　（2026-10-19 创建，主要语言 C，当前 200 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/andrisgauracs/whistle-esp32",
+     "stars": 200,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261030-motonav",
+     "kind": "ai",
+     "t": "MotoNav：Android 与 ESP32-S3 1.75 英寸圆屏导航；AI ",
+     "d": "Android 与 ESP32-S3 1.75 英寸圆屏导航；AI 辅助开发，仅供非商业使用，禁止未经许可转售。　（2026-10-16 创建，主要语言 C，当前 130 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/zyn950929/MotoNav",
+     "stars": 130,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261030-oido",
+     "kind": "ai",
+     "t": "oido：Oído: open-vocabulary speech recog",
+     "d": "Oído: open-vocabulary speech recognition that fits in a $5 ESP32-S3. 3.7% LibriSpeech WER, no cloud, no NPU.　（2026-09-30 创建，主要语言 C，当前 127 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/lokutor-ai/oido",
+     "stars": 127,
+     "created": "2026-09-30"
+    },
+    {
+     "id": "20261030-muggleswand",
+     "kind": "ai",
+     "t": "MugglesWand：基于 ESP32-S3 + TinyML 的魔杖。挥动魔杖即可触发魔",
+     "d": "基于 ESP32-S3 + TinyML 的魔杖。挥动魔杖即可触发魔法效果，支持手势识别、低功耗待机、个性化模型训练，软硬件全开源。　（2026-09-29 创建，主要语言 HTML，当前 122 星。文案由自动流程生成，未经过人工核实细节。）",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/zou-shui/MugglesWand",
+     "stars": 122,
+     "created": "2026-09-29"
+    }
+   ]
+  },
+  {
    "date": "2026-10-31",
    "items": [
     {
