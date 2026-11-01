@@ -147,13 +147,22 @@ function buildPrompt(repo, readme, strict, readmeLimit) {
     `README 摘录：${(readme || '(抓不到 README)').slice(0, readmeLimit)}`,
     '',
     '输出 JSON，字段：',
-    '  t  —— 中文标题，「项目名：一句话点题」，40 字内，项目名保留原文',
-    '  d  —— 80~140 字中文简介：做了什么、技术亮点、一个真实的限制或门槛',
+    `  t  —— 中文标题，格式固定为「${repo.name}：一句话点题」：冒号前必须是上面这个仓库名原文，冒号后用一句中文点题，合计 40 字内。严禁输出「项目名」「标题」这类占位词。`,
+    '  d  —— 80~140 字中文简介（不能少于 80 字）：做了什么、技术亮点、一个真实的限制或门槛',
     '  hw —— 只写硬件：具体板子型号 / 模块 / 关键器件；README 没写就写「一块 ESP32 开发板」。不要写环境、不要写「需具备…基础」',
     '  lv —— 只能是从「入门」「进阶」「硬核」里选一个词，不要附加任何说明',
     '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；英文要译成中文；专有名词（项目名、人名、作品名）不要意译，拿不准就保留英文。',
     strict ? '特别注意：t 和 d 必须全部是中文。' : ''
   ].filter(Boolean).join('\n');
+}
+
+// 标题兜底：去掉模型写下的「项目名：」占位，保证冒号前是仓库名
+function fixTitle(t, repoName) {
+  let s = String(t || '').trim().replace(/^(项目名|项目|标题|仓库名)[：:]\s*/, '');
+  const idx = s.indexOf('：');
+  const head = idx > 0 ? s.slice(0, idx) : '';
+  if (!head || head.length > 18) s = `${repoName}：${idx > 0 ? s.slice(idx + 1).trim() : s}`;
+  return s.slice(0, 60);
 }
 
 function parseCard(txt) {
@@ -377,6 +386,7 @@ async function main() {
     log(`→ ${repo.full_name} (${kind}, ${repo.stargazers_count}★)`);
     const readme = await readmeOf(repo.full_name);
     const text = (await askModel(repo, readme)) || (await fallbackTranslated(repo));
+    text.t = fixTitle(text.t, repo.name);
     items.push({
       id: `${today.replace(/-/g, '')}-${slug(repo.name)}`,
       kind,
