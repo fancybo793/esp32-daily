@@ -1,0 +1,73 @@
+﻿2026-11-01T13:32:11.2412541Z ##[group]Run actions/checkout@v4
+2026-11-01T13:32:11.2413618Z with:
+2026-11-01T13:32:11.2414284Z   repository: fancybo793/esp32-daily
+2026-11-01T13:32:11.2418828Z   token: ***
+2026-11-01T13:32:11.2419411Z   ssh-strict: true
+2026-11-01T13:32:11.2420030Z   ssh-user: git
+2026-11-01T13:32:11.2420597Z   persist-credentials: true
+2026-11-01T13:32:11.2421427Z   clean: true
+2026-11-01T13:32:11.2422031Z   sparse-checkout-cone-mode: true
+2026-11-01T13:32:11.2422656Z   fetch-depth: 1
+2026-11-01T13:32:11.2423318Z   fetch-tags: false
+2026-11-01T13:32:11.2423802Z   show-progress: true
+2026-11-01T13:32:11.2424305Z   lfs: false
+2026-11-01T13:32:11.2424712Z   submodules: false
+2026-11-01T13:32:11.2425161Z   set-safe-directory: true
+2026-11-01T13:32:11.2425616Z   allow-unsafe-pr-checkout: false
+2026-11-01T13:32:11.2426788Z ##[endgroup]
+2026-11-01T13:32:11.4931906Z Syncing repository: fancybo793/esp32-daily
+2026-11-01T13:32:11.4934054Z ##[group]Getting Git version info
+2026-11-01T13:32:11.4934772Z Working directory is '/home/runner/work/esp32-daily/esp32-daily'
+2026-11-01T13:32:11.4936208Z [command]/usr/bin/git version
+2026-11-01T13:32:11.4936925Z git version 2.56.0
+2026-11-01T13:32:11.4951743Z ##[endgroup]
+2026-11-01T13:32:11.4970099Z Temporarily overriding HOME='/home/runner/work/_temp/6dae10b2-337e-4d94-8d4a-e15efbb56e0f' before making global git config changes
+2026-11-01T13:32:11.4974172Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-01T13:32:11.4976250Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/esp32-daily/esp32-daily
+2026-11-01T13:32:11.5029368Z Deleting the contents of '/home/runner/work/esp32-daily/esp32-daily'
+2026-11-01T13:32:11.5031411Z ##[group]Initializing the repository
+2026-11-01T13:32:11.5032954Z [command]/usr/bin/git init /home/runner/work/esp32-daily/esp32-daily
+2026-11-01T13:32:11.5132160Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-01T13:32:11.5134666Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-01T13:32:11.5136065Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-01T13:32:11.5136987Z hint: call:
+2026-11-01T13:32:11.5137650Z hint:
+2026-11-01T13:32:11.5138785Z hint: 	git config --global init.defaultBranch <name>
+2026-11-01T13:32:11.5139774Z hint:
+2026-11-01T13:32:11.5140548Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-01T13:32:11.5141645Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-01T13:32:11.5142634Z hint:
+2026-11-01T13:32:11.5143222Z hint: 	git branch -m <name>
+2026-11-01T13:32:11.5143846Z hint:
+2026-11-01T13:32:11.5144711Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-01T13:32:11.5148087Z Initialized empty Git repository in /home/runner/work/esp32-daily/esp32-daily/.git/
+2026-11-01T13:32:11.5159886Z [command]/usr/bin/git remote add origin https://github.com/fancybo793/esp32-daily
+2026-11-01T13:32:11.5240304Z ##[endgroup]
+2026-11-01T13:32:11.5246038Z ##[group]Disabling automatic garbage collection
+2026-11-01T13:32:11.5247327Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-01T13:32:11.5278113Z ##[endgroup]
+2026-11-01T13:32:11.5279079Z ##[group]Setting up auth
+2026-11-01T13:32:11.5286327Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-01T13:32:11.5314775Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-01T13:32:11.5690135Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-01T13:32:11.5731647Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-01T13:32:11.5926749Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-01T13:32:11.5952758Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-01T13:32:11.6143656Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-01T13:32:11.6177096Z ##[endgroup]
+2026-11-01T13:32:11.6178730Z ##[group]Fetching the repository
+2026-11-01T13:32:11.6186371Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +82afe725f9613ffb130b90cf1b2b6c8dffe83f72:refs/remotes/origin/main
+2026-11-01T13:32:11.9719517Z From https://github.com/fancybo793/esp32-daily
+2026-11-01T13:32:11.9721404Z  * [new ref]         82afe725f9613ffb130b90cf1b2b6c8dffe83f72 -> origin/main
+2026-11-01T13:32:11.9725685Z ##[endgroup]
+2026-11-01T13:32:11.9727389Z ##[group]Determining the checkout info
+2026-11-01T13:32:11.9729435Z ##[endgroup]
+2026-11-01T13:32:11.9730674Z [command]/usr/bin/git sparse-checkout disable
+2026-11-01T13:32:11.9784359Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-01T13:32:11.9812220Z ##[group]Checking out the ref
+2026-11-01T13:32:11.9815493Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-01T13:32:11.9881064Z Switched to a new branch 'main'
+2026-11-01T13:32:11.9885065Z branch 'main' set up to track 'origin/main'.
+2026-11-01T13:32:11.9889203Z ##[endgroup]
+2026-11-01T13:32:11.9923740Z [command]/usr/bin/git log -1 --format=%H
+2026-11-01T13:32:11.9943448Z 82afe725f9613ffb130b90cf1b2b6c8dffe83f72

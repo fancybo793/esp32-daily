@@ -1,0 +1,16 @@
+﻿2026-11-01T13:33:20.1917255Z ##[group]Run git config user.name "esp32-daily-bot"
+2026-11-01T13:33:20.1917690Z [36;1mgit config user.name "esp32-daily-bot"[0m
+2026-11-01T13:33:20.1918102Z [36;1mgit config user.email "esp32-daily-bot@users.noreply.github.com"[0m
+2026-11-01T13:33:20.1918851Z [36;1mgit add -A[0m
+2026-11-01T13:33:20.1919138Z [36;1mif git diff --staged --quiet; then[0m
+2026-11-01T13:33:20.1919500Z [36;1m  echo "没有变化，不提交"[0m
+2026-11-01T13:33:20.1919775Z [36;1melse[0m
+2026-11-01T13:33:20.1920110Z [36;1m  git commit -m "chore: daily collect $(TZ=Asia/Shanghai date +%F)"[0m
+2026-11-01T13:33:20.1920510Z [36;1m  git push[0m
+2026-11-01T13:33:20.1920750Z [36;1mfi[0m
+2026-11-01T13:33:20.1942983Z shell: /usr/bin/bash -e {0}
+2026-11-01T13:33:20.1943345Z ##[endgroup]
+2026-11-01T13:33:20.2270898Z [main a2809fd] chore: daily collect 2026-11-01
+2026-11-01T13:33:20.2271455Z  2 files changed, 126 insertions(+), 1 deletion(-)
+2026-11-01T13:33:21.4484701Z To https://github.com/fancybo793/esp32-daily
+2026-11-01T13:33:21.4485579Z    82afe72..a2809fd  main -> main
