@@ -22,6 +22,10 @@ const DB_PATH = path.join(ROOT, 'data', 'db.json');
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const MODEL = process.env.MODEL || 'openai';
 const TEXT_API = (process.env.TEXT_API || 'https://text.pollinations.ai').replace(/\/+$/, '');
+const ZHIPU_KEY = process.env.ZHIPU_API_KEY || '';
+const ZHIPU_MODEL = process.env.ZHIPU_MODEL || 'glm-4.5-flash';
+const ZHIPU_FALLBACK_MODEL = process.env.ZHIPU_FALLBACK_MODEL || 'glm-4-flash';
+const ZHIPU_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
 const LOOKBACK = Number(process.env.LOOKBACK_DAYS || 45);
 
 const log = (...a) => console.log(...a);
@@ -142,8 +146,12 @@ function buildPrompt(repo, readme, strict, readmeLimit) {
     `topics：${(repo.topics || []).join(', ') || '(无)'}`,
     `README 摘录：${(readme || '(抓不到 README)').slice(0, readmeLimit)}`,
     '',
-    '输出 JSON，字段：t（中文标题，格式「项目名：一句话点题」，40 字内）、d（80~140 字中文简介，说清做了什么、亮点、可提一个限制）、hw（上手需要，写到板子型号）、lv（入门/进阶/硬核）。',
-    '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；英文要译成中文。',
+    '输出 JSON，字段：',
+    '  t  —— 中文标题，「项目名：一句话点题」，40 字内，项目名保留原文',
+    '  d  —— 80~140 字中文简介：做了什么、技术亮点、一个真实的限制或门槛',
+    '  hw —— 只写硬件：具体板子型号 / 模块 / 关键器件；README 没写就写「一块 ESP32 开发板」。不要写环境、不要写「需具备…基础」',
+    '  lv —— 只能是从「入门」「进阶」「硬核」里选一个词，不要附加任何说明',
+    '铁律：只用上面给的信息，不许编造型号、参数、日期、星数；英文要译成中文；专有名词（项目名、人名、作品名）不要意译，拿不准就保留英文。',
     strict ? '特别注意：t 和 d 必须全部是中文。' : ''
   ].filter(Boolean).join('\n');
 }
@@ -164,8 +172,7 @@ function parseCard(txt) {
   };
 }
 
-async function postText(prompt) {
-  const ctl = new AbortController();
+async function postText(prompt) {  const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 90000);
   try {
     const r = await fetch(`${TEXT_API}/`, {
@@ -198,7 +205,46 @@ async function getText(prompt) {
   }
 }
 
+async function askZhipu(prompt, model = ZHIPU_MODEL) {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 90000);
+  try {
+    const r = await fetch(ZHIPU_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${ZHIPU_KEY}`
+      },
+      body: JSON.stringify({
+        model,
+        temperature: 0.4,
+        max_tokens: 1400,
+        messages: [{ role: 'user', content: prompt }]
+      }),
+      signal: ctl.signal
+    });
+    clearTimeout(timer);
+    if (!r.ok) return { status: r.status, text: null };
+    const j = await r.json();
+    return { status: 200, text: j?.choices?.[0]?.message?.content || null };
+  } catch (e) {
+    clearTimeout(timer);
+    return { status: 0, text: null };
+  }
+}
+
 async function askModel(repo, readme, strict = false) {
+  // 0) 智谱：有 key 就优先，质量最高也最稳
+  if (ZHIPU_KEY) {
+    for (const limit of [1600, 500]) {
+      let z = await askZhipu(buildPrompt(repo, readme, strict, limit));
+      if (!z.text && z.status) z = await askZhipu(buildPrompt(repo, readme, strict, limit), ZHIPU_FALLBACK_MODEL);
+      const card = parseCard(z.text);
+      if (card && /[\u4e00-\u9fa5]/.test(card.t + card.d)) return card;
+      if (z.status) log(`  ! 智谱返回 ${z.status}`);
+    }
+  }
+
   for (const limit of [800, 300]) {
     const prompt = buildPrompt(repo, readme, strict, limit);
 

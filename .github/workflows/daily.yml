@@ -33,7 +33,9 @@ jobs:
       - name: 抓取并重建页面
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MODEL: openai/gpt-4o-mini
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+          ZHIPU_MODEL: glm-4.5-flash
+          MODEL: openai
           LOOKBACK_DAYS: '45'
           FORCE_DATE: ${{ inputs.force_date }}
           REMOTE_URLS: https://raw.githubusercontent.com/${{ github.repository }}/main/data/db.json,https://cdn.jsdelivr.net/gh/${{ github.repository }}@main/data/db.json
