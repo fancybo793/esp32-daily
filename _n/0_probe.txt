@@ -1,0 +1,56 @@
+﻿2026-11-01T13:34:39.8714018Z Current runner version: '2.338.2'
+2026-11-01T13:34:39.8747148Z ##[group]Runner Image Provisioner
+2026-11-01T13:34:39.8748649Z Hosted Compute Agent
+2026-11-01T13:34:39.8749788Z Version: 20261021.618
+2026-11-01T13:34:39.8750825Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-01T13:34:39.8752083Z Build Date: 2026-10-21T00:45:21Z
+2026-11-01T13:34:39.8753294Z Worker ID: {33d3e5d7-36e3-475a-b52b-cdf593ba89fd}
+2026-11-01T13:34:39.8754547Z Region: northcentralus
+2026-11-01T13:34:39.8755637Z Cloud: Azure
+2026-11-01T13:34:39.8756526Z ##[endgroup]
+2026-11-01T13:34:39.8759061Z ##[group]Operating System
+2026-11-01T13:34:39.8760167Z Ubuntu
+2026-11-01T13:34:39.8761063Z 26.04.1
+2026-11-01T13:34:39.8761994Z LTS
+2026-11-01T13:34:39.8762832Z ##[endgroup]
+2026-11-01T13:34:39.8763718Z ##[group]Runner Image
+2026-11-01T13:34:39.8764825Z Image: ubuntu-26.04
+2026-11-01T13:34:39.8765770Z Version: 20261025.179.1
+2026-11-01T13:34:39.8767914Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-01T13:34:39.8770772Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+2026-11-01T13:34:39.8772601Z ##[endgroup]
+2026-11-01T13:34:39.8774573Z ##[group]GITHUB_TOKEN Permissions
+2026-11-01T13:34:39.8777450Z Contents: read
+2026-11-01T13:34:39.8778650Z Metadata: read
+2026-11-01T13:34:39.8779721Z Packages: read
+2026-11-01T13:34:39.8780682Z ##[endgroup]
+2026-11-01T13:34:39.8783741Z Secret source: Actions
+2026-11-01T13:34:39.8785442Z Cache mode: write
+2026-11-01T13:34:39.8786553Z Prepare workflow directory
+2026-11-01T13:34:39.9304568Z Prepare all required actions
+2026-11-01T13:34:39.9462348Z Complete job name: probe
+2026-11-01T13:34:40.0917614Z ##[group]Run echo "=== pollinations 简单 GET"
+2026-11-01T13:34:40.0919096Z [36;1mecho "=== pollinations 简单 GET"[0m
+2026-11-01T13:34:40.0920114Z [36;1mcurl -s -i --max-time 30 "https://text.pollinations.ai/hello" | head -8[0m
+2026-11-01T13:34:40.0921061Z [36;1m[0m
+2026-11-01T13:34:40.0921656Z [36;1mecho "=== google translate (gtx)"[0m
+2026-11-01T13:34:40.0923297Z [36;1mcurl -s --max-time 30 "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=A%20cheap%20ESP32%20board%20that%20reads%20your%20electricity%20meter" | head -c 400; echo[0m
+2026-11-01T13:34:40.0924853Z [36;1m[0m
+2026-11-01T13:34:40.0925521Z [36;1mecho "=== mymemory"[0m
+2026-11-01T13:34:40.0926769Z [36;1mcurl -s --max-time 30 "https://api.mymemory.translated.net/get?q=sensors%20and%20a%20small%20model&langpair=en%7Czh-CN" | head -c 400; echo[0m
+2026-11-01T13:34:40.1394962Z shell: /usr/bin/bash -e {0}
+2026-11-01T13:34:40.1395985Z ##[endgroup]
+2026-11-01T13:34:40.1739318Z === pollinations 简单 GET
+2026-11-01T13:34:40.3937734Z HTTP/2 200 
+2026-11-01T13:34:40.3939560Z date: Sun, 01 Nov 2026 13:34:40 GMT
+2026-11-01T13:34:40.3941160Z content-type: text/plain; charset=utf-8
+2026-11-01T13:34:40.3942422Z content-length: 39
+2026-11-01T13:34:40.3943296Z access-control-allow-origin: *
+2026-11-01T13:34:40.3944167Z link: <https://pollinations.ai>; rel="service"
+2026-11-01T13:34:40.3945556Z access-control-allow-headers: Content-Type, X-Turnstile-Token, Payment-Signature, X-PAYMENT
+2026-11-01T13:34:40.3946802Z access-control-allow-methods: GET, POST, OPTIONS
+2026-11-01T13:34:40.3962559Z === google translate (gtx)
+2026-11-01T13:34:40.8530111Z <html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><title>Sorry...</title><style> body { font-family: verdana, arial, sans-serif; background-color: #fff; color: #000; }</style></head><body><div><table><tr><td><b><font face=sans-serif size=10><font color=#4285f4>G</font><font color=#ea4335>o</font><font color=#fbbc05>o</font><font color=#4285f4>g</font><font color=#34a8
+2026-11-01T13:34:40.8534275Z === mymemory
+2026-11-01T13:34:41.8351797Z {"responseData":{"translatedText":"\u4f20\u611f\u5668\u548c\u4e00\u4e2a\u5c0f\u578b\u6a21\u578b","match":0.85},"quotaFinished":false,"mtLangSupported":null,"responseDetails":"","responseStatus":200,"responderId":null,"exception_code":null,"matches":[{"id":0,"segment":"sensors and a small model","translation":"\u4f20\u611f\u5668\u548c\u4e00\u4e2a\u5c0f\u578b\u6a21\u578b","source":"en-GB","target":"
+2026-11-01T13:34:41.8520089Z Cleaning up orphan processes

@@ -196,6 +196,37 @@ function fallbackText(repo) {
   };
 }
 
+// 兜底：模型接口不可用时，用免费翻译接口把仓库自述译成中文，至少保证中文可读
+async function translateCN(text) {
+  const q = String(text || '').trim().slice(0, 400);
+  if (!q) return '';
+  try {
+    const r = await fetch(
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(q)}&langpair=en%7Czh-CN`,
+      { headers: { 'User-Agent': 'esp32-daily-bot' } }
+    );
+    if (!r.ok) return '';
+    const j = await r.json();
+    const t = j?.responseData?.translatedText || '';
+    return /[\u4e00-\u9fa5]/.test(t) ? t.trim() : '';
+  } catch (e) {
+    return '';
+  }
+}
+
+async function fallbackTranslated(repo) {
+  const base = fallbackText(repo);
+  const zhDesc = await translateCN(repo.description || '');
+  if (!zhDesc) return base;
+  const short = zhDesc.replace(/[。.\s]+$/, '').slice(0, 26);
+  return {
+    t: `${repo.name}：${short}`,
+    d: `${zhDesc.replace(/[。.]$/, '')}。仓库 ${repo.created_at.slice(0, 10)} 创建，主要语言 ${repo.language || '未知'}，当前 ${repo.stargazers_count} 星。自动流程未拿到完整说明，硬件细节建议点开原仓库确认。`,
+    hw: '一块 ESP32 开发板',
+    lv: '进阶'
+  };
+}
+
 /* ---------- 主流程 ---------- */
 async function main() {
   const today = process.env.FORCE_DATE || todayCN();
@@ -260,7 +291,7 @@ async function main() {
   for (const { repo, kind } of picked) {
     log(`→ ${repo.full_name} (${kind}, ${repo.stargazers_count}★)`);
     const readme = await readmeOf(repo.full_name);
-    const text = (await askModel(repo, readme)) || fallbackText(repo);
+    const text = (await askModel(repo, readme)) || (await fallbackTranslated(repo));
     items.push({
       id: `${today.replace(/-/g, '')}-${slug(repo.name)}`,
       kind,
