@@ -1,0 +1,102 @@
+[
+ {
+  "kind": "hw",
+  "id": "esp-sdr",
+  "t": "ESP-SDR：把 ESP32 的 Wi-Fi 射频变成一台 SDR",
+  "d": "ESPARGOS 团队找到一条未公开的调试通路，让 CPU 直接读走接收机的原始 I/Q 采样，绕过固定功能的 Wi-Fi 调制解调器——一块普通 ESP32 就此变成只收的软件定义无线电，样本经 USB/UART 送到电脑，浏览器里直接看频谱，不需要任何额外 SDR 硬件。固件里部分代码由 LLM 辅助生成，机制则按寄存器逐条写进了文档。",
+  "hw": "任意 ESP32 开发板 + 一根 USB 数据线（可用浏览器直接刷机）",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/ESPARGOS/esp-sdr"
+ },
+ {
+  "kind": "hw",
+  "id": "tessera-espscreen",
+  "t": "Tessera：给每个房间配一块 Home Assistant 触摸屏",
+  "d": "把 2.8 寸的 CYD 到 10.1 寸的 Guition 面板统统变成 HA 控制屏：灯光、音乐、恒温、天气、门锁、窗帘、扫地机，明暗主题齐全，配一个拖拽式编辑器，不用手写 YAML 也不用自己啃 LVGL。作者在 README 里直白地写着「我在找赞助」，项目还在长，但文档和实机截图已经相当完整。",
+  "hw": "ESP32 触摸面板（CYD / Guition，2.8~10.1 寸）+ Home Assistant",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/MaxGramser/homeassistant_espscreen"
+ },
+ {
+  "kind": "hw",
+  "id": "coyopedal",
+  "t": "CoyoPedal：ESP32-S3 上跑全尺寸神经网络音箱模拟",
+  "d": "在 Waveshare ESP32-S3-Touch-AMOLED-2.06 上实时跑完整的 Neural Amp Modeler A2 音色，并把自己当 USB 主机去驱动符合类规范的音频接口；触屏界面用 TSX 写、编译成原生 C++，设备里没有 JS 引擎。同一份固件还能编译成 WebAssembly，先插吉他试听音色，再决定要不要焊板子。",
+  "hw": "Waveshare ESP32-S3-Touch-AMOLED-2.06 + 一个 USB 音频接口",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/dashersw/coyopedal"
+ },
+ {
+  "kind": "hw",
+  "id": "esp32-usb-to-airprint",
+  "t": "esp32-usb-to-airprint：让老打印机长出 Wi-Fi",
+  "d": "一块 ESP32-S3 插进打印机的 USB 口、连上家里 Wi-Fi，iPhone / iPad / Mac 立刻能用 AirPrint，安卓走 Mopria，不装驱动也不装 App；从浏览器或 Mac 的「图像捕捉」还能直接扫描，板载按键一键扫。作者的要求很硬：每个驱动必须在真机上验证过才收，目前覆盖佳能 MG 系列和 P200 等多款。",
+  "hw": "ESP32-S3 + 打印机 USB 线",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/ngxson/esp32-usb-to-airprint"
+ },
+ {
+  "kind": "hw",
+  "id": "tny-360",
+  "t": "TNY-360：一颗 ESP32-S3 撑起 12 关节机器狗",
+  "d": "为了绕开昂贵的智能舵机，作者把 12 颗 MG996R 拆开，把内部电位器信号经运放缓冲后送进 ESP32-S3，做出 200Hz 闭环控制；一个核专跑运动学与控制环，另一个核跑 WebSocket 和界面。板子按控制/传感/电机/电源拆成模块，用 JST-PH 替掉杜邦线，配 OV2640、VL53L0X、LSM6DS3，还提供积木式网页编程和 ROS 2 接口。",
+  "hw": "ESP32-S3 N16R8 + 12×MG996R + PCA9685 + 3S 电池组",
+  "lv": "硬核",
+  "s": "Electronics For You",
+  "u": "https://www.electronicsforu.com/news/this-open-source-robot-dog-runs-on-just-one-esp32-chip"
+ },
+ {
+  "kind": "ai",
+  "id": "esp32-iphone-agent",
+  "t": "让 AI 直接用一台真 iPhone：7 美元的 ESP32 当手和眼",
+  "d": "不需要电脑、不需要越狱：ESP32-S3 用 AirPlay 拿到手机画面当「眼睛」，再用 USB HID 冒充键鼠当「手」，把屏幕内容和操作能力一起交给任意 OpenAI 兼容模型。它把「AI 操作手机」从模拟器拉到了真机，也顺手暴露出自动化测试之外的一堆坑（弹窗、解锁、动画时序）。",
+  "hw": "ESP32-S3（约 7 美元）+ 一台 iOS 18 以上的 iPhone",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/onehumanbeing/esp32-iphone-agent"
+ },
+ {
+  "kind": "ai",
+  "id": "tiny-engineer",
+  "t": "Tiny Engineer：给你的编程 AI 造一具身体",
+  "d": "桌面小机器人，用 5 颗 SG90 舵机、一块 OLED 和喇叭，把编码 Agent 的状态演出来：读文件时东张西望、写代码时敲键盘、思考时抬头看天、任务完成就摇铃。一条 npx tiny-engineer setup 就能接 Claude Code、Cursor、Antigravity，也能用 HTTP API 接 Codex、Windsurf 或任何脚本，还能让设备念出提示词。",
+  "hw": "ESP32 + 5×SG90 + OLED + 喇叭 + 3D 打印外壳（5V/2A 供电）",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/jamro/tiny-engineer"
+ },
+ {
+  "kind": "ai",
+  "id": "hermes-gadget",
+  "t": "Hermes Gadget：捏在手里的 Agent 终端",
+  "d": "按住按钮说话，松手听答案——给自己的 Hermes Agent 配一个随身设备，直接用到 Agent 原本的工具、记忆和技能。刷机不用装工具链：Chrome 或 Edge 打开网页、插上 USB 就能装，然后连 Wi-Fi 配对。还带一个桌面模拟器，没有板子也能先把交互跑通。",
+  "hw": "官方支持板 + 2.4GHz Wi-Fi + 一个在跑 Hermes Agent 的后端",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/Adolanium/hermes-gadget-sdk"
+ },
+ {
+  "kind": "ai",
+  "id": "esp32-thinks",
+  "t": "esp32-thinks：语音、转写、对话三个端点随便换",
+  "d": "说一句「Hi, ESP」或者转一下旋钮就能提问，模型边写边逐句念出来，中英韩都行。最舒服的设计是没有厂商锁定：语音合成、语音识别、对话是三个独立端点，各自指向任意 OpenAI 兼容服务，可以三家混用。跑在带麦克风、喇叭和圆屏的 SenseCAP Watcher 上，MIT 协议。",
+  "hw": "SenseCAP Watcher（ESP32-S3）+ 任意 OpenAI 兼容服务",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/raullenchai/esp32-thinks"
+ },
+ {
+  "kind": "ai",
+  "id": "edgevision-80kb",
+  "t": "25 块钱的板子做边缘视觉：缓冲区和量化到底怎么省",
+  "d": "ESP32-S3-DevKitC-1 加 OV2640，烧进不到 80KB 的模型，本地识别手势、分辨绿萝和吊兰、数画面里的咖啡杯，全程不联网，峰值功耗不到 180mA，充电宝能撑九小时。文中那段「fb_count 设成 1，调试三天找不到原因，最后用逻辑分析仪看到 PCLK 在帧中间突变」的复盘，比大多数教程都值钱。",
+  "hw": "ESP32-S3-DevKitC-1（2MB PSRAM）+ OV2640",
+  "lv": "进阶",
+  "s": "hqwc.cn",
+  "u": "http://www.hqwc.cn/a/257554.html"
+ }
+]

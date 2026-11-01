@@ -1,0 +1,7 @@
+.workbuddy/
+node_modules/
+_repo.json
+_*.png
+_*.html
+_*.js
+ESP32灵感日历.html

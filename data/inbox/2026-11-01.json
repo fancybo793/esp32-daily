@@ -1,0 +1,92 @@
+[
+ {
+  "kind": "hw",
+  "t": "C5VRX：ESP32-C5 自己收 5.8GHz 模拟图传",
+  "d": "用一颗 XIAO ESP32-C5 的射频直接收 5.8GHz 模拟 FPV 图传，再靠 6 位被动电阻 DAC 输出 PAL/NTSC 复合信号，带自动增益和屏显菜单。坑在解调器 U80P64-R1：目前只有 NTSC 通过记录，PAL 和弱信号仍缺实测。",
+  "hw": "Seeed XIAO ESP32-C5 + 6 只等值电阻搭的被动 DAC + 5.8GHz 天线",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/Twotoz/C5VRX"
+ },
+ {
+  "kind": "hw",
+  "t": "Tactical Radar：激光雷达与毫米波拼成一块态势屏",
+  "d": "ESP32-S3 那端把 FHL-LD19 激光雷达（360°、12 米）、RD-03D 24GHz 毫米波和 LSM6DSOX 姿态打成二进制 UDP，P4 屏那头用 LVGL 画全景扫描。坑是 RD-03D 在 3.3V 下不稳，三者都得从 MT3608 升到 5V。",
+  "hw": "ESP32-S3 N16R8 + FHL-LD19 + RD-03D + LSM6DSOX，显示端 CrowPanel ESP32-P4 5 寸",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/Stevee87/Tactical-Radar-System-ESP32-P4-elcrow-Display"
+ },
+ {
+  "kind": "hw",
+  "t": "esp32sim：浏览器里跑没改过的 ESP32 固件",
+  "d": "Rust 写的模拟器，从 mask ROM、bootloader 到你的应用整条启动链真跑，固件不用改；还建了板级模型，屏幕、触摸、音频、摄像头、Wi-Fi 都能用。坑在摄像头只支持裸 RGB565、约 10FPS，JPEG+PSRAM 那套跑不了。",
+  "hw": "不需要硬件，开浏览器即可；要试摄像头就选 AI-Thinker 板型并喂一张 PPM 静图",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/mikroverk/esp32sim"
+ },
+ {
+  "kind": "hw",
+  "t": "AWTRIX NG：像素钟重写，脚本跑在钟自己身上",
+  "d": "AWTRIX 3 的从零重写版，TC001、TC002 和自建板共用同一套 API、MQTT 主题和脚本。小应用用 Berry 写在网页里、存在钟上自己跑，不要后台服务器。坑是许可证 PolyForm Noncommercial，商用不行。",
+  "hw": "Ulanzi TC001 或 TC002，或自建 8 行、32~128 列的 LED 像素屏 + ESP32/ESP32-S3",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/Blueforcer/awtrix-ng"
+ },
+ {
+  "kind": "hw",
+  "t": "MeterEye：一块摄像头每 7 秒读一次电表",
+  "d": "电表铅封、没有数据口，作者就让摄像头板每 7 秒拍一张 LCD：先找出亮屏做透视校正，再按模板认出是十来个画面中的哪一个，最后按七段亮段直接译码，不用 OCR 也不用云视觉。坑是屏幕会轮播，认错屏数字全错。",
+  "hw": "带 OV2640 的摄像头板 + 固定的对位支架，后端一台跑 Python 与 MariaDB 的主机",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/epynic/MeterEye"
+ },
+ {
+  "kind": "ai",
+  "t": "pocket-tank：1400 万参数的小模型养一缸鱼",
+  "d": "1400 万参数的 transformer，从 260 亿参数老师模型蒸馏，7.56MB 权重直接从 flash 读，在 ESP32-S3 上决定虚拟鱼何时吃、躲、逃。每条鱼把饥饿、恐惧、邻居写成一行文本喂进去，模型补出目标和紧急度，反射层按 25~30fps 转成动作。",
+  "hw": "Waveshare 1.8 寸 AMOLED / 1.75C 圆屏 / 2.06 寸表 / 2.16 寸方屏，均为 ESP32-S3",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/mediacutlet/pocket-tank"
+ },
+ {
+  "kind": "ai",
+  "t": "Needle 2：45M 参数在 S3 上做语法保证的工具调用",
+  "d": "4500 万参数的 Needle 2 搬上 ESP32-S3：约 3700 行零依赖 C99 代码直读 .cact 权重，输出保证合 schema 的 tool call，实测 1.87 tok/s。坑是必须 16MB flash 加 8MB octal PSRAM。",
+  "hw": "ESP32-S3 N16R8 模组（16MB flash + 8MB octal PSRAM），板载 WS2812 接 GPIO48",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/andrisgauracs/needle-2-esp32"
+ },
+ {
+  "kind": "ai",
+  "t": "ESP32s3-LLM-Cluster：7 块板拼出 0.5B 推理流水线",
+  "d": "把 0.5B 的 1.58-bit 模型按层切开：master 跑分词和 embedding，6 个节点各跑 4 层，隐藏状态沿 SPI 菊花链往下传。矩阵乘的汇编 MAC 和 QAT 脚本都配齐了。坑是链路串行，掉一个节点整条流水线就断。",
+  "hw": "7 块 ESP32-S3（1 块 master + 6 块节点）+ 按菊花链接好的 SPI 线",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/Low-Zi-Hong/ESP32s3-LLM-Cluster"
+ },
+ {
+  "kind": "ai",
+  "t": "esp32-pie-asr：P4 上跑流式语音识别，全程离线",
+  "d": "Kroko（6570 万参数流式 transducer）压到 2/4 bit、26.65MB，靠 P4 双核的 PIE SIMD 推理：0.70 倍实时，4.34% WER。坑是权重放 microSD、开机读 2.9 秒，内部 RAM 只剩 121KB。",
+  "hw": "ESP32-P4 开发板（32MB PSRAM）+ microSD 卡 + 板载麦克风",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/BoumedineBillal/esp32-pie-asr"
+ },
+ {
+  "kind": "ai",
+  "t": "PocketGPT：30M 参数从零训练，离线聊天的真实水平",
+  "d": "3046 万参数、12 层的 decoder-only 模型，作者自己训练量化，跑在 XIAO ESP32-S3 和 DevKit 上，触屏或串口聊天，不联网。README 难得贴了真机记录：hello 要 6.4 秒，上下文只有 64 token，算术不可靠，回答会跑题。",
+  "hw": "XIAO ESP32-S3（8MB flash/8MB PSRAM）+ Seeed 圆屏 + microSD，或 32MB flash/16MB PSRAM 的 DevKit",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/mmm1712/Local_AI_esp32"
+ }
+]

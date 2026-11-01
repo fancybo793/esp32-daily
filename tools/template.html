@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f6fa">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ESP32 灵感日历</title>
+<style>
+  :root{
+    --bg:#f4f5f9;
+    --bg2:#eceef6;
+    --card:#ffffff;
+    --ink:#15171e;
+    --ink2:#3d4152;
+    --muted:#82889c;
+    --line:#e6e8f1;
+    --accent:#3b5bfd;
+    --accent2:#ff4d6f;
+    --shadow:0 1px 2px rgba(20,24,40,.04), 0 8px 24px -12px rgba(20,24,40,.18);
+    --shadow-lg:0 2px 4px rgba(20,24,40,.05), 0 18px 44px -18px rgba(20,24,40,.28);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0e14; --bg2:#12141c; --card:#171a24;
+      --ink:#eef0f6; --ink2:#c3c8d6; --muted:#7e8598; --line:#252a38;
+      --accent:#7b8dff; --accent2:#ff6584;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+      --shadow-lg:0 2px 4px rgba(0,0,0,.5), 0 18px 44px -18px rgba(0,0,0,.9);
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(900px 480px at 100% -10%, rgba(59,91,253,.14), transparent 62%),
+      radial-gradient(700px 420px at -10% 0%, rgba(255,77,111,.12), transparent 58%),
+      var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+  }
+  .wrap{max-width:660px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom));}
+
+  header{padding:4px 4px 12px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 3px rgba(59,91,253,.14);}
+  h1{font-size:29px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em;font-weight:800;}
+  h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .sub{color:var(--muted);font-size:13.5px;margin:0;}
+  .stats{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .stat{font-size:11.5px;font-weight:600;color:var(--muted);background:var(--card);border:1px solid var(--line);padding:4px 9px;border-radius:999px;}
+  .stat b{color:var(--ink);font-weight:700;}
+  .stat.fresh{color:#0b8a4b;background:rgba(16,163,90,.1);border-color:rgba(16,163,90,.28);font-weight:700;}
+
+  .seg{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px;margin:16px 0 14px;box-shadow:var(--shadow);}
+  .seg button{flex:1;appearance:none;border:0;background:transparent;color:var(--muted);font-size:13.5px;font-weight:600;padding:9px 6px;border-radius:10px;font-family:inherit;cursor:pointer;transition:.18s;}
+  .seg button.on{background:linear-gradient(135deg,var(--accent),#5c78ff);color:#fff;box-shadow:0 6px 16px -8px rgba(59,91,253,.9);}
+
+  .cal{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 12px 10px;box-shadow:var(--shadow-lg);}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 10px;}
+  .cal-title{font-size:16px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:baseline;gap:8px;}
+  .cal-title small{font-size:11.5px;font-weight:600;color:var(--muted);}
+  .nav{display:flex;gap:6px;}
+  .nav button{appearance:none;border:1px solid var(--line);background:var(--bg2);width:32px;height:32px;border-radius:10px;color:var(--ink2);font-size:15px;display:grid;place-items:center;cursor:pointer;}
+  .nav button:active{transform:scale(.94);}
+  .wk{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;}
+  .wk span{text-align:center;font-size:11px;font-weight:600;color:var(--muted);padding:2px 0;}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+  .day{position:relative;appearance:none;border:0;background:transparent;aspect-ratio:1/1;border-radius:12px;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--ink2);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .15s,color .15s,transform .12s;}
+  .day:active{transform:scale(.93);}
+  .day.pad{visibility:hidden;pointer-events:none;}
+  .day .d{line-height:1;position:relative;z-index:1;}
+  .day .mark{position:absolute;bottom:6px;width:4px;height:4px;border-radius:50%;background:var(--muted);opacity:.22;}
+  .day.has .mark{background:var(--accent);opacity:.9;}
+  .day.has{color:var(--ink);}
+  .day.today::before{content:"";position:absolute;inset:6px;border-radius:11px;background:linear-gradient(135deg,var(--accent),#7a8bff);box-shadow:0 8px 18px -10px rgba(59,91,253,.9);}
+  .day.today .d{color:#fff;}
+  .day.today .mark{background:#fff;opacity:.9;}
+  .day.sel:not(.today){background:var(--bg2);box-shadow:inset 0 0 0 1.5px var(--accent);}
+  .cal-foot{display:flex;justify-content:center;padding-top:8px;}
+  .cal-foot button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:12px;font-weight:600;font-family:inherit;padding:6px 14px;border-radius:999px;cursor:pointer;}
+
+  .dayhead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:22px 2px 4px;}
+  .dh-l .d1{font-size:20px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;}
+  .dh-l .d1 .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(59,91,253,.1);color:var(--accent);}
+  .dh-l .d2{font-size:12.5px;color:var(--muted);margin-top:2px;}
+
+  .sec{display:flex;align-items:center;gap:9px;margin:20px 2px 10px;}
+  .sec .bar{width:4px;height:16px;border-radius:3px;background:var(--c);}
+  .sec h2{font-size:14px;font-weight:800;margin:0;letter-spacing:.01em;}
+  .sec .cnt{font-size:11.5px;font-weight:600;color:var(--muted);margin-left:auto;}
+
+  .list{display:flex;flex-direction:column;gap:11px;}
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px 13px;box-shadow:var(--shadow);overflow:hidden;animation:rise .42s cubic-bezier(.22,.9,.28,1) both;}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .card::after{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--c,var(--accent));opacity:.85;}
+  .clink{position:absolute;inset:0;z-index:1;}
+  .ctop{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+  .num{font-size:11px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.06em;}
+  .chip{font-size:11px;font-weight:700;padding:2.5px 8px;border-radius:999px;color:var(--c);background:rgba(120,120,140,.1);white-space:nowrap;}
+  .lv{font-size:10.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1.5px 7px;}
+  .star{margin-left:auto;position:relative;z-index:2;appearance:none;border:0;background:transparent;font-size:17px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 2px 4px 8px;transition:transform .15s,color .15s;}
+  .star:active{transform:scale(1.25);}
+  .star.on{color:#f5a524;}
+  .card h3{margin:0 0 6px;font-size:16px;line-height:1.42;font-weight:700;letter-spacing:-.01em;}
+  .card p.desc{margin:0;font-size:13.6px;line-height:1.68;color:var(--ink2);}
+  .card .hw{margin:9px 0 0;font-size:12.2px;line-height:1.55;color:var(--muted);display:flex;gap:6px;align-items:flex-start;}
+  .card .hw b{color:var(--ink2);font-weight:600;white-space:nowrap;flex:none;}
+  .card .src{margin-top:8px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+  .card .src .go{color:var(--accent);font-weight:600;}
+  .card .dsub{margin:-2px 0 7px;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums;}
+  .favhead{margin:2px 2px 12px;font-size:12.5px;line-height:1.7;color:var(--muted);}
+  .favhead b{color:var(--ink);font-weight:700;}
+
+  .empty{text-align:center;padding:30px 18px;background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);}
+  .empty .big{font-size:26px;margin-bottom:8px;}
+  .empty h3{margin:0 0 6px;font-size:15.5px;font-weight:700;}
+  .empty p{margin:0;font-size:13px;color:var(--muted);line-height:1.7;}
+  .empty button{margin-top:14px;appearance:none;border:0;background:var(--accent);color:#fff;font-family:inherit;font-size:13px;font-weight:700;padding:9px 18px;border-radius:11px;cursor:pointer;}
+
+  .tools{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+  .search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;box-shadow:var(--shadow);}
+  .search svg{flex:none;opacity:.45;}
+  .search input{flex:1;border:0;background:transparent;font-family:inherit;font-size:14.5px;color:var(--ink);outline:none;padding:0;}
+  .search input::placeholder{color:var(--muted);}
+  .chips{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 4px;scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .fchip{flex:none;appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink2);font-family:inherit;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+  .fchip.on{background:var(--ink);color:var(--bg);border-color:var(--ink);}
+
+  footer{margin-top:26px;padding:0 4px;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;box-shadow:var(--shadow);margin-bottom:12px;}
+  .panel h4{margin:0 0 8px;font-size:13px;font-weight:700;}
+  .panel p{margin:0;font-size:12.4px;line-height:1.75;color:var(--muted);}
+  .links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+  .links a{display:inline-flex;align-items:center;gap:4px;font-size:12.2px;font-weight:600;color:var(--accent);text-decoration:none;background:rgba(59,91,253,.08);padding:6px 11px;border-radius:999px;}
+  .copyright{text-align:center;font-size:11.5px;color:var(--muted);margin-top:16px;line-height:1.7;}
+  noscript{display:block;padding:20px;text-align:center;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span>ESP32 · 每日抓取</div>
+    <h1>ESP32 <em>灵感日历</em></h1>
+    <p class="sub">每天 10 条真实项目，5 条偏硬件、5 条偏 AI 玩法</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="seg">
+    <button id="tabCal" class="on">日历</button>
+    <button id="tabLib">项目库 · <span id="libCount">0</span></button>
+    <button id="tabFav">★ 收藏</button>
+  </div>
+
+  <section id="viewCal">
+    <div class="cal">
+      <div class="cal-head">
+        <div class="cal-title"><span id="calLabel"></span><small id="calCn"></small></div>
+        <div class="nav">
+          <button id="prevM" aria-label="上个月">‹</button>
+          <button id="nextM" aria-label="下个月">›</button>
+        </div>
+      </div>
+      <div class="wk"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+      <div class="grid" id="grid"></div>
+      <div class="cal-foot"><button id="todayBtn">回到今天</button></div>
+    </div>
+
+    <div class="dayhead">
+      <div class="dh-l">
+        <div class="d1"><span id="dhDate">—</span><span class="tag" id="dhRel">今天</span></div>
+        <div class="d2" id="dhMeta"></div>
+      </div>
+    </div>
+
+    <div id="dayBody"></div>
+  </section>
+
+  <section id="viewLib" hidden>
+    <div class="tools">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></svg>
+        <input id="q" type="search" placeholder="搜项目名、玩法、硬件…" autocomplete="off">
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="list" id="libList"></div>
+  </section>
+
+  <section id="viewFav" hidden>
+    <div class="favhead" id="favHead"></div>
+    <div class="list" id="favList"></div>
+  </section>
+
+  <footer>
+    <div class="panel">
+      <h4>这套东西怎么运转</h4>
+      <p>每天自动联网检索一轮，产出 10 条（5 条硬件改造 + 5 条 AI 玩法），写进 <code>data/db.json</code> 后重新构建这个页面。新条目入库前会做两道查重：链接归一化比对，加标题词元重合度比对——只要和历史上任何一条撞上，就会被拒收重挑。所以往下翻，不会看到已经推过的项目。</p>
+    </div>
+    <div class="panel">
+      <h4>自己在看的时候</h4>
+      <p>日历上有点的日期就是已经抓过的；没抓过的日期会告诉你「这一天没有记录」。点卡片右上角的 ☆ 就收进最右边那个「★ 收藏」标签里，随时能翻回来；项目库可以按硬件 / AI 筛。</p>
+      <div class="links">
+        <a href="https://github.com/search?q=esp32&s=updated&o=desc&type=repositories" target="_blank" rel="noopener">GitHub 最新更新 ↗</a>
+        <a href="https://hackaday.com/tag/esp32/" target="_blank" rel="noopener">Hackaday ↗</a>
+        <a href="https://esp-32.cn/tag/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" target="_blank" rel="noopener">esp-32.cn ↗</a>
+      </div>
+    </div>
+    <p class="copyright" id="buildInfo"></p>
+  </footer>
+</div>
+
+<noscript>需要开启 JavaScript 才能查看日历内容。</noscript>
+
+<script>
+let DB = /*__DB__*/ {"days":[],"legacy":[],"meta":{}};
+const REMOTE_DATA = /*__REMOTE__*/ [];
+
+const KIND = {
+  hw:{name:'硬件玩法', short:'硬件', icon:'🔧', c:'#0a8fd6'},
+  ai:{name:'AI 玩法',  short:'AI',   icon:'🤖', c:'#ff4d6f'}
+};
+const LEGACY_CATS = {
+  game:{name:'复古游戏', icon:'🎮', c:'#7c5cff'},
+  ai:{name:'AI 语音',  icon:'🤖', c:'#ff4d6f'},
+  home:{name:'智能家居', icon:'🏠', c:'#10a35a'},
+  art:{name:'灯光装置', icon:'💡', c:'#f59e0b'},
+  audio:{name:'音频乐器', icon:'🎵', c:'#e0399b'},
+  tool:{name:'硬件工具', icon:'🛠', c:'#0a8fd6'},
+  net:{name:'无线组网', icon:'📡', c:'#00a8a8'},
+  display:{name:'屏幕摆件', icon:'🖥', c:'#8b5cf6'},
+  robot:{name:'机器运动', icon:'🚀', c:'#f2691a'},
+  sensor:{name:'传感健康', icon:'🌱', c:'#0fa88a'}
+};
+
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2,'0');
+const keyOf = d => d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+const WEEK = ['周日','周一','周二','周三','周四','周五','周六'];
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+/* ---- 索引 ---- */
+let DAYMAP = {}, ALL_DAILY = [], LEGACY = [], ALL_ITEMS = [];
+function buildIndexes(){
+  DAYMAP = {};
+  (DB.days || []).forEach(d => DAYMAP[d.date] = d.items);
+  ALL_DAILY = [];
+  (DB.days || []).slice().sort((a,b)=>a.date<b.date?-1:1).forEach(d => d.items.forEach(it => ALL_DAILY.push(Object.assign({}, it, {date:d.date}))));
+  LEGACY = (DB.legacy || []).map(x => Object.assign({}, x, {legacy:true}));
+  ALL_ITEMS = ALL_DAILY.concat(LEGACY);
+}
+
+/* ---- 状态 ---- */
+const LS_FAV = 'esp32cal.fav.v2';
+const LS_FAVT = 'esp32cal.favtime.v1';
+let favs = new Set();
+let favTime = {};
+try { favs = new Set(JSON.parse(localStorage.getItem(LS_FAV) || '[]')); } catch(e){}
+try { favTime = JSON.parse(localStorage.getItem(LS_FAVT) || '{}') || {}; } catch(e){}
+const saveFavs = () => { try{ localStorage.setItem(LS_FAV, JSON.stringify([...favs])); localStorage.setItem(LS_FAVT, JSON.stringify(favTime)); }catch(e){} };
+
+const today = new Date(); today.setHours(0,0,0,0);
+let sel = new Date(today);
+let viewY = sel.getFullYear(), viewM = sel.getMonth();
+let tab = 'cal';
+
+/* ---- 卡片 ---- */
+function colorOf(it){
+  if (it.legacy) return (LEGACY_CATS[it.cat] || {c:'var(--accent)'}).c;
+  return (KIND[it.kind] || KIND.hw).c;
+}
+function chipOf(it){
+  if (it.legacy){
+    const c = LEGACY_CATS[it.cat];
+    return c ? (c.icon + ' ' + c.name) : '📚 历史';
+  }
+  const k = KIND[it.kind] || KIND.hw;
+  return k.icon + ' ' + k.name;
+}
+function cardHTML(it, idx, delay, sub){
+  const c = colorOf(it), on = favs.has(it.id);
+  return '<article class="card" style="--c:' + c + ';animation-delay:' + delay + 'ms">'
+    + '<a class="clink" href="' + esc(it.u) + '" target="_blank" rel="noopener" aria-label="打开"></a>'
+    + '<div class="ctop">'
+      + '<span class="num">' + (idx === null ? '' : pad(idx+1)) + '</span>'
+      + '<span class="chip" style="color:' + c + '">' + esc(chipOf(it)) + '</span>'
+      + (it.lv ? '<span class="lv">' + esc(it.lv) + '</span>' : '')
+      + '<button class="star' + (on?' on':'') + '" data-fav="' + esc(it.id) + '" aria-label="收藏">' + (on?'★':'☆') + '</button>'
+    + '</div>'
+    + '<h3>' + esc(it.t) + '</h3>'
+    + (sub ? '<div class="dsub">' + esc(sub) + '</div>' : '')
+    + '<p class="desc">' + esc(it.d) + '</p>'
+    + (it.hw ? '<p class="hw"><b>上手需要</b><span>' + esc(it.hw) + '</span></p>' : '')
+    + '<div class="src">'
+      + (it.date ? '<span>' + it.date.slice(5).replace('-','/') + ' 抓取</span><span>·</span>' : '')
+      + '<span>' + esc(it.s || '') + '</span><span class="go">阅读原文 ↗</span>'
+    + '</div>'
+  + '</article>';
+}
+
+/* ---- 日历 ---- */
+function renderCal(){
+  $('#calLabel').textContent = viewY + '年' + (viewM+1) + '月';
+  $('#calCn').textContent = ['冬','冬','春','春','春','夏','夏','夏','秋','秋','秋','冬'][viewM] + '季';
+
+  const first = new Date(viewY, viewM, 1);
+  const days = new Date(viewY, viewM+1, 0).getDate();
+  const offset = (first.getDay() + 6) % 7;
+  let html = '';
+  for (let i=0;i<offset;i++) html += '<button class="day pad" disabled></button>';
+  for (let d=1; d<=days; d++){
+    const dt = new Date(viewY, viewM, d), k = keyOf(dt);
+    html += '<button class="day'
+      + (DAYMAP[k] ? ' has' : '')
+      + (dt.getTime() === today.getTime() ? ' today' : '')
+      + (dt.getTime() === sel.getTime() ? ' sel' : '')
+      + '" data-k="' + k + '"><span class="d">' + d + '</span><span class="mark"></span></button>';
+  }
+  const tail = (7 - ((offset + days) % 7)) % 7;
+  for (let i=0;i<tail;i++) html += '<button class="day pad" disabled></button>';
+  $('#grid').innerHTML = html;
+}
+
+/* ---- 当天 ---- */
+function renderDay(scroll){
+  const k = keyOf(sel);
+  const items = DAYMAP[k];
+  const diff = Math.round((sel - today) / 86400000);
+  const rel = diff === 0 ? '今天' : diff === 1 ? '明天' : diff === -1 ? '昨天'
+            : diff > 1 ? diff + ' 天后' : (-diff) + ' 天前';
+
+  $('#dhDate').textContent = (sel.getMonth()+1) + '月' + sel.getDate() + '日 · ' + WEEK[sel.getDay()];
+  const tag = $('#dhRel');
+  tag.textContent = rel;
+  tag.style.background = diff === 0 ? 'rgba(59,91,253,.12)' : 'rgba(120,124,150,.12)';
+  tag.style.color = diff === 0 ? 'var(--accent)' : 'var(--muted)';
+
+  if (!items || !items.length){
+    $('#dhMeta').textContent = '暂无抓取记录';
+    const idx = (DB.days || []).map(d=>d.date).sort();
+    const latest = idx.length ? idx[idx.length-1] : null;
+    $('#dayBody').innerHTML =
+      '<div class="empty">'
+      + '<div class="big">🗓</div>'
+      + '<h3>这一天还没有抓取记录</h3>'
+      + '<p>每日抓取从 ' + (DB.meta && DB.meta.started ? DB.meta.started : (idx[0]||'—')) + ' 开始'
+      + (latest ? '，目前最新的是 ' + latest : '') + '。<br>抓取过的日期在日历上会有蓝点。</p>'
+      + (latest ? '<button id="jumpLatest">跳到 ' + latest + '</button>' : '')
+      + '</div>';
+    const b = $('#jumpLatest');
+    if (b) b.addEventListener('click', ()=>{
+      const [y,m,d] = latest.split('-').map(Number);
+      sel = new Date(y, m-1, d); viewY = y; viewM = m-1;
+      renderCal(); renderDay(true);
+    });
+    return;
+  }
+
+  const hw = items.filter(x=>x.kind==='hw');
+  const ai = items.filter(x=>x.kind==='ai');
+  $('#dhMeta').textContent = items.length + ' 条 · 硬件 ' + hw.length + ' · AI ' + ai.length;
+
+  let html = '', n = 0;
+  if (hw.length){
+    html += '<div class="sec" style="--c:' + KIND.hw.c + '"><span class="bar"></span><h2>🔧 硬件玩法</h2><span class="cnt">' + hw.length + ' 条</span></div>';
+    html += '<div class="list">' + hw.map((it,i)=>cardHTML(it, i, (n++)*45)).join('') + '</div>';
+  }
+  if (ai.length){
+    html += '<div class="sec" style="--c:' + KIND.ai.c + '"><span class="bar"></span><h2>🤖 AI 玩法</h2><span class="cnt">' + ai.length + ' 条</span></div>';
+    html += '<div class="list">' + ai.map((it,i)=>cardHTML(it, i, (n++)*45)).join('') + '</div>';
+  }
+  $('#dayBody').innerHTML = html;
+
+  if (scroll){
+    const y = $('#dayBody').getBoundingClientRect().top + window.pageYOffset - 76;
+    window.scrollTo({top: Math.max(0, y), behavior:'smooth'});
+  }
+}
+
+/* ---- 项目库 ---- */
+let libFilter = 'all', libQ = '';
+function buildChips(){
+  const hw = ALL_DAILY.filter(x=>x.kind==='hw').length;
+  const ai = ALL_DAILY.filter(x=>x.kind==='ai').length;
+  const arr = [
+    ['all', '全部 ' + ALL_ITEMS.length],
+    ['hw', '🔧 硬件 ' + hw],
+    ['ai', '🤖 AI ' + ai],
+    ['fav', '★ 收藏 ' + favs.size],
+    ['legacy', '📚 历史库 ' + LEGACY.length]
+  ];
+  $('#chips').innerHTML = arr.map(([k,label])=>
+    '<button class="fchip' + (libFilter===k?' on':'') + '" data-f="' + k + '">' + label + '</button>'
+  ).join('');
+}
+function renderLib(){
+  let arr = ALL_ITEMS.slice();
+  if (libFilter === 'hw') arr = arr.filter(x=>!x.legacy && x.kind==='hw');
+  else if (libFilter === 'ai') arr = arr.filter(x=>!x.legacy && x.kind==='ai');
+  else if (libFilter === 'fav') arr = arr.filter(x=>favs.has(x.id));
+  else if (libFilter === 'legacy') arr = arr.filter(x=>x.legacy);
+
+  if (libQ){
+    const q = libQ.toLowerCase();
+    arr = arr.filter(x => ((x.t||'')+(x.d||'')+(x.hw||'')+(x.s||'')).toLowerCase().includes(q));
+  }
+  $('#libCount').textContent = ALL_ITEMS.length;
+  if (!arr.length){
+    $('#libList').innerHTML = '<div class="empty"><div class="big">🔍</div><h3>没有匹配的项目</h3><p>换个关键词，或者切到「全部」。</p></div>';
+    return;
+  }
+  $('#libList').innerHTML = arr.map((it,i)=>cardHTML(it, null, Math.min(i,10)*30)).join('');
+}
+
+/* ---- 收藏 ---- */
+function syncFavTab(){
+  $('#tabFav').innerHTML = '★ 收藏' + (favs.size ? ' · ' + favs.size : '');
+}
+function renderFav(){
+  syncFavTab();
+  const arr = ALL_ITEMS.filter(x=>favs.has(x.id))
+    .sort((a,b)=>(favTime[b.id]||0)-(favTime[a.id]||0));
+
+  if (!arr.length){
+    $('#favHead').innerHTML = '';
+    $('#favList').innerHTML = '<div class="empty"><div class="big">☆</div>'
+      + '<h3>还没有收藏</h3>'
+      + '<p>在任意一张卡片右上角点一下 ☆，它就会出现在这里。<br>收藏存在你这台手机的浏览器里，换设备不同步。</p>'
+      + '<button id="goPick">去日历里挑几个</button></div>';
+    return;
+  }
+
+  const nd = arr.filter(x=>!x.legacy).length;
+  $('#favHead').innerHTML = '共 <b>' + arr.length + '</b> 个收藏 · 每日抓取的 <b>' + nd + '</b> 条、历史库 <b>' + (arr.length-nd) + '</b> 条。按收藏时间倒序，点右上角 ★ 取消。';
+  $('#favList').innerHTML = arr.map((it,i)=>{
+    const sub = it.date ? ('收录于 ' + it.date) : '历史项目库';
+    return cardHTML(it, null, Math.min(i,10)*30, sub);
+  }).join('');
+}
+
+/* ---- 概览 ---- */
+function renderStats(){
+  const nDays = (DB.days || []).length;
+  const latest = (DB.days || []).map(d=>d.date).sort().pop() || '';
+  const fresh = latest === keyOf(new Date());
+  $('#stats').innerHTML =
+    '<span class="stat' + (fresh ? ' fresh' : '') + '">' + (fresh ? '今日已更新' : '最近更新 ' + (latest ? latest.slice(5) : '—')) + '</span>'
+    + '<span class="stat">已抓取 <b>' + nDays + '</b> 天</span>'
+    + '<span class="stat">共 <b>' + ALL_DAILY.length + '</b> 条</span>'
+    + '<span class="stat">查重 <b>已开启</b></span>';
+  $('#libCount').textContent = ALL_ITEMS.length;
+  syncFavTab();
+  const bi = DB.meta && DB.meta.built ? '构建于 ' + DB.meta.built + ' · ' : '';
+  $('#buildInfo').innerHTML = bi + '每天 08:00 自动更新这个网址 · 收藏存在本机浏览器';
+}
+
+/* ---- 事件 ---- */
+document.addEventListener('click', e => {
+  const star = e.target.closest('.star');
+  if (star){
+    e.preventDefault(); e.stopPropagation();
+    const id = star.dataset.fav;
+    if (favs.has(id)){ favs.delete(id); delete favTime[id]; }
+    else { favs.add(id); favTime[id] = Date.now(); }
+    saveFavs();
+    star.classList.toggle('on', favs.has(id));
+    star.textContent = favs.has(id) ? '★' : '☆';
+    if (tab === 'fav'){ renderFav(); return; }
+    buildChips();
+    if (tab === 'lib' && libFilter === 'fav') renderLib();
+    syncFavTab();
+    return;
+  }
+  if (e.target.closest('#goPick')){ setTab('cal'); return; }
+  const day = e.target.closest('.day[data-k]');
+  if (day){
+    const [y,m,d] = day.dataset.k.split('-').map(Number);
+    sel = new Date(y, m-1, d);
+    renderCal(); renderDay(true);
+    return;
+  }
+  const chip = e.target.closest('.fchip');
+  if (chip){
+    libFilter = chip.dataset.f;
+    buildChips(); renderLib();
+    return;
+  }
+});
+
+$('#prevM').addEventListener('click', ()=>{ viewM--; if (viewM<0){viewM=11; viewY--;} renderCal(); });
+$('#nextM').addEventListener('click', ()=>{ viewM++; if (viewM>11){viewM=0; viewY++;} renderCal(); });
+$('#todayBtn').addEventListener('click', ()=>{
+  sel = new Date(today); viewY = sel.getFullYear(); viewM = sel.getMonth();
+  renderCal(); renderDay(true);
+});
+$('#q').addEventListener('input', e => { libQ = e.target.value.trim(); renderLib(); });
+
+function setTab(name){
+  tab = name;
+  $('#tabCal').classList.toggle('on', name === 'cal');
+  $('#tabLib').classList.toggle('on', name === 'lib');
+  $('#tabFav').classList.toggle('on', name === 'fav');
+  $('#viewCal').hidden = name !== 'cal';
+  $('#viewLib').hidden = name !== 'lib';
+  $('#viewFav').hidden = name !== 'fav';
+  if (name === 'lib'){ buildChips(); renderLib(); }
+  if (name === 'fav') renderFav();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+$('#tabCal').addEventListener('click', ()=>setTab('cal'));
+$('#tabLib').addEventListener('click', ()=>setTab('lib'));
+$('#tabFav').addEventListener('click', ()=>setTab('fav'));
+
+/* ---- 启动 ---- */
+function boot(){
+  buildIndexes();
+  renderStats();
+  renderCal();
+  buildChips();
+  if (!DAYMAP[keyOf(sel)]){
+    const ks = Object.keys(DAYMAP).sort();
+    if (ks.length){ const [y,m,d] = ks[ks.length-1].split('-').map(Number); sel = new Date(y,m-1,d); viewY=y; viewM=m-1; renderCal(); }
+  }
+  renderDay(false);
+}
+boot();
+
+/* ---- 远端数据：云端每日产出的 data.json，取到更新的就热替换 ---- */
+function fetchJSON(url, ms){
+  return new Promise(resolve => {
+    let done = false;
+    const finish = v => { if (!done){ done = true; resolve(v); } };
+    try {
+      const ctl = new AbortController();
+      const timer = setTimeout(()=>{ try{ctl.abort();}catch(e){} finish(null); }, ms);
+      fetch(url, {cache:'no-store', signal: ctl.signal})
+        .then(r => r.ok ? r.json() : null)
+        .then(j => { clearTimeout(timer); finish(j); })
+        .catch(() => { clearTimeout(timer); finish(null); });
+    } catch(e){ finish(null); }
+  });
+}
+async function pullRemote(){
+  for (const u of REMOTE_DATA){
+    if (!u) continue;
+    const json = await fetchJSON(u + (u.includes('?') ? '&' : '?') + 't=' + Math.floor(Date.now()/60000), 6000);
+    if (!json || !Array.isArray(json.days) || !json.days.length) continue;
+    const rl = json.days.map(d=>d.date).sort().pop() || '';
+    const ll = (DB.days||[]).map(d=>d.date).sort().pop() || '';
+    if (rl <= ll) return false;
+    DB = json;
+    return true;
+  }
+  return false;
+}
+pullRemote().then(ok => {
+  if (!ok) return;
+  boot();
+  if (tab === 'fav') renderFav();
+  else if (tab === 'lib'){ buildChips(); renderLib(); }
+});
+</script>
+</body>
+</html>

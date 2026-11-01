@@ -1,0 +1,67 @@
+name: daily-collect
+
+# 每天北京时间 08:00（UTC 00:00）在 GitHub 的云机器上跑，不需要个人电脑开机
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:        # 也可以在 Actions 页面手动点一下立即跑
+
+permissions:
+  contents: write           # 允许把新数据提交回仓库
+  models: read              # 允许用 GitHub Models 写中文文案（免密钥）
+
+concurrency:
+  group: daily-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 抓取并重建页面
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL: openai/gpt-4o-mini
+          LOOKBACK_DAYS: '45'
+          REMOTE_URLS: https://raw.githubusercontent.com/${{ github.repository }}/main/data/db.json,https://cdn.jsdelivr.net/gh/${{ github.repository }}@main/data/db.json
+        run: node tools/collect.mjs
+
+      - name: 提交结果
+        run: |
+          git config user.name "esp32-daily-bot"
+          git config user.email "esp32-daily-bot@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "没有变化，不提交"
+          else
+            git commit -m "chore: daily collect $(TZ=Asia/Shanghai date +%F)"
+            git push
+          fi
+
+      # 顺手发布一份到 GitHub Pages，作为备用地址
+      - name: 上传站点产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy-pages:
+    needs: collect
+    runs-on: ubuntu-latest
+    # Pages 没开启时这一步会失败，但不该影响每天的数据更新
+    continue-on-error: true
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
