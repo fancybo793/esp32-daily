@@ -463,6 +463,131 @@
      "created": "2026-10-28"
     }
    ]
+  },
+  {
+   "date": "2026-11-04",
+   "items": [
+    {
+     "id": "20261104-actell",
+     "kind": "hw",
+     "t": "actell：探索iPhone屏幕交互的实验性AI代理",
+     "d": "Actell是一个为iPhone设计的实验性AI代理，通过ESP32中继器实现屏幕理解与动作执行。采用vibe编码技术，探索屏幕捕捉与触摸输入的交互方式，默认使用VPN回环，可选ESP32 USB NCM。目前为早期技术原型，长运行背景操作和生产准备尚未保证。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ja1chen/actell",
+     "stars": 110,
+     "created": "2026-10-09"
+    },
+    {
+     "id": "20261104-esp32-datv",
+     "kind": "hw",
+     "t": "ESP32-DATV：基于裸板ESP32-C3的DVB-S数字业余电视发射器，无需额外RF硬件",
+     "d": "本项目利用ESP32-C3的2.4GHz射频硬件，实现了DVB-S数字业余电视发射，支持QPSK、8PSK、16APSK等多种调制方式，无需额外RF硬件，但受限于ESP32-C3的晶振误差。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/SP8ESA/ESP32-DATV",
+     "stars": 101,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261104-flashduck",
+     "kind": "hw",
+     "t": "Flashduck：桌面机器鸭，AI驱动，3D打印外壳，ESP32-S3核心",
+     "d": "闪猫造物Flashduck是一款开源的桌面机器鸭，采用ESP32-S3核心，支持3D打印外壳，配备六舵机、单眼动画效果，可实现宽步态行走和两种交互系统。项目开源，适合DIY爱好者，但需要一定的编程基础。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FlashCat-Jordan/Flashduck",
+     "stars": 93,
+     "created": "2026-10-31"
+    },
+    {
+     "id": "20261104-magpie-usage-display",
+     "kind": "hw",
+     "t": "magpie-usage-display：ESP32显示Magpie使用情况",
+     "d": "本产品将Magpie网关的用量和运行状态显示在480×480 AMOLED开发板上，通过macOS Companion读取数据并通过加密BLE发送至ESP32-S3，不保存敏感信息。项目基于社区改造，功能丰富，操作简便。",
+     "hw": "Waveshare ESP32-S3-Touch-AMOLED-2.16",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/peterroe/magpie-usage-display",
+     "stars": 85,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261104-tinydesk",
+     "kind": "hw",
+     "t": "tinydesk：打造微控制器终端桌面环境",
+     "d": "tinydesk 是一款基于 ESP32 的终端桌面环境，支持文件管理、编辑器、Shell、MQTT 和 Modbus 等功能。项目采用 C 语言开发，可在 Windows 和 Linux 系统上运行，但需要在 ESP32 开发板上进行编译和运行。",
+     "hw": "ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/tinydesk-project/tinydesk",
+     "stars": 84,
+     "created": "2026-09-27"
+    },
+    {
+     "id": "20261104-ito",
+     "kind": "ai",
+     "t": "ito：ESP32-S3芯片上的自然语音流式语音合成",
+     "d": "ito项目为ESP32-S3芯片提供了自然语音流式语音合成功能，无需云端支持或NPU加速，将大型TTS模型精简至3.3M参数，仅需5美元芯片即可实现。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/lokutor-ai/ito",
+     "stars": 32,
+     "created": "2026-10-02"
+    },
+    {
+     "id": "20261104-ai-phone-bridge",
+     "kind": "ai",
+     "t": "ai-phone-bridge：用 ESP32 蓝牙桥接，AI 控制手机通话，体验真实通话体验",
+     "d": "ESP32 蓝牙桥接技术，实现手机与 AI 的通话，无需安装 App，中文控制台操作，支持豆包和 OpenAI，通话体验真实，但需注意通话资费和 AI API 费用。",
+     "hw": "ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ivanxia1988/ai-phone-bridge",
+     "stars": 20,
+     "created": "2026-10-09"
+    },
+    {
+     "id": "20261104-phone-agent",
+     "kind": "ai",
+     "t": "phone-agent：AI助手操控iPhone屏幕",
+     "d": "Phone Agent是原生iPhone AI助手，通过共享屏幕理解内容，利用ESP32-S3蓝牙鼠标键盘执行操作。技术亮点包括Swift开发、屏幕共享、蓝牙控制和AI图像处理。限制是需要ESP32-S3配件、指针校准、全屏共享和AI模型支持。",
+     "hw": "ESP32-S3开发板，BLE鼠标键盘模块，GPIO48 RGB",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/boboabw/phone-agent",
+     "stars": 20,
+     "created": "2026-10-06"
+    },
+    {
+     "id": "20261104-opencharm",
+     "kind": "ai",
+     "t": "opencharm：打造你的AI伙伴",
+     "d": "OpenCharm是一款开源的AI伙伴，可作为Claude Code等AI代理的实体化身，通过ESP32开发板实现语音交互和视觉反馈，但需注意一次只能控制一个AI代理。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/opencharm-labs/opencharm",
+     "stars": 19,
+     "created": "2026-10-02"
+    },
+    {
+     "id": "20261104-agent-charm",
+     "kind": "ai",
+     "t": "agent-charm：口袋里的AI伙伴",
+     "d": "ESP32-S3 AMOLED智能饰品，内置AI代理Hermes，支持OpenAI模型，语音交互，阅读模式，屏幕显示真实状态，但需注意无网络连接时功能受限。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/garavitgabriel/agent-charm",
+     "stars": 19,
+     "created": "2026-10-03"
+    }
+   ]
   }
  ],
  "legacy": [
