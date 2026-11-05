@@ -588,6 +588,131 @@
      "created": "2026-10-03"
     }
    ]
+  },
+  {
+   "date": "2026-11-05",
+   "items": [
+    {
+     "id": "20261105-jetstudio",
+     "kind": "hw",
+     "t": "JetStudio：基于Godot的微控制器游戏引擎",
+     "d": "JetStudio是一款基于Godot引擎和Jet引擎的微控制器游戏引擎，采用C++17编写，支持3D渲染和JetScript脚本语言。它可以在ESP32等开发板上运行，为游戏开发者提供强大的工具，但入门门槛较高。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fedyfausto/JetStudio",
+     "stars": 90,
+     "created": "2026-10-25"
+    },
+    {
+     "id": "20261105-ip-nas",
+     "kind": "hw",
+     "t": "ip-nas：打造Raspberry Pi 5家庭NAS，集AI助手、3D打印外壳与ESP32触控屏于一身",
+     "d": "本项目基于Raspberry Pi 5构建家庭NAS，集成CasaOS系统、Nur AI助手、3D打印外壳及ESP32触控屏，实现本地AI交互与个性化定制。虽功能丰富，但受限于Raspberry Pi内存短缺，升级需谨慎。",
+     "hw": "Raspberry Pi 5，ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/MultiX0/ip-nas",
+     "stars": 81,
+     "created": "2026-10-22"
+    },
+    {
+     "id": "20261105-unidex",
+     "kind": "hw",
+     "t": "unidex：便携式电子墨水操作系统，多功能应用一触即达",
+     "d": "专为Waveshare ESP32-S3 1.54英寸电子纸板打造，集课程表、日历同步、AI语音笔记、宠物互动等功能于一身。轻松安装，体验便捷生活，但需注意系统兼容性。",
+     "hw": "Waveshare ESP32-S3 1.54英寸电子纸板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Forrest404/unidex",
+     "stars": 79,
+     "created": "2026-09-30"
+    },
+    {
+     "id": "20261105-rotating-flower",
+     "kind": "hw",
+     "t": "rotating-flower：随Codex和WorkBuddy任务旋转的桌面花",
+     "d": "这款桌面花可根据Codex和WorkBuddy任务旋转，并在需要输入时发光。项目基于ESP32硬件，需要安装MacOS 12+的Apple硅芯片Mac，并已安装Codex和/或WorkBuddy。但安装过程较为复杂，需要一定的硬件组装和编程基础。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/dalaofei1154/rotating-flower",
+     "stars": 74,
+     "created": "2026-09-29"
+    },
+    {
+     "id": "20261105-drwalls",
+     "kind": "hw",
+     "t": "DrWalls：无需摄像头，ESP32实现Wi-Fi CSI动态检测",
+     "d": "DrWalls项目利用ESP32通过Wi-Fi CSI技术实现动态检测，无需额外摄像头或传感器，简化了安装和使用过程，但需要具备一定的编程基础。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/drmakerr/DrWalls",
+     "stars": 49,
+     "created": "2026-09-29"
+    },
+    {
+     "id": "20261105-cornelius",
+     "kind": "ai",
+     "t": "Cornelius：智能镜框语音助手",
+     "d": "Cornelius是一个智能镜框，能识别用户、听声音并用法语回应，显示天气、交通等信息。技术亮点包括本地人脸识别、语音唤醒词、本地AI处理和隐私保护。限制是需要设置本地服务器，并依赖OpenAI进行对话，可能需要一定的技术基础。",
+     "hw": "一块ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/lfpoulain/Cornelius",
+     "stars": 423,
+     "created": "2026-10-05"
+    },
+    {
+     "id": "20261105-muse-spark-code",
+     "kind": "ai",
+     "t": "muse-spark-code：集成Meta Muse Spark，多编辑器AI编程助手",
+     "d": "Muse Spark Code将Meta的Muse Spark模型集成到多种编辑器中，如VS Code、Cursor、Windsurf等，提供AI编程助手功能。支持多种语言，但需注意其非官方性质，可能存在权限限制。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/RandyNorthrup/muse-spark-code",
+     "stars": 18,
+     "created": "2026-09-22"
+    },
+    {
+     "id": "20261105-qoder-passport",
+     "kind": "ai",
+     "t": "Qoder-Passport：全双工语音伴侣，ESP32-C3上运行，与Qoder云代理互动",
+     "d": "基于FoloToy AI Passport（ESP32-C3）的可穿戴设备，实现与Qoder云代理的全双工语音交互。支持自定义代理模板和用户身份，通过WebSocket实时对话。无需编译敏感信息，但需自行配置Wi-Fi和访问令牌。",
+     "hw": "FoloToy AI Passport (ESP32-C3)",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/kunlun322/Qoder-Passport",
+     "stars": 17,
+     "created": "2026-10-15"
+    },
+    {
+     "id": "20261105-esp32-agent-skills",
+     "kind": "ai",
+     "t": "esp32-agent-skills：防止AI编写致命ESP32固件",
+     "d": "该项目为AI编码代理提供201个技能和10个检查器，防止编写编译后烧毁ESP32板的固件。包含硬件感知护栏和命令行验证工具，在烧录前捕获错误。门槛在于AI代理可能忽略硬件约束如GPIO引脚限制或电源预算。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Esmail-sarhadi/esp32-agent-skills",
+     "stars": 16,
+     "created": "2026-10-31"
+    },
+    {
+     "id": "20261105-fumi",
+     "kind": "ai",
+     "t": "fumi：桌面上的开源AI伙伴",
+     "d": "FUMI是一款基于ESP32-S3的开源AI伙伴，集成了触摸、语音交互和多种AI模型，具备虚拟宠物机制和云AI聊天功能。然而，其硬件支持有限，可能需要一定的技术背景才能充分发挥其潜力。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/imaaiagent/fumi",
+     "stars": 16,
+     "created": "2026-10-12"
+    }
+   ]
   }
  ],
  "legacy": [
