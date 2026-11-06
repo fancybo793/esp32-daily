@@ -713,6 +713,131 @@
      "created": "2026-10-12"
     }
    ]
+  },
+  {
+   "date": "2026-11-06",
+   "items": [
+    {
+     "id": "20261106-esp-flutter",
+     "kind": "hw",
+     "t": "ESP-FLUTTER：ESP32-C3驱动仿生遥控蝴蝶，实现飞行与智能控制",
+     "d": "ESP-FLUTTER项目利用ESP32-C3和数字伺服电机实现仿生遥控蝴蝶的飞行，支持手机APP和遥控器操作，可调节翅膀动作和飞行模式，但需要一定的编程基础来配置和控制。",
+     "hw": "ESP32-C3、数字伺服电机",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/maximagination1/ESP-FLUTTER",
+     "stars": 78,
+     "created": "2026-10-15"
+    },
+    {
+     "id": "20261106-esphome-touch-remote",
+     "kind": "hw",
+     "t": "esphome-touch-remote：打造模块化触控智能家居遥控器",
+     "d": "这款基于ESPHome和LVGL的电池供电触控遥控器，搭载Freenove ESP32-S3 2.8英寸显示屏，支持深度睡眠唤醒，Qi无线充电。可自定义页面和设备，支持英语和意大利语界面，但可能需要一定的编程基础。",
+     "hw": "Freenove ESP32-S3 2.8英寸显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/LucaPizzorno/esphome-touch-remote",
+     "stars": 48,
+     "created": "2026-10-28"
+    },
+    {
+     "id": "20261106-marelleo",
+     "kind": "hw",
+     "t": "marelleo：为孩子们打造的无屏幕故事盒子",
+     "d": "这款ESP32项目打造了一个无需屏幕、账户或订阅的互动故事盒子。通过放置一个玩偶在盒子上，孩子可以听到与之关联的故事、音乐或广播。项目提供3D打印文件、电路板设计、代码和文档，适合从未焊接过的人尝试。项目虽小，却涵盖了从电路搭建到软件编程的完整过程。",
+     "hw": "ESP32开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Zebra-Rodeo/marelleo",
+     "stars": 47,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261106-fridge-eink-display",
+     "kind": "hw",
+     "t": "fridge-eink-display：打造个性化低功耗冰箱信息屏，轻松管理家庭生活",
+     "d": "本项目利用ESP32-S3、四色水墨屏、微信小程序和FastAPI技术，打造一款低功耗、可自定义内容的冰箱信息屏，支持食材管理、待办事项、天气查询等功能，无需复杂配置，轻松提升家庭生活品质。",
+     "hw": "ESP32-S3 N16R8 开发板，Good Display GDEM075F53 7.5 英寸四色电子纸",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/dinggefei/fridge-eink-display",
+     "stars": 47,
+     "created": "2026-10-11"
+    },
+    {
+     "id": "20261106-cc-usage-display",
+     "kind": "hw",
+     "t": "cc-usage-display：在ESP32-C6上实现CC Switch用量显示与启动器功能",
+     "d": "本项目在ESP32-C6-Touch-AMOLED-2.16上实现CC Switch的AI用量显示，并附带主页启动器，支持多种应用和功能，无需读取API Key，安全性高，但需注意Token安全性。",
+     "hw": "ESP32-C6-Touch-AMOLED-2.16",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/wangjian124/cc-usage-display",
+     "stars": 37,
+     "created": "2026-10-25"
+    },
+    {
+     "id": "20261106-motonav",
+     "kind": "ai",
+     "t": "MotoNav：Android手机与ESP32-S3圆屏导航系统，AI辅助开发，仅供个人非商业使用",
+     "d": "本项目结合Android手机与ESP32-S3圆屏，实现导航、天气和音乐控制等功能。采用AI辅助开发，支持个人非商业使用与学习交流，但禁止商业使用及转售。",
+     "hw": "ESP32-S3-Touch-AMOLED-1.75",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/CharlesXu/MotoNav",
+     "stars": 17,
+     "created": "2026-10-17"
+    },
+    {
+     "id": "20261106-managents",
+     "kind": "ai",
+     "t": "managents：AI编码代理工作状态一目了然",
+     "d": "managents是一款USB桌面显示器，可直观显示您的AI编码代理（如Claude Code、OpenCode）的工作状态。它通过ESP32固件、Go辅助程序和3D打印支架实现，无需复杂设置，即可实时监控代理工作状态，提高工作效率。",
+     "hw": "ESP32-32E开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/tonylook/managents",
+     "stars": 14,
+     "created": "2026-10-09"
+    },
+    {
+     "id": "20261106-broglow",
+     "kind": "ai",
+     "t": "broglow：AI编码助手桌面交通灯，支持菜单栏、终端仪表盘和DIY ESP32-C3灯",
+     "d": "BroGlow是一款专为AI编码助手设计的桌面交通灯，集菜单栏应用、终端仪表盘和可选的ESP32-C3状态灯于一体。它支持Claude Code、Codex、opencode和Copilot CLI等工具，通过USB或蓝牙LE连接，灯的颜色变化显示工作状态。虽然安装和使用较为简便，但需要一定的硬件基础和DIY能力。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/BroGlow/broglow",
+     "stars": 14,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261106-iot-hacks",
+     "kind": "ai",
+     "t": "iot-hacks：打造DIY Ambilight，ESP32实现智能桌面宠物及空调遥控",
+     "d": "利用ESP32开发板，通过C++编程实现DIY Ambilight、AI桌面宠物Dexi和空调遥控器。项目涵盖从零开始到成品的全过程，技术亮点在于自定义固件和逆向工程，但需要一定的编程基础。",
+     "hw": "ESP32开发板、WS2812B灯带、5V 2A适配器、220Ω电阻",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/myselfshravan/iot-hacks",
+     "stars": 12,
+     "created": "2026-10-10"
+    },
+    {
+     "id": "20261106-ai-passport-all-in-one",
+     "kind": "ai",
+     "t": "ai-passport-all-in-one：集成41项功能，ESP32-C3打造智能胸牌固件",
+     "d": "基于ESP32-C3的AI Passport胸牌自制固件，集成41项功能，采用ESP-IDF 6.1和LVGL 9.5，但README中未提及具体限制或门槛。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/KevinCJM/ai-passport-all-in-one",
+     "stars": 10,
+     "created": "2026-10-28"
+    }
+   ]
   }
  ],
  "legacy": [
