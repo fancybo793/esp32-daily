@@ -838,6 +838,131 @@
      "created": "2026-10-28"
     }
    ]
+  },
+  {
+   "date": "2026-11-07",
+   "items": [
+    {
+     "id": "20261107-redline-gauge",
+     "kind": "hw",
+     "t": "redline-gauge：ESP32打造赛车风格仪表盘，支持触摸设置与OBD-II蓝牙数据",
+     "d": "本项目基于ESP32和10美元的CYD显示屏，打造了一款赛车风格的数字仪表盘。支持主题切换、触摸设置、物理模拟器，并能接入OBD-II蓝牙、USB串口或自定义传感器获取数据。虽然功能丰富，但需要一定的编程基础来定制传感器。",
+     "hw": "ESP32-2432S028R",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/moomdate/redline-gauge",
+     "stars": 36,
+     "created": "2026-09-27"
+    },
+    {
+     "id": "20261107-esp32-s3-touch-obd2",
+     "kind": "hw",
+     "t": "ESP32-S3-Touch-OBD2：摩托车引擎实时监控仪表",
+     "d": "本项目为摩托车提供实时OBD2仪表盘，使用ESP32-S3触摸屏和BLE ELM327适配器连接ECU。显示引擎数据如RPM、速度、齿轮等，记录骑行日志到microSD，并生成离线图表。技术亮点包括多页面触摸界面和BLE轮胎压力传感器读取。限制：仅作信息参考，不能替代摩托车的仪表盘或警告灯。",
+     "hw": "Waveshare ESP32-S3-Touch-LCD-1.85B 和 BLE ELM327适配器",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Gnzlt/ESP32-S3-Touch-OBD2",
+     "stars": 29,
+     "created": "2026-11-01"
+    },
+    {
+     "id": "20261107-esp32-p4-launcher",
+     "kind": "hw",
+     "t": "ESP32_P4_Launcher：在ESP32-P4上运行SD卡应用程序",
+     "d": "ESP32-P4_Launcher允许用户从SD卡加载并运行PAPP v2应用程序，无需重新闪存或重启，支持多种游戏和实用工具，但当前版本可能存在一些兼容性问题。",
+     "hw": "Guition ESP32-P4 4.3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/giltal/ESP32_P4_Launcher",
+     "stars": 28,
+     "created": "2026-10-29"
+    },
+    {
+     "id": "20261107-agenttouch",
+     "kind": "hw",
+     "t": "agenttouch：AI助手桌面小脸，工作状态一目了然",
+     "d": "AgentTouch是一款桌面AI助手，通过ESP32-S3-Touch-AMOLED-2.16模块实现，可实时显示多个AI编码代理的工作状态，如空闲、工作、需要你介入或已完成。支持触摸操作，可批准任务或进行语音输入。但需要Mac主机支持，对硬件有一定要求。",
+     "hw": "ESP32-S3-Touch-AMOLED-2.16",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/wentong2022-arch/agenttouch",
+     "stars": 27,
+     "created": "2026-10-02"
+    },
+    {
+     "id": "20261107-car-dashboard-esp32-cyd",
+     "kind": "hw",
+     "t": "Car-Dashboard-ESP32-CYD：ESP32打造低成本汽车仪表盘与OBD2诊断屏",
+     "d": "利用ESP32和CYD显示屏，Car-Dashboard-ESP32-CYD项目将仪表盘和OBD2诊断功能完美结合，支持触摸操作和丰富的数据图表显示，但需连接真实车辆才能读取OBD-II数据。",
+     "hw": "ESP32-2432S028R",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/muki01/Car-Dashboard-ESP32-CYD",
+     "stars": 26,
+     "created": "2026-09-30"
+    },
+    {
+     "id": "20261107-muse-passport",
+     "kind": "ai",
+     "t": "muse-passport：将ESP32变身智能语音助手，支持多语言转录与回复",
+     "d": "Muse Passport项目将ESP32开发板升级为智能对话终端，支持语音输入、中文转录与Muse文字回复。通过手机App实现网络连接，无需额外Wi-Fi或热点，适用于家庭、办公室和户外环境。项目支持多语言，但需要适配不同硬件和固件。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FalkoWing/muse-passport",
+     "stars": 9,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261107-pip-esp32",
+     "kind": "ai",
+     "t": "pip-esp32：AI宠物Pip，ESP32上的互动体验",
+     "d": "ESP32上的AI宠物Pip，通过摄像头观察你的情绪，并以Fish Audio Drama 3的声音与你互动，实现简单的情感交流。项目使用ESP-Mosaico模块，通过 Claude AI 分析画面并生成台词，但可能需要一定的编程基础。",
+     "hw": "ESP-Mosaico模块",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/imikerussell/pip-esp32",
+     "stars": 8,
+     "created": "2026-10-22"
+    },
+    {
+     "id": "20261107-esp32-voice-entry",
+     "kind": "ai",
+     "t": "esp32-voice-entry：桌面AI伙伴，语音交互与视觉互动",
+     "d": "ESP32-S3桌面语音终端，支持唤醒词、ASR/LLM/TTS、摄像头视觉识别，集成了设备工具，通过浏览器控制台管理，需确认设备兼容性。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/yes999zc/esp32-voice-entry",
+     "stars": 7,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261107-esuyo-esp32-agent",
+     "kind": "ai",
+     "t": "esuyo-esp32-agent：通过浏览器与ESP32聊天，控制硬件、传感器和内存",
+     "d": "ESP32 Agent项目允许您通过浏览器与ESP32进行交互，控制硬件、读取传感器数据、管理内存，并可通过AI工具进行OTA更新。项目小巧，易于上手，适合作为基础构建更复杂的系统，如温室监控、车库门助手等。但项目文档中未提及具体硬件要求。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/8perezm/esuyo-esp32-agent",
+     "stars": 6,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261107-desktop-robot-companion",
+     "kind": "ai",
+     "t": "desktop-robot-companion：ESP32-S3打造智能桌面机器人，AI对话、表情丰富、音乐互动，无需服",
+     "d": "本项目利用ESP32-S3开发板打造了一款桌面机器人，具备AI对话功能、52种表情、网易云音乐播放和网页控制台。无需自建服务器，支持网页一键烧录固件，操作简便。",
+     "hw": "ESP32-S3-N16R8",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/han0519/desktop-robot-companion",
+     "stars": 5,
+     "created": "2026-09-27"
+    }
+   ]
   }
  ],
  "legacy": [
