@@ -963,6 +963,131 @@
      "created": "2026-09-27"
     }
    ]
+  },
+  {
+   "date": "2026-11-08",
+   "items": [
+    {
+     "id": "20261108-diy-fido-key",
+     "kind": "hw",
+     "t": "diy-fido-key：基于ESP32-S3 DIY USB FIDO2安全密钥",
+     "d": "本项目利用ESP32-S3开发板，结合pico-fido固件和ST7735显示屏，打造出USB连接的FIDO2安全密钥，支持CTAP 2.3、WebAuthn等安全认证功能，但需注意不包含FIDO认证和Secure Element，仅适用于个人实验和备份。",
+     "hw": "ESP32-S3开发板、pico-fido固件、ST7735显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/4noha/diy-fido-key",
+     "stars": 26,
+     "created": "2026-10-22"
+    },
+    {
+     "id": "20261108-esp32mediabox",
+     "kind": "hw",
+     "t": "ESP32MediaBox：便携式ESP32-S3音乐播放器，支持microSD卡和DLNA流媒体播放",
+     "d": "ESP32MediaBox项目基于ESP32-S3打造，支持从microSD卡播放音乐或从DLNA/UPnP媒体服务器（如Synology Audio Station）流媒体播放。它具备1.8英寸彩色TFT屏幕、OLED状态显示屏、旋转编码器及16LED环形灯带，并配备输出压缩器和限制器，防止DAC过载。项目使用C语言编写，适合有一定硬件基础的进阶用户。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mikedeblin/ESP32MediaBox",
+     "stars": 25,
+     "created": "2026-10-10"
+    },
+    {
+     "id": "20261108-esp32-p4-c6-le-audio",
+     "kind": "hw",
+     "t": "esp32-p4-c6-le-audio：实现ESP32-P4与ESP32-C6的蓝牙LE音频传输",
+     "d": "本项目在ESP32-P4和ESP32-C6上实现了蓝牙LE音频传输，支持立体声和LC3编码，无需额外硬件，为开发者提供了一套完整的解决方案。",
+     "hw": "ESP32-P4 + ESP32-C6",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ernimen7/esp32-p4-c6-le-audio",
+     "stars": 21,
+     "created": "2026-11-06"
+    },
+    {
+     "id": "20261108-petrol-leakage-monitor",
+     "kind": "hw",
+     "t": "Petrol-Leakage-Monitor：利用ESP32实现汽油泄漏实时监测",
+     "d": "本项目利用ESP32、Flask和气体传感器，构建了一个工业级物联网应用，用于实时监测汽油/易燃蒸气泄漏，具备物理执行器报警和历史事件记录功能。项目虽可演示气体传感器响应，但未进行正式校准，输出为相对浓度而非特定化合物标识。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/karunyah3/Petrol-Leakage-Monitor",
+     "stars": 21,
+     "created": "2026-10-10"
+    },
+    {
+     "id": "20261108-hermes-watch",
+     "kind": "hw",
+     "t": "hermes-watch：AI助手语音遥控器，ESP32-S3圆屏手表实现语音交互",
+     "d": "这款基于ESP32-S3的M5Stack StopWatch手表，通过Hermes固件实现AI助手的语音遥控功能。支持语音输入、五人语音助手切换，并实时显示AI助手的动作状态。但需要注意的是，项目中的头像引擎部分遵循AGPL-3.0许可协议。",
+     "hw": "M5Stack StopWatch (ESP32-S3 round AMOLED)",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/styles01/hermes-watch",
+     "stars": 20,
+     "created": "2026-10-09"
+    },
+    {
+     "id": "20261108-bothouse",
+     "kind": "ai",
+     "t": "bothouse：打造共享记忆的AI团队协作平台",
+     "d": "将Claude Code、Codex、Gemini CLI和DeepSeek整合，实现AI团队共享记忆和分工协作；突破传统终端切换限制，提升团队效率。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/zuiho-kai/bothouse",
+     "stars": 163,
+     "created": "2026-10-21"
+    },
+    {
+     "id": "20261108-my-botstack",
+     "kind": "ai",
+     "t": "my-botstack：ESP32机器人语音助手，实时语音交互与MCP管理",
+     "d": "my-botstack项目利用ESP32开发板构建语音助手，通过Rust语言实现与xAI实时语音服务的连接，支持M5Stack StackChan和Waveshare ESP32-P4板。项目提供实时语音对话、邮件、日历和文件读取功能，但需要具备一定的网络配置知识。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fredericalix/my-botstack",
+     "stars": 3,
+     "created": "2026-10-18"
+    },
+    {
+     "id": "20261108-knowledge-driven-iot-fault-diagnosis",
+     "kind": "ai",
+     "t": "knowledge-driven-iot-fault-diagnosis：基于知识的实时故障诊断",
+     "d": "本系统集成ESP32实时传感器数据采集、MQTT消息推送、规则监控与RAG技术，利用本地生成式AI为工业设备自动诊断。当规模扩大时，本地模型推理速度与内存占用成为主要瓶颈。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/IoTSec-AI/knowledge-driven-iot-fault-diagnosis",
+     "stars": 3,
+     "created": "2026-10-08"
+    },
+    {
+     "id": "20261108-bratan-robot",
+     "kind": "ai",
+     "t": "bratan-robot：基于旧吸尘器打造，融合3D打印柯基与Android智能",
+     "d": "Bratan项目将旧吸尘器升级为自主家用机器人，采用3D打印的柯基身体和Android手机作为计算核心，集成Lidar、YOLO视觉、语音交互等先进技术。项目历时10周完成，但仅适用于特定环境和硬件配置。",
+     "hw": "Xiaomi Mi Robot Vacuum-Mop P (STYTJ02YM), Snapdragon 845, Delta-2D Lidar",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/explAIn-channel/bratan-robot",
+     "stars": 2,
+     "created": "2026-10-23"
+    },
+    {
+     "id": "20261108-carpathron-muse",
+     "kind": "ai",
+     "t": "carpathron-muse：打造可交互、可驾驶的AI机器人",
+     "d": "Carpathron项目将ESP32-CAM机器人与Meta Muse、Windows AI代理、WhatsApp和Meta Quest avatar app连接，实现语音交互、远程控制等功能。技术亮点包括多平台兼容和丰富的交互方式，但可能面临跨平台兼容性和安全性的挑战。",
+     "hw": "ESP32-CAM",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/qubitpage/carpathron-muse",
+     "stars": 2,
+     "created": "2026-10-28"
+    }
+   ]
   }
  ],
  "legacy": [
