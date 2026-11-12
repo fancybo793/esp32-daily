@@ -52,11 +52,16 @@ export function validateDB(db) {
   return errors;
 }
 
+// 默认远端数据源：线上页面靠它每天自动换成云端最新数据，不用重新发布。
+// 本地直接 node tools/build.mjs 也要带上，否则一次本地重建就会把这个能力抹掉。
+const DEFAULT_REMOTE = 'https://raw.githubusercontent.com/fancybo793/esp32-daily/main/data/db.json,'
+  + 'https://cdn.jsdelivr.net/gh/fancybo793/esp32-daily@main/data/db.json';
+
 export function buildDB(db, opts = {}) {
   db.meta = db.meta || {};
   db.meta.built = new Date().toLocaleString('zh-CN', { hour12: false }).replace(/\//g, '-');
 
-  const remote = opts.remoteUrls ?? (process.env.REMOTE_URLS || '')
+  const remote = opts.remoteUrls ?? (process.env.REMOTE_URLS || DEFAULT_REMOTE)
     .split(',').map(s => s.trim()).filter(Boolean);
 
   const tpl = fs.readFileSync(TPL_PATH, 'utf8');
