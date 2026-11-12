@@ -1088,6 +1088,131 @@
      "created": "2026-10-28"
     }
    ]
+  },
+  {
+   "date": "2026-11-12",
+   "items": [
+    {
+     "id": "20261112-esp-idf-injection-ng",
+     "kind": "hw",
+     "t": "esp-idf-injection-ng：ESP-IDF下802.11帧注入工具，突破传输限制",
+     "d": "该工具在ESP-IDF v5+/v6+上实现原始802.11帧注入，通过objcopy命令弱化符号实现功能，突破Espressif的libnet80211.a库对传输帧类型的限制，支持多种帧类型注入，包括认证、去认证、重关联等，适用于ESP32等开发板。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mahdamin/esp-idf-injection-ng",
+     "stars": 68,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261112-sdrpp-esp-sdr-source",
+     "kind": "hw",
+     "t": "sdrpp-esp-sdr-source：ESP32-S3原生SDR++模块，实现USB直连",
+     "d": "为ESP32-S3开发的原生SDR++模块，无需额外桥接设备，通过USB直接传输IQ数据，支持高达250 kS/s的采样率，覆盖2204-2804 MHz频段，与HackRF One相比性能相当，为业余无线电爱好者提供强大的软件定义无线电体验。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/z2labs/sdrpp-esp-sdr-source",
+     "stars": 63,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261112-esp-labs",
+     "kind": "hw",
+     "t": "esp-labs：ESP32-S3学习实验室，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等模块",
+     "d": "ESP32-S3学习实验室，提供独立平台IO项目，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等功能，共享工具库，包含主机测试和配套应用，适合初学者学习。",
+     "hw": "ESP32-S3开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/agharsallah/esp-labs",
+     "stars": 43,
+     "created": "2026-10-21"
+    },
+    {
+     "id": "20261112-inkquest-esp32",
+     "kind": "hw",
+     "t": "InkQuest-ESP32：互动式电子纸冒险游戏，开启无限故事之旅",
+     "d": "InkQuest 是一款基于 ESP32、电子纸显示屏和旋转编码器的互动式文字冒险设备。它由 Gemini 引擎驱动，生成无限的故事和选择。项目虽小，但技术亮点颇多，如精巧的便携设计和低功耗的电子纸显示屏，但同时也面临电池续航的挑战。",
+     "hw": "ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Jeremy-Ngai-Sew-Poh/InkQuest-ESP32",
+     "stars": 33,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261112-airtile",
+     "kind": "hw",
+     "t": "Airtile：ESPHome智能家居空气质量监测器",
+     "d": "ESPHome智能家居平台打造的空气质量监测器，搭载4.2英寸电子纸显示屏，集成CO2、温度、湿度、VOC、NOx和光照等多功能传感器，通过3D打印外壳和定制PCB设计，实现数据实时显示，并具备智能刷新和暗光模式等特色功能。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/dbkcode331/Airtile",
+     "stars": 24,
+     "created": "2026-11-05"
+    },
+    {
+     "id": "20261112-wisp",
+     "kind": "ai",
+     "t": "Wisp：掌上全能Agent，动态构建应用无需编译",
+     "d": "Wisp是一款运行在ESP32上的掌上全能Agent，能够根据用户需求动态创建和修改应用，无需重新编译或连接电脑。它支持中文、日语和英语界面，通过简单的指令即可实现应用构建。然而，目前仅支持C语言开发，对于不熟悉C语言的用户来说可能存在一定的限制。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ShouChenICU/Wisp",
+     "stars": 10,
+     "created": "2026-11-03"
+    },
+    {
+     "id": "20261112-jax-stopwatch",
+     "kind": "ai",
+     "t": "jax-stopwatch：手表变身AI语音助手，语音输入，Mac处理，结果播回手表",
+     "d": "Jax StopWatch 将M5Stack StopWatch手表变身AI语音助手，通过按住说话，Mac本地处理语音转文字，支持Codex或自定义Webhook助手，结果语音播回手表。支持多种提醒功能，可更换形象，无需刷机。但需注意，手表存储空间有限。",
+     "hw": "M5Stack StopWatch",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/BTCUP99/jax-stopwatch",
+     "stars": 9,
+     "created": "2026-10-23"
+    },
+    {
+     "id": "20261112-weedzap",
+     "kind": "ai",
+     "t": "WeedZap：激光除草机器人，精准识别与切割杂草",
+     "d": "WeedZap是一款基于YOLO算法的激光除草机器人，利用摄像头和定制YOLO模型识别杂草，通过激光精准切割，无需化学药剂和人工拔除。项目从手动激光试验开始，逐步发展成小型机器人，并最终采用高功率激光进行除草。项目挑战在于高功率激光的使用和机器人定位的准确性。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Nurasylpro/Weedzap",
+     "stars": 2,
+     "created": "2026-10-28"
+    },
+    {
+     "id": "20261112-stackchan-agent",
+     "kind": "ai",
+     "t": "stackchan-agent：赋予StackChan智能大脑，实现自主视觉、语音交互与动作控制",
+     "d": "为M5Stack CoreS3机器人提供固件、JSON CLI和本地语音代理，通过OpenAI兼容的视觉模型实现自主视觉、语音交互和动作控制。项目虽功能强大，但可能需要一定的编程基础。",
+     "hw": "M5Stack CoreS3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/onehumanbeing/stackchan-agent",
+     "stars": 2,
+     "created": "2026-11-05"
+    },
+    {
+     "id": "20261112-chakraa",
+     "kind": "ai",
+     "t": "chakraa：敲击鸣钵，房间变色",
+     "d": "ChakraA项目利用ESP32-S31开发板，通过麦克风捕捉鸣钵、音叉或哼唱的音调，无需AI即可检测出七轮能量中心，并同步改变房间内的灯光颜色。项目支持Philips Hue、Home Assistant等智能设备，但无需摄像头和云端服务，适合追求隐私的用户。",
+     "hw": "ESP32-S31",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/leopardcodeai/chakraa",
+     "stars": 2,
+     "created": "2026-10-24"
+    }
+   ]
   }
  ],
  "legacy": [
