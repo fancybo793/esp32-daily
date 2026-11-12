@@ -118,20 +118,42 @@ function cleanReadme(t) {
 }
 
 /* ---------- 分类 ---------- */
-const AI_WORDS = ['llm', 'gpt', 'openai', 'claude', 'ollama', 'ai', 'voice', 'speech', 'asr', 'tts', 'wake word',
-  'vision', 'yolo', 'neural', 'tinyml', 'tensorflow', 'model', 'agent', 'mcp', 'inference', 'embedding',
-  'whisper', 'chat', 'language model', 'transcri', 'gesture', 'detection'];
+// 命中这些词基本可以确定是 AI 项目，直接归 ai，不再参与计数比较。
+const AI_STRONG = ['llm', 'gpt', 'openai', 'claude', 'gemini', 'ollama', 'whisper', 'asr', 'tts',
+  'wake word', 'tinyml', 'tensorflow', 'yolo', 'inference', 'embedding', 'language model',
+  'speech', 'neural', 'mcp', 'agent', 'chatbot', 'vlm', 'nlp', 'prompt'];
+const AI_WORDS = ['ai', 'voice', 'vision', 'model', 'chat', 'transcri', 'detection', 'recognit'];
 const HW_WORDS = ['robot', 'servo', 'motor', 'stepper', 'lidar', 'sensor', 'relay', 'cnc', '3d print', 'pcb',
   'antenna', 'lora', 'meshtastic', 'radio', 'sdr', 'audio', 'dac', 'amp', 'speaker', 'display', 'screen',
   'epaper', 'e-ink', 'lcd', 'oled', 'matrix', 'led', 'battery', 'solar', 'power', 'driver', 'usb', 'uart',
-  'gps', 'keyboard', 'watch', 'clock', 'camera', 'thermal', 'water', 'solar', 'fan', 'valve', 'pump'];
+  'gps', 'keyboard', 'watch', 'clock', 'camera', 'thermal', 'water', 'fan', 'valve', 'pump'];
+
+// 短词必须按词边界匹配：'ai' 否则会命中 daily / trail / main，'led' 会命中 scheduled。
+// 允许尾部 s，避免 agents / models / servos 这类复数漏判。
+function hasWord(hay, w) {
+  const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^a-z0-9])${esc}s?([^a-z0-9]|$)`).test(hay);
+}
 
 function scoreKind(repo) {
   const hay = `${repo.name} ${repo.description || ''} ${(repo.topics || []).join(' ')}`.toLowerCase();
+  if (AI_STRONG.some(w => hasWord(hay, w))) return 'ai';
   let ai = 0, hw = 0;
-  for (const w of AI_WORDS) if (hay.includes(w)) ai++;
-  for (const w of HW_WORDS) if (hay.includes(w)) hw++;
+  for (const w of AI_WORDS) if (hasWord(hay, w)) ai++;
+  for (const w of HW_WORDS) if (hasWord(hay, w)) hw++;
   return ai > hw ? 'ai' : 'hw';
+}
+
+/** 候选过滤：repos 列表里哪些够格进池子 */
+function acceptRepo(r, seenUrls, seenTitles) {
+  if (r.fork || r.archived || r.disabled) return false;
+  if (!r.description) return false;
+  if (/awesome|curated list|collection of|resources|cheatsheet|tutorial list/i.test(`${r.name} ${r.description}`)) return false;
+  if (/\b(guide|handbook|roadmap|course|book|blog|cheat ?sheet)\b/i.test(`${r.name} ${r.description}`)) return false;
+  if (/^(docs?|documentation|wiki|website|homepage)$/i.test(r.name)) return false;
+  if (seenUrls.has(normUrl(r.html_url))) return false;
+  if (seenTitles.some(t => similarity(t, `${r.name}：${r.description}`) >= 0.72)) return false;
+  return true;
 }
 
 /* ---------- 文案 ---------- */
@@ -351,18 +373,27 @@ async function main() {
         log(`  ! 搜索失败「${base}」：${e.message}`);
       }
     }
-    cands = [...map.values()].filter(r => {
-      if (r.fork || r.archived || r.disabled) return false;
-      if (!r.description) return false;
-      if (/awesome|curated list|collection of|resources|cheatsheet|tutorial list/i.test(`${r.name} ${r.description}`)) return false;
-      if (/\b(guide|handbook|roadmap|course|book|blog|cheat ?sheet)\b/i.test(`${r.name} ${r.description}`)) return false;
-      if (/^(docs?|documentation|wiki|website|homepage)$/i.test(r.name)) return false;
-      if (seenUrls.has(normUrl(r.html_url))) return false;
-      if (seenTitles.some(t => similarity(t, `${r.name}：${r.description}`) >= 0.72)) return false;
-      return true;
-    });
+    cands = [...map.values()].filter(r => acceptRepo(r, seenUrls, seenTitles));
     log(`· 回溯 ${lookback} 天：候选 ${cands.length} 个`);
     if (cands.length >= 12) break;
+  }
+
+  // AI 池不够是历史上整轮放弃的主因（分类器天然偏硬件）。先补一轮 AI 专项查询再判断。
+  if (cands.filter(r => scoreKind(r) === 'ai').length < 5) {
+    const EXTRA = ['esp32 llm', 'esp32 voice assistant', 'esp32 whisper', 'esp32 tts', 'esp32 agent',
+      'esp32 tinyml', 'esp32 on-device ai', 'esp32 vision'];
+    const map = new Map(cands.map(r => [r.html_url, r]));
+    const since = daysAgo(LOOKBACK * 4);
+    for (const base of EXTRA) {
+      try {
+        const items = await searchRepos(`${base} created:>${since}`);
+        for (const it of items) if (!map.has(it.html_url)) map.set(it.html_url, it);
+      } catch (e) {
+        log(`  ! 补充搜索失败「${base}」：${e.message}`);
+      }
+    }
+    cands = [...map.values()].filter(r => acceptRepo(r, seenUrls, seenTitles));
+    log(`· AI 专项补齐后候选 ${cands.length} 个`);
   }
 
   if (cands.length < 10) {

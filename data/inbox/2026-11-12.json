@@ -1,0 +1,92 @@
+[
+ {
+  "kind": "hw",
+  "t": "UPS Pal：把只带 USB 口的 UPS 接进网络",
+  "d": "把只有 USB 调试口的 UPS 变成一台 NUT 服务器：板子跑 TCP 3493，群晖、Proxmox 都当成 upsd 直连。难点在 USB host，只有 S3 有；Tailscale 要 100KB 内存，得把 Wi-Fi 和 TLS 任务栈挪进 PSRAM。",
+  "hw": "ESP32-S3-WROOM-1-N16R8 自制板（16MB Flash / 8MB PSRAM），USB-A host 口带可切换限流供电",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/aronreid/ups-to-esp32"
+ },
+ {
+  "kind": "hw",
+  "t": "LE Audio 立体声：P4 加 C6 直连蓝牙耳机",
+  "d": "P4 和 C6 都没有 Classic Bluetooth，原厂 C6 控制器也不支持等时信道，作者自己在控制器上补了一层 CIS 链路层，P4 侧写 LE Audio 主机组件走 HCI。实测 LC3 48kHz、每声道 96kbit/s，15 分钟立体声丢包 0.016%。",
+  "hw": "M5Stack Tab5（ESP32-P4 + ESP32-C6 模块），一只支持 LE Audio 的耳机，实测 Galaxy Buds3 Pro",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/ernimen7/esp32-p4-c6-le-audio"
+ },
+ {
+  "kind": "hw",
+  "t": "Iron Man 护臂：用整条手臂当遥控器飞穿越机",
+  "d": "一只 ESP32 管住五路弯曲传感器、两块 BNO085 和 ExpressLRS 链路，手指弯曲当油门、手腕当摇杆，直接把 BetaFPV Air65 飞起来。护臂还带四片舵机装甲、掌心灯、双色激光和激光雷达，圆屏上实时复现手臂姿态。",
+  "hw": "ESP32 主板 + 2 块 BNO085 + 5 路弯曲传感器 + ExpressLRS 射频，一台 BetaFPV Air65",
+  "lv": "硬核",
+  "s": "GitHub",
+  "u": "https://github.com/TobyM-engineering/Iron-Man-Gauntlet-Mark-1"
+ },
+ {
+  "kind": "hw",
+  "t": "P4 Launcher：应用放 SD 卡，像 PC 一样装程序",
+  "d": "固件永久留在 flash，.papp 应用放 SD 卡，选中后读进 PSRAM、重定位、链上启动器服务再运行，不用重刷也不用重启。已有 22 个应用，从 NES 到 GBA、Neo Geo 模拟器和 Doom、Quake。代价是 ABI 仍是 2.0 预览版。",
+  "hw": "Guition ESP32-P4 4.3 寸 / JC1060P470C 7 寸 / M5Stack Tab5，一张 microSD 卡",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/giltal/ESP32_P4_Launcher"
+ },
+ {
+  "kind": "hw",
+  "t": "REDLINE：十块钱黄屏板做车载仪表盘",
+  "d": "给黄屏板写的赛车风仪表：转速条、车速、挡位、水温电压进气分栏、换挡灯与告警，三套配色在设备上直接切。局部刷新做到 60fps 无闪烁，抗锯齿字混进底图；数据可来自 OBD 蓝牙 ELM327、串口或自接传感器，设置存 NVS。",
+  "hw": "ESP32-2432S028R 黄屏板（2.8 寸），可选 ELM327 蓝牙 OBD 适配器",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/moomdate/redline-gauge"
+ },
+ {
+  "kind": "ai",
+  "t": "HachimoDock：把 AI 编码会话做成桌面宠物",
+  "d": "桌面端守着电脑里的编码会话，把思考、执行、等确认、报错推给一块 2.8 寸小屏，屏幕上的角色跟着换动作。按住按键说话，松手看草稿再确认发送。公开发行版不带服务 Key，语音和对话要自己填凭据，v1 与 v3 烧录包也还不能互刷。",
+  "hw": "ESP32-P4 + 2.8 寸 MIPI-DSI 屏（480×640），PCB 与 BOM 在 OSHWHub，一根 USB 线接电脑",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/ai-maker-lab/HachimoDock"
+ },
+ {
+  "kind": "ai",
+  "t": "BoopFace：给对话模型一张会做表情的脸",
+  "d": "把对话模型的思考、等待、完成、失败映射成表情，做成能直接嵌页面的 Web Component，纯 SVG 加原生 JS，零依赖。同一套资源也能烧进 ESP32、STM32 或 Pico，让网页和桌面小屏共用一张会变的脸。",
+  "hw": "任意带屏 ESP32 或 STM32 / Pico 板，也可以只当网页组件用",
+  "lv": "入门",
+  "s": "GitHub",
+  "u": "https://github.com/CX-ArtLab/BoopFace"
+ },
+ {
+  "kind": "ai",
+  "t": "unidex：墨水屏口袋系统，说话就记成笔记",
+  "d": "给微雪 ESP32-S3 1.54 寸墨水屏写的整套系统：首页倒计时下一节课，按住说话记语音笔记，再整理成 Markdown 丢进 Obsidian，说一句就能设提醒。两个按键加电池，闲置就睡；应用和插件用几行 Lua 写，浏览器里直接装。",
+  "hw": "微雪 ESP32-S3 1.54 寸墨水屏板（200×200），两个按键 + 电池",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/Forrest404/unidex"
+ },
+ {
+  "kind": "ai",
+  "t": "InkQuest：墨水屏掌机，故事由 Gemini 现写",
+  "d": "2.9 寸墨水屏配旋转编码器，做成一本能选分支的掌机。每回合把最近五段剧情和你的选择拼成 JSON 发给 Gemini，拿回新段落和四个选项，屏幕只刷变化区域，RGB 灯跟着气氛换色。闲置两分钟自动深睡。",
+  "hw": "XIAO ESP32-C3 + WeAct 2.9 寸墨水屏 + EC11 旋钮 + 603450 电池",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/Jeremy-Ngai-Sew-Poh/InkQuest-ESP32"
+ },
+ {
+  "kind": "ai",
+  "t": "bot-reborn：AI 玩具从接线到烧录的流水线",
+  "d": "把四块钱的循迹玩具改成会说话的机器人：旧手机当身体，电脑当大脑。工作台先在浏览器里模拟接线，点一下就替你给 ESP32 接上麦克风、喇叭和屏；口头指令由电脑上 0.8B 的反射模型应答，约 200 毫秒。",
+  "hw": "任意 ESP32 板 + 麦克风、I2S 喇叭、小屏，一台旧手机当脸",
+  "lv": "进阶",
+  "s": "GitHub",
+  "u": "https://github.com/beasaltfish/bot-reborn"
+ }
+]

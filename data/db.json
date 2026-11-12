@@ -1090,127 +1090,212 @@
    ]
   },
   {
+   "date": "2026-11-11",
+   "items": [
+    {
+     "id": "rotary-phones-aren-t-dead-yet-thanks-to-analog-redial-9984d17bfa99",
+     "kind": "hw",
+     "t": "Analog Redial：让转盘电话重新通上电话",
+     "d": "ESP32-C6 配 ES8388 编解码器，加一或两片 Silvertel AG1171 SLIC，给老话机补上拨号音、振铃和通话电流，两台话机不联网也能互打。还带答录机、网页配置和 SIP 注册。坑在电压：板上有 48V 直流与 60V 振铃，老式机械铃可能推不动。",
+     "hw": "ESP32-C6-DevKitC-1 + ES8388 编解码器 + 1~2 片 Silvertel AG1171 SLIC，单线板五片起约 37 美元",
+     "lv": "硬核",
+     "s": "Hackster",
+     "u": "https://www.hackster.io/news/rotary-phones-aren-t-dead-yet-thanks-to-analog-redial-9984d17bfa99"
+    },
+    {
+     "id": "flashduck",
+     "kind": "hw",
+     "t": "Flashduck：六舵机桌面鸭，关节角度交给模型填",
+     "d": "同套六舵机换副外壳就从人形变鸭子。ESP32-S3 上两套固件二选一：语音版接小智，DuckClaw 版跑端侧 Agent 走钉钉。动作不再写死成函数，模型按对话现场组合六个关节角度，拼出没预设过的姿态。摄像头可选，OV2640、OV3660、GC2145 自动识别。",
+     "hw": "ESP32-S3 板 + 官方六舵机套件 + 1.54 寸单眼屏，摄像头可选，外壳需 3D 打印",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FlashCat-Jordan/Flashduck"
+    },
+    {
+     "id": "squachwatch-cyd",
+     "kind": "hw",
+     "t": "SquachWatch：一块黄屏板嗅出周围的监控设备",
+     "d": "跑在黄屏板 CYD（ESP32-2432S028R）上，用 2.4GHz 收 WiFi 与 BLE 广播，比对 Flock 车牌相机、Axon 执法仪、盗卡器、AirTag、无人机等已知特征，命中就在 2.8 寸屏告警。全程只嗅探不干扰，想听 5GHz 得换 C5 版。",
+     "hw": "一块 ESP32-2432S028R 黄屏板即可，USB 供电，不用连电脑；5GHz 需 C5 版本",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/skizzophrenic/SquachWatch-CYD"
+    },
+    {
+     "id": "esp32-p4-imx-camera",
+     "kind": "hw",
+     "t": "IMX 摄像头驱动：把树莓派相机接到 P4 上",
+     "d": "官方传感器集缺 IMX219、IMX708 驱动，这个组件补上。IMX708 在 P4 板上五种模式全通，1080p 27.3fps 卡在编码器，720p 到 56fps，可录 H.264。坑是必须 ESP-IDF 5.5 以上，5.4 认不到 v3 芯片，IMX477 还没做。",
+     "hw": "Wireless-Tag WT9932P4-TINY 或任意带 MIPI-CSI 的 P4 板 + 树莓派相机模块，ESP-IDF ≥5.5",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/mushBrainDave/esp32-p4-imx-camera"
+    },
+    {
+     "id": "esp32-airplay2-surround",
+     "kind": "hw",
+     "t": "AirPlay 2 Surround：八块板拼出无线 7.1",
+     "d": "Apple TV 只看到一台 AirPlay 2 音箱，其实是网关板；它把 5.1 或 7.1 的 AAC 流转给最多八块音箱板，每块只解自己那个声道再喂功放。同步取自接入点时钟，实测每板 TSF 抖动约 4.5µs 均方根。代价是每只音箱一块 S3，EQ 和延时都得自己调。",
+     "hw": "一台网关 S3 板 + 每只音箱一块 S3 板（最多八块），外加各自的功放与喇叭",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/Kristian8606/esp32-airplay2-surround"
+    },
+    {
+     "id": "ito",
+     "kind": "ai",
+     "t": "Ito：五美元芯片上跑流式语音合成",
+     "d": "3.3M 参数模型全跑在 ESP32-S3 上，不联网也不用 NPU，文本归一化和音素化也搬进了芯片。125ms 一小块流式出音，文本到首块中位数 188.8ms，实时率 0.654。坑在供电：另一块板 3.3V 塌陷会挂死在双核模式，退回单路后实时率掉到 0.84。",
+     "hw": "ESP32-S3-DevKitC-1 N16R8（8MB PSRAM / 16MB flash）+ I2S 或 ES8388 输出，供电要稳",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/lokutor-ai/ito"
+    },
+    {
+     "id": "rp2040-and-esp32-ai",
+     "kind": "ai",
+     "t": "TinyLM on S3：2890 万参数塞进一块开发板",
+     "d": "28.9M 参数的 PLE TinyLM 跑在 ESP32-S3 上，权重放自定义 flash 分区运行时映射，热输出头与缓冲放 PSRAM。旁边 RP2040 只当串口 OLED 显示节点——它 264KB SRAM 无 PSRAM，作者试过，质量不够。另附模型导出与校验工具。",
+     "hw": "带 PSRAM 的 ESP32-S3 + 一块 RP2040 + 128×64 I2C OLED，模型要烧进自定义 flash 分区",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/chilly23/RP2040-and-ESP32-AI"
+    },
+    {
+     "id": "onlyclaws-esp",
+     "kind": "ai",
+     "t": "OnlyClaws：刷一次固件，之后让模型用 Lua 编它",
+     "d": "ESP32-S3 里跑一个 Lua 运行时，AI Agent 通过 HTTP 把脚本推下来，板子照做画图、发声、读传感器、抬机械臂，再把事件回传。脚本存 128KB LittleFS，带签名校验，起不来自动回滚上一版，掉电也能从 flash 恢复。板端不跑模型，控制面可自托管。",
+     "hw": "ESP32-S3 板（如 4.2 寸 RLCD 面板版），需 hosted 控制台账号或自行部署控制面",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/shinjiyu/onlyclaws-esp"
+    },
+    {
+     "id": "birdwatch",
+     "kind": "ai",
+     "t": "BirdWatch：太阳能喂鸟器，拍完让本地模型认鸟",
+     "d": "PIR 一动就醒，ESP32-CAM 拍一张上传后立刻深睡，INA219 顺手记电池与太阳能数据。服务端用 Docker 起 PostgreSQL，先跑 YOLO 判断有没有鸟，再分类到种，配网页看板和 Home Assistant 集成。识别不在板子上，得常年开一台服务器。",
+     "hw": "ESP32-CAM + AM312 类 PIR + INA219 + 太阳能板与电池，另需一台常开的 Docker 主机",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Danielson187/BirdWatch"
+    },
+    {
+     "id": "claudinho",
+     "kind": "ai",
+     "t": "Claudinho：给 Claude Code 的吉祥物一副身体",
+     "d": "一块带触摸屏的 ESP32 显示 Clawd，按 Claude 在做什么切状态：思考、调工具、等你、完成、报错，同时把 5 小时与 7 天两个窗口的用量画成环。数据只取自 Claude Code 的 hooks 和状态行，不碰账号凭证、不额外耗 token，电脑直连板子不经过云。",
+     "hw": "E32R28T 单板（S3 + 触摸屏）最省事，或 ESP32-C3 + Nextion 屏，外壳可 3D 打印",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/argeuthiesen/claudinho"
+    }
+   ]
+  },
+  {
    "date": "2026-11-12",
    "items": [
     {
-     "id": "20261112-esp-idf-injection-ng",
+     "id": "ups-to-esp32",
      "kind": "hw",
-     "t": "esp-idf-injection-ng：ESP-IDF下802.11帧注入工具，突破传输限制",
-     "d": "该工具在ESP-IDF v5+/v6+上实现原始802.11帧注入，通过objcopy命令弱化符号实现功能，突破Espressif的libnet80211.a库对传输帧类型的限制，支持多种帧类型注入，包括认证、去认证、重关联等，适用于ESP32等开发板。",
-     "hw": "一块 ESP32 开发板",
+     "t": "UPS Pal：把只带 USB 口的 UPS 接进网络",
+     "d": "把只有 USB 调试口的 UPS 变成一台 NUT 服务器：板子跑 TCP 3493，群晖、Proxmox 都当成 upsd 直连。难点在 USB host，只有 S3 有；Tailscale 要 100KB 内存，得把 Wi-Fi 和 TLS 任务栈挪进 PSRAM。",
+     "hw": "ESP32-S3-WROOM-1-N16R8 自制板（16MB Flash / 8MB PSRAM），USB-A host 口带可切换限流供电",
      "lv": "进阶",
      "s": "GitHub",
-     "u": "https://github.com/mahdamin/esp-idf-injection-ng",
-     "stars": 68,
-     "created": "2026-10-03"
+     "u": "https://github.com/aronreid/ups-to-esp32"
     },
     {
-     "id": "20261112-sdrpp-esp-sdr-source",
+     "id": "esp32-p4-c6-le-audio",
      "kind": "hw",
-     "t": "sdrpp-esp-sdr-source：ESP32-S3原生SDR++模块，实现USB直连",
-     "d": "为ESP32-S3开发的原生SDR++模块，无需额外桥接设备，通过USB直接传输IQ数据，支持高达250 kS/s的采样率，覆盖2204-2804 MHz频段，与HackRF One相比性能相当，为业余无线电爱好者提供强大的软件定义无线电体验。",
-     "hw": "ESP32-S3",
+     "t": "LE Audio 立体声：P4 加 C6 直连蓝牙耳机",
+     "d": "P4 和 C6 都没有 Classic Bluetooth，原厂 C6 控制器也不支持等时信道，作者自己在控制器上补了一层 CIS 链路层，P4 侧写 LE Audio 主机组件走 HCI。实测 LC3 48kHz、每声道 96kbit/s，15 分钟立体声丢包 0.016%。",
+     "hw": "M5Stack Tab5（ESP32-P4 + ESP32-C6 模块），一只支持 LE Audio 的耳机，实测 Galaxy Buds3 Pro",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/ernimen7/esp32-p4-c6-le-audio"
+    },
+    {
+     "id": "iron-man-gauntlet-mark-1",
+     "kind": "hw",
+     "t": "Iron Man 护臂：用整条手臂当遥控器飞穿越机",
+     "d": "一只 ESP32 管住五路弯曲传感器、两块 BNO085 和 ExpressLRS 链路，手指弯曲当油门、手腕当摇杆，直接把 BetaFPV Air65 飞起来。护臂还带四片舵机装甲、掌心灯、双色激光和激光雷达，圆屏上实时复现手臂姿态。",
+     "hw": "ESP32 主板 + 2 块 BNO085 + 5 路弯曲传感器 + ExpressLRS 射频，一台 BetaFPV Air65",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/TobyM-engineering/Iron-Man-Gauntlet-Mark-1"
+    },
+    {
+     "id": "esp32p4launcher",
+     "kind": "hw",
+     "t": "P4 Launcher：应用放 SD 卡，像 PC 一样装程序",
+     "d": "固件永久留在 flash，.papp 应用放 SD 卡，选中后读进 PSRAM、重定位、链上启动器服务再运行，不用重刷也不用重启。已有 22 个应用，从 NES 到 GBA、Neo Geo 模拟器和 Doom、Quake。代价是 ABI 仍是 2.0 预览版。",
+     "hw": "Guition ESP32-P4 4.3 寸 / JC1060P470C 7 寸 / M5Stack Tab5，一张 microSD 卡",
      "lv": "进阶",
      "s": "GitHub",
-     "u": "https://github.com/z2labs/sdrpp-esp-sdr-source",
-     "stars": 63,
-     "created": "2026-10-03"
+     "u": "https://github.com/giltal/ESP32_P4_Launcher"
     },
     {
-     "id": "20261112-esp-labs",
+     "id": "redline-gauge",
      "kind": "hw",
-     "t": "esp-labs：ESP32-S3学习实验室，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等模块",
-     "d": "ESP32-S3学习实验室，提供独立平台IO项目，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等功能，共享工具库，包含主机测试和配套应用，适合初学者学习。",
-     "hw": "ESP32-S3开发板",
+     "t": "REDLINE：十块钱黄屏板做车载仪表盘",
+     "d": "给黄屏板写的赛车风仪表：转速条、车速、挡位、水温电压进气分栏、换挡灯与告警，三套配色在设备上直接切。局部刷新做到 60fps 无闪烁，抗锯齿字混进底图；数据可来自 OBD 蓝牙 ELM327、串口或自接传感器，设置存 NVS。",
+     "hw": "ESP32-2432S028R 黄屏板（2.8 寸），可选 ELM327 蓝牙 OBD 适配器",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/moomdate/redline-gauge"
+    },
+    {
+     "id": "hachimodock",
+     "kind": "ai",
+     "t": "HachimoDock：把 AI 编码会话做成桌面宠物",
+     "d": "桌面端守着电脑里的编码会话，把思考、执行、等确认、报错推给一块 2.8 寸小屏，屏幕上的角色跟着换动作。按住按键说话，松手看草稿再确认发送。公开发行版不带服务 Key，语音和对话要自己填凭据，v1 与 v3 烧录包也还不能互刷。",
+     "hw": "ESP32-P4 + 2.8 寸 MIPI-DSI 屏（480×640），PCB 与 BOM 在 OSHWHub，一根 USB 线接电脑",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ai-maker-lab/HachimoDock"
+    },
+    {
+     "id": "boopface",
+     "kind": "ai",
+     "t": "BoopFace：给对话模型一张会做表情的脸",
+     "d": "把对话模型的思考、等待、完成、失败映射成表情，做成能直接嵌页面的 Web Component，纯 SVG 加原生 JS，零依赖。同一套资源也能烧进 ESP32、STM32 或 Pico，让网页和桌面小屏共用一张会变的脸。",
+     "hw": "任意带屏 ESP32 或 STM32 / Pico 板，也可以只当网页组件用",
      "lv": "入门",
      "s": "GitHub",
-     "u": "https://github.com/agharsallah/esp-labs",
-     "stars": 43,
-     "created": "2026-10-21"
+     "u": "https://github.com/CX-ArtLab/BoopFace"
     },
     {
-     "id": "20261112-inkquest-esp32",
-     "kind": "hw",
-     "t": "InkQuest-ESP32：互动式电子纸冒险游戏，开启无限故事之旅",
-     "d": "InkQuest 是一款基于 ESP32、电子纸显示屏和旋转编码器的互动式文字冒险设备。它由 Gemini 引擎驱动，生成无限的故事和选择。项目虽小，但技术亮点颇多，如精巧的便携设计和低功耗的电子纸显示屏，但同时也面临电池续航的挑战。",
-     "hw": "ESP32 开发板",
-     "lv": "进阶",
-     "s": "GitHub",
-     "u": "https://github.com/Jeremy-Ngai-Sew-Poh/InkQuest-ESP32",
-     "stars": 33,
-     "created": "2026-10-26"
-    },
-    {
-     "id": "20261112-airtile",
-     "kind": "hw",
-     "t": "Airtile：ESPHome智能家居空气质量监测器",
-     "d": "ESPHome智能家居平台打造的空气质量监测器，搭载4.2英寸电子纸显示屏，集成CO2、温度、湿度、VOC、NOx和光照等多功能传感器，通过3D打印外壳和定制PCB设计，实现数据实时显示，并具备智能刷新和暗光模式等特色功能。",
-     "hw": "ESP32-C3",
-     "lv": "进阶",
-     "s": "GitHub",
-     "u": "https://github.com/dbkcode331/Airtile",
-     "stars": 24,
-     "created": "2026-11-05"
-    },
-    {
-     "id": "20261112-wisp",
+     "id": "unidex",
      "kind": "ai",
-     "t": "Wisp：掌上全能Agent，动态构建应用无需编译",
-     "d": "Wisp是一款运行在ESP32上的掌上全能Agent，能够根据用户需求动态创建和修改应用，无需重新编译或连接电脑。它支持中文、日语和英语界面，通过简单的指令即可实现应用构建。然而，目前仅支持C语言开发，对于不熟悉C语言的用户来说可能存在一定的限制。",
-     "hw": "一块 ESP32 开发板",
+     "t": "unidex：墨水屏口袋系统，说话就记成笔记",
+     "d": "给微雪 ESP32-S3 1.54 寸墨水屏写的整套系统：首页倒计时下一节课，按住说话记语音笔记，再整理成 Markdown 丢进 Obsidian，说一句就能设提醒。两个按键加电池，闲置就睡；应用和插件用几行 Lua 写，浏览器里直接装。",
+     "hw": "微雪 ESP32-S3 1.54 寸墨水屏板（200×200），两个按键 + 电池",
      "lv": "进阶",
      "s": "GitHub",
-     "u": "https://github.com/ShouChenICU/Wisp",
-     "stars": 10,
-     "created": "2026-11-03"
+     "u": "https://github.com/Forrest404/unidex"
     },
     {
-     "id": "20261112-jax-stopwatch",
+     "id": "inkquest-esp32",
      "kind": "ai",
-     "t": "jax-stopwatch：手表变身AI语音助手，语音输入，Mac处理，结果播回手表",
-     "d": "Jax StopWatch 将M5Stack StopWatch手表变身AI语音助手，通过按住说话，Mac本地处理语音转文字，支持Codex或自定义Webhook助手，结果语音播回手表。支持多种提醒功能，可更换形象，无需刷机。但需注意，手表存储空间有限。",
-     "hw": "M5Stack StopWatch",
+     "t": "InkQuest：墨水屏掌机，故事由 Gemini 现写",
+     "d": "2.9 寸墨水屏配旋转编码器，做成一本能选分支的掌机。每回合把最近五段剧情和你的选择拼成 JSON 发给 Gemini，拿回新段落和四个选项，屏幕只刷变化区域，RGB 灯跟着气氛换色。闲置两分钟自动深睡。",
+     "hw": "XIAO ESP32-C3 + WeAct 2.9 寸墨水屏 + EC11 旋钮 + 603450 电池",
      "lv": "进阶",
      "s": "GitHub",
-     "u": "https://github.com/BTCUP99/jax-stopwatch",
-     "stars": 9,
-     "created": "2026-10-23"
+     "u": "https://github.com/Jeremy-Ngai-Sew-Poh/InkQuest-ESP32"
     },
     {
-     "id": "20261112-weedzap",
+     "id": "bot-reborn",
      "kind": "ai",
-     "t": "WeedZap：激光除草机器人，精准识别与切割杂草",
-     "d": "WeedZap是一款基于YOLO算法的激光除草机器人，利用摄像头和定制YOLO模型识别杂草，通过激光精准切割，无需化学药剂和人工拔除。项目从手动激光试验开始，逐步发展成小型机器人，并最终采用高功率激光进行除草。项目挑战在于高功率激光的使用和机器人定位的准确性。",
-     "hw": "一块 ESP32 开发板",
+     "t": "bot-reborn：AI 玩具从接线到烧录的流水线",
+     "d": "把四块钱的循迹玩具改成会说话的机器人：旧手机当身体，电脑当大脑。工作台先在浏览器里模拟接线，点一下就替你给 ESP32 接上麦克风、喇叭和屏；口头指令由电脑上 0.8B 的反射模型应答，约 200 毫秒。",
+     "hw": "任意 ESP32 板 + 麦克风、I2S 喇叭、小屏，一台旧手机当脸",
      "lv": "进阶",
      "s": "GitHub",
-     "u": "https://github.com/Nurasylpro/Weedzap",
-     "stars": 2,
-     "created": "2026-10-28"
-    },
-    {
-     "id": "20261112-stackchan-agent",
-     "kind": "ai",
-     "t": "stackchan-agent：赋予StackChan智能大脑，实现自主视觉、语音交互与动作控制",
-     "d": "为M5Stack CoreS3机器人提供固件、JSON CLI和本地语音代理，通过OpenAI兼容的视觉模型实现自主视觉、语音交互和动作控制。项目虽功能强大，但可能需要一定的编程基础。",
-     "hw": "M5Stack CoreS3",
-     "lv": "进阶",
-     "s": "GitHub",
-     "u": "https://github.com/onehumanbeing/stackchan-agent",
-     "stars": 2,
-     "created": "2026-11-05"
-    },
-    {
-     "id": "20261112-chakraa",
-     "kind": "ai",
-     "t": "chakraa：敲击鸣钵，房间变色",
-     "d": "ChakraA项目利用ESP32-S31开发板，通过麦克风捕捉鸣钵、音叉或哼唱的音调，无需AI即可检测出七轮能量中心，并同步改变房间内的灯光颜色。项目支持Philips Hue、Home Assistant等智能设备，但无需摄像头和云端服务，适合追求隐私的用户。",
-     "hw": "ESP32-S31",
-     "lv": "进阶",
-     "s": "GitHub",
-     "u": "https://github.com/leopardcodeai/chakraa",
-     "stars": 2,
-     "created": "2026-10-24"
+     "u": "https://github.com/beasaltfish/bot-reborn"
     }
    ]
   }
