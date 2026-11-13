@@ -1298,6 +1298,131 @@
      "u": "https://github.com/beasaltfish/bot-reborn"
     }
    ]
+  },
+  {
+   "date": "2026-11-13",
+   "items": [
+    {
+     "id": "20261113-esp-idf-injection-ng",
+     "kind": "hw",
+     "t": "esp-idf-injection-ng：ESP32 WiFi帧注入工具，突破限制实现全帧类型注入",
+     "d": "本项目为ESP-IDF v5+/v6+提供原始802.11帧注入功能，通过单命令objcopy --weaken-symbol补丁，实现认证、去认证、重关联、去关联和控制帧的注入，突破Espressif官方库对帧类型的限制，适用于ESP32开发。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mahdamin/esp-idf-injection-ng",
+     "stars": 72,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261113-sdrpp-esp-sdr-source",
+     "kind": "hw",
+     "t": "sdrpp-esp-sdr-source：ESP32-S3原生SDR++模块，实现USB直连",
+     "d": "为ESP32-S3开发的原生SDR++模块，无需额外桥接设备，即可通过USB直接将真实IQ数据传输至SDR++，支持高达250 kS/s的采样率，提供1 kHz步进频率选择，具备CRC和样本索引连续性检查功能。与HackRF One相比，性能相近但更便捷。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/z2labs/sdrpp-esp-sdr-source",
+     "stars": 63,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261113-owlos-flight-radar",
+     "kind": "hw",
+     "t": "OWLOS-FLIGHT-RADAR：家庭周边实时飞行雷达，浏览器即装即用",
+     "d": "OWLOS-FLIGHT-RADAR为ESP32开发板提供实时飞行雷达功能，支持CYD等显示屏，通过浏览器即可安装和设置。雷达显示周边飞机位置，支持ADS-B网络和Flightradar24数据源。功能丰富，但需要Flightradar24密钥才能访问部分数据。",
+     "hw": "ESP32开发板，CYD显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/KirinDenis/OWLOS-FLIGHT-RADAR",
+     "stars": 60,
+     "created": "2026-11-02"
+    },
+    {
+     "id": "20261113-esp-labs",
+     "kind": "hw",
+     "t": "esp-labs：ESP32-S3学习实验室，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等技能",
+     "d": "ESP32-S3学习实验室，提供独立平台IO项目，涵盖显示、Wi-Fi、RFID/NFC和蓝牙LE等技术，共享工具库，包含主机测试和配套应用，适合初学者学习。",
+     "hw": "ESP32-S3开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/agharsallah/esp-labs",
+     "stars": 45,
+     "created": "2026-10-21"
+    },
+    {
+     "id": "20261113-airtile",
+     "kind": "hw",
+     "t": "Airtile：ESPHome智能家居空气质量监测器",
+     "d": "基于ESPHome的智能家居空气质量监测器，采用4.2英寸电子纸显示屏，集成CO2、温度、湿度、VOC、NOx和光照等传感器数据，实现数据可视化。定制PCB和3D打印外壳，但需注意其刷新机制在低光照环境下可能不适用。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/dbkcode331/Airtile",
+     "stars": 24,
+     "created": "2026-11-05"
+    },
+    {
+     "id": "20261113-desk-buddy",
+     "kind": "ai",
+     "t": "desk-buddy：桌面小助手实时显示 Claude 会话状态",
+     "d": "Lump 是一款桌面小助手，采用 ESP32-S3 玻璃棱镜显示屏，实时展示 Claude 会话的进度。它能在 Claude Code 处理任务时工作，需要你注意时挥手示意，并在任务完成后庆祝。角落计数器显示正在处理、等待或已完成但未阅读的会话数量。制作过程中，3D 打印技术被用于构建外观，但可能需要一定的技术支持来确保打印质量。",
+     "hw": "ESP32-S3 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/joebentham/desk-buddy",
+     "stars": 12,
+     "created": "2026-11-12"
+    },
+    {
+     "id": "20261113-wisp",
+     "kind": "ai",
+     "t": "Wisp：掌上全能Agent，动态定制应用",
+     "d": "Wisp是一款运行在ESP32上的掌上全能Agent，可根据需求动态创建和修改应用，无需重新编译或连接电脑。它拥有轻量级的Lua应用框架，能实现即时响应和定制化开发。但需要注意的是，目前Wisp的硬件兼容性有限，可能需要特定型号的ESP32开发板。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ShouChenICU/Wisp",
+     "stars": 10,
+     "created": "2026-11-03"
+    },
+    {
+     "id": "20261113-jax-stopwatch",
+     "kind": "ai",
+     "t": "jax-stopwatch：随身语音助手，按住即发",
+     "d": "Jax StopWatch将M5Stack StopWatch圆屏手表变成随身AI语音入口。按住A键说话，Mac本地用MLX Whisper转文字，交给Codex或Webhook助手处理，结果语音播回。支持X提醒振动、形象切换。技术亮点：离线语音识别、加密连接、可定制形象。限制：需Mac设备，存储空间有限。",
+     "hw": "M5Stack StopWatch",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/BTCUP99/jax-stopwatch",
+     "stars": 9,
+     "created": "2026-10-23"
+    },
+    {
+     "id": "20261113-esp32-to-iphone",
+     "kind": "ai",
+     "t": "esp32-to-iphone：低成本实现iPhone自动化，AI Agent操控手机无需越狱",
+     "d": "通过ESP32-S3和MCP技术，实现低成本iPhone自动化，AI Agent可看图、点击、滑动、输入，无需越狱或开发者账号，但无法绕过系统安全边界。",
+     "hw": "ESP32-S3-DevKitC-1-N16R8",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Kz-Aven/esp32-to-iphone",
+     "stars": 8,
+     "created": "2026-10-18"
+    },
+    {
+     "id": "20261113-mac-monitor",
+     "kind": "ai",
+     "t": "mac-monitor：ESP32打造macOS硬件监控小助手",
+     "d": "ESP32搭载LVGL库，实时监控macOS硬件状态，包括CPU、内存、GPU、网络、磁盘和Claude Code使用情况，通过USB或蓝牙传输数据，无需打开活动监视器，节省屏幕空间。",
+     "hw": "ESP32-2432S028R",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fabioaspassos/mac-monitor",
+     "stars": 8,
+     "created": "2026-10-03"
+    }
+   ]
   }
  ],
  "legacy": [
