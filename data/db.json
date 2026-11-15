@@ -1548,6 +1548,131 @@
      "created": "2026-10-24"
     }
    ]
+  },
+  {
+   "date": "2026-11-15",
+   "items": [
+    {
+     "id": "20261115-amk-cyd-universal-tft",
+     "kind": "hw",
+     "t": "AMK_CYD_Universal_TFT：专为ESP32 CYD系列显示屏提供通用驱动解决方案",
+     "d": "为ESP32的CYD系列显示屏提供一站式驱动服务，无需配置，自动识别屏幕类型和分辨率，简化开发过程，解决不同型号显示屏配置复杂的问题。",
+     "hw": "ESP32 CYD系列显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/AungMoeKhine/AMK_CYD_Universal_TFT",
+     "stars": 15,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261115-marscarplay-box",
+     "kind": "hw",
+     "t": "marsCarplay-box：ESP32-S3实现CarPlay本地显示与触摸实验",
+     "d": "本仓库提供ESP32-S3-S3-BOX上的CarPlay本地显示与触摸实验，采用软件解码，支持无认证身份的stub，不包含web CarPlay和浏览器预览，适合硬件爱好者进行源码研究。",
+     "hw": "ATK-DNESP32S3-BOX，ESP32-S3，ST7789 I80屏幕，CHSC5432触控",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/EGsnn/marsCarplay-box",
+     "stars": 14,
+     "created": "2026-10-31"
+    },
+    {
+     "id": "20261115-techwithpi-smart-keychain-esp32c3",
+     "kind": "hw",
+     "t": "TechWithPi-Smart-Keychain-ESP32C3-：便携式智能钥匙扣，手机定制图片，长续航模式",
+     "d": "TechWithPi打造的ESP32-C3智能钥匙扣，配备OLED显示屏，可通过手机定制图片，并支持深度睡眠模式以延长电池寿命。无需应用，照片直接在浏览器中转换为128x64像素位图，但需注意，该设备可能对图片分辨率有一定限制。",
+     "hw": "ESP32-C3、0.96英寸SSD1306 OLED显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/TechWithPi/TechWithPi-Smart-Keychain-ESP32C3-",
+     "stars": 14,
+     "created": "2026-11-06"
+    },
+    {
+     "id": "20261115-kel6-tugasnodered-esp32",
+     "kind": "hw",
+     "t": "Kel6-TugasNodeRED-ESP32：基于MQTT协议的智能环境监测与控制",
+     "d": "本项目基于ESP32和Node-RED，实现了多房间环境监测与LED灯控制，采用MQTT协议确保数据传输可靠性，但硬件资源有限限制了更大规模应用。",
+     "hw": "ESP32开发板，DHT11传感器，LED灯",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/viefemm/Kel6-TugasNodeRED-ESP32",
+     "stars": 14,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261115-esp32-weather-forecast-screen",
+     "kind": "hw",
+     "t": "esp32_weather_forecast_screen：基于ESP32的触控式天气预报显示屏",
+     "d": "ESP32打造触控式桌面天气预报屏，实时显示天气及预报，支持多语言操作和感应唤醒，采用Rust编写固件，配备3D打印外壳及雷达感应器。",
+     "hw": "ESP32-WROOM-32E模块",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Damov/esp32_weather_forecast_screen",
+     "stars": 13,
+     "created": "2026-10-03"
+    },
+    {
+     "id": "20261115-lora-based-vanguard",
+     "kind": "ai",
+     "t": "LoRa-based-VANGUARD：工业物联网安全监测系统，实时预警隐患",
+     "d": "VANGUARD项目利用ESP32和多种传感器，实现工业环境实时监测，通过TinyML进行边缘AI分析，提供气体泄漏、火灾风险和空气质量预警。系统集成LoRa、SPIFFS、蓝牙和Web仪表盘，但需注意其集成复杂度。",
+     "hw": "ESP32、DHT22、MQ2、MQ135、LoRa模块",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/anlinjesoliet/LoRa-based-VANGUARD",
+     "stars": 6,
+     "created": "2026-10-05"
+    },
+    {
+     "id": "20261115-chihuahua-project-team-acima-lab",
+     "kind": "ai",
+     "t": "CHIHUAHUA-Project-Team-ACIMA-lab：AI赋能医疗伴侣，守护长者安全与健康",
+     "d": "CHIHUAHUA是一款基于WaveGo平台的开源AI机器人，由生物医学工程专业学生团队开发。它利用Raspberry Pi 4B和ESP32，通过实时监测、跌倒检测和自动提醒等功能，为老年人及患者提供全方位的医疗服务。技术亮点在于其高精度的跌倒检测和患者追踪，但需要考虑如何优化算法以提高准确率。",
+     "hw": "Raspberry Pi 4B, ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/iwta36/CHIHUAHUA-Project-Team-ACIMA-lab",
+     "stars": 5,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261115-lynx",
+     "kind": "ai",
+     "t": "lynx：AI驱动，ESP32-S3 Sense实现智能云台摄像头",
+     "d": "基于ESP32-S3 Sense的开放源代码云台摄像头，通过MCP和Home Assistant实现自动发现与控制，支持人脸追踪和自定义物体识别，仅需简单组装，即可实现智能监控。",
+     "hw": "ESP32-S3 Sense",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/alexnodeland/lynx",
+     "stars": 4,
+     "created": "2026-10-20"
+    },
+    {
+     "id": "20261115-jamiryo-desktop-buddy",
+     "kind": "ai",
+     "t": "jamiryo-desktop-buddy：桌面伙伴，精灵般的眼眸与互动体验",
+     "d": "ESP32-S3打造桌面伙伴，搭载OLED眼眸、伺服头、Gemini Live语音交互，与Home Assistant无缝对接。虽为原型，功能丰富，但需注意功能限制。",
+     "hw": "ESP32-S3、OLED、伺服模块、M5Stack AtomS3R-CAM",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ersan-oz/jamiryo-desktop-buddy",
+     "stars": 4,
+     "created": "2026-10-27"
+    },
+    {
+     "id": "20261115-acfield",
+     "kind": "ai",
+     "t": "acfield：多机器人协同控制测试平台",
+     "d": "ACField是一个开源的多机器人测试平台，支持多智能体控制。它使用Python开发，适用于ESP32等硬件，通过AprilTag定位和共享状态接口连接控制器。虽然目前处于开发预览阶段，但已提供工作软件和自动化检查，但实际应用仍需进一步测量。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/yaoqih/acfield",
+     "stars": 3,
+     "created": "2026-11-02"
+    }
+   ]
   }
  ],
  "legacy": [
