@@ -1673,6 +1673,131 @@
      "created": "2026-11-02"
     }
    ]
+  },
+  {
+   "date": "2026-11-16",
+   "items": [
+    {
+     "id": "20261116-rl-selfrisingrobot-stackforce",
+     "kind": "hw",
+     "t": "RL_SelfRisingRobot_StackForce：ESP32打造自恢复机器人，强化学习策略助其站立",
+     "d": "本项目利用ESP32、BNO055和MG90S舵机构建一个两轴自恢复机器人，通过强化学习策略实现机器人被推倒后自动站立。项目提供开源硬件、二进制固件、本地MuJoCo运行时和双语指南，适合有一定硬件基础的爱好者。",
+     "hw": "ESP32开发板，BNO055姿态传感器，MG90S舵机",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Deng-ge-open-source/RL_SelfRisingRobot_StackForce",
+     "stars": 13,
+     "created": "2026-11-07"
+    },
+    {
+     "id": "20261116-hud-audi-a4-b9-mlb-evo-waveshare-esp32-s",
+     "kind": "hw",
+     "t": "HUD-Audi-A4-B9-MLB-Evo-Waveshare-ESP32-S3-Touch-LCD-3.49：打造奥",
+     "d": "本项目利用Waveshare ESP32-S3-Touch-LCD-3.49打造奥迪A4 B9抬头显示，可显示车速、档位、巡航控制、限速、车道辅助、交通标志、转向灯、车门状态和导航箭头等实时车辆数据。数据通过I-CAN总线被动读取，不涉及任何数据传输。",
+     "hw": "Waveshare ESP32-S3-Touch-LCD-3.49",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/WARMW00D/HUD-Audi-A4-B9-MLB-Evo-Waveshare-ESP32-S3-Touch-LCD-3.49",
+     "stars": 12,
+     "created": "2026-10-05"
+    },
+    {
+     "id": "20261116-openswarm",
+     "kind": "hw",
+     "t": "OpenSwarm：轻量级零ROS框架，让ESP32轻松构建多机器人集群",
+     "d": "OpenSwarm是一个轻量级的Zero-ROS框架，允许资源受限的MCU（如ESP32、Arduino、RP2040）通过UDP无缝协调多机器人集群。它使用纯Python作为主控，MCU运行空循环。该框架简化了不同控制器机器人之间的硬件接口，支持在Python中构建机器人行为，无需为每个板子编写不同的应用。",
+     "hw": "一块ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/raihhann/OpenSwarm",
+     "stars": 11,
+     "created": "2026-11-04"
+    },
+    {
+     "id": "20261116-cornelius-satellite",
+     "kind": "hw",
+     "t": "cornelius-satellite：智能卫星音频系统，语音交互新体验",
+     "d": "基于ESP32-S3-AUDIO-Board开发，实现语音交互与智能对话，无需编译，一键连接，打造家庭智能语音助手。",
+     "hw": "Waveshare ESP32-S3-AUDIO-Board",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/lfpoulain/cornelius-satellite",
+     "stars": 11,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261116-sugarsense-display",
+     "kind": "hw",
+     "t": "sugarsense-display：血糖数据触手可及，ESP32打造免费第二屏",
+     "d": "Sugar Sense Display 是一款基于ESP32的免费开源血糖数据第二屏，通过Sugar Sense应用实时显示血糖读数、趋势箭头、变化、读数年龄和图表，夜间变身床头时钟。它需要Guition JC3248W535板和Sugar Sense应用，支持Wi-Fi连接，但并非医疗设备。",
+     "hw": "Guition JC3248W535板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/sugarsense/sugarsense-display",
+     "stars": 11,
+     "created": "2026-11-06"
+    },
+    {
+     "id": "20261116-bevel-os",
+     "kind": "ai",
+     "t": "bevel-os：基于ESP32的迷你Windows 95桌面操作系统",
+     "d": "Claude Fable 5.2 AI编写的迷你桌面操作系统，运行在ESP32-S3上，通过VGA显示器展示640x480分辨率，64色画面，支持窗口、任务栏、文件管理器等，内置Snake和Doom等应用，但受限于硬件性能。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/andrisgauracs/bevel-os",
+     "stars": 64,
+     "created": "2026-11-14"
+    },
+    {
+     "id": "20261116-tessera-deck",
+     "kind": "ai",
+     "t": "tessera-deck：DIY Stream Deck，ESP32-P4触摸屏打造开源宏盘",
+     "d": "基于GUITION 7英寸ESP32-P4触摸屏，打造开源宏盘替代品，支持Windows系统，无需焊接，通过拖拽编辑器设置，包含AI代理屏幕、实时PC仪表盘等功能，但仅支持Windows平台。",
+     "hw": "GUITION 7英寸ESP32-P4显示开发板（JC1060P470C）",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/catorendal-a11y/tessera-deck",
+     "stars": 12,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261116-gesturemirror",
+     "kind": "ai",
+     "t": "GestureMirror：实时模拟人手动作的视觉控制机械手",
+     "d": "该项目利用计算机视觉、机器学习和ESP32，将人的手势实时映射到机械手上。技术亮点在于将机器学习应用于硬件控制，但可能需要一定的编程基础。一个真实的限制是，目前只能识别开合手势。",
+     "hw": "ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Toaster-lab/GestureMirror",
+     "stars": 3,
+     "created": "2026-10-29"
+    },
+    {
+     "id": "20261116-mfix",
+     "kind": "ai",
+     "t": "MFix：AI辅助电子维修，语音指令，视觉识别，激光指引",
+     "d": "MFix项目利用ESP32开发板，通过语音描述问题，结合摄像头视觉识别和AI生成维修步骤，实现智能电子维修。技术亮点在于多模态AI辅助，但需要一定的编程基础。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/kuyono530rx-droid/MFix",
+     "stars": 3,
+     "created": "2026-10-04"
+    },
+    {
+     "id": "20261116-cenk-desktop-robot",
+     "kind": "ai",
+     "t": "cenk-desktop-robot：ESP32驱动，实现3D打印AI桌面机器人，集成语音交互与面部识别",
+     "d": "这款ESP32驱动的3D打印AI桌面机器人Cenk，集成了Gemini语音识别、ElevenLabs语音合成以及面部识别技术，可实现语音交互和表情表达。虽然功能丰富，但可能需要一定的编程基础来搭建和调试。",
+     "hw": "ESP32 DevKit, Waveshare 2\" ST7789V IPS TFT, SG90 servo",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Marcoss53/cenk-desktop-robot",
+     "stars": 2,
+     "created": "2026-10-13"
+    }
+   ]
   }
  ],
  "legacy": [
