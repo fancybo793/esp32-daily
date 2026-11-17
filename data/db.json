@@ -1798,6 +1798,131 @@
      "created": "2026-10-13"
     }
    ]
+  },
+  {
+   "date": "2026-11-17",
+   "items": [
+    {
+     "id": "20261117-maricha",
+     "kind": "hw",
+     "t": "maricha：ESP32-C5多设备仿真与按键注入框架",
+     "d": "Maricha是一款为ESP32-C5设计的轻量级无线安全研究和设备仿真固件，支持多种设备身份模拟，如Android TV、Apple TV、无线键盘、鼠标等，并可通过Web UI和串行CLI进行管理，无需编译，即插即用，但需注意其功能受限，如需更高级功能可能需要自行开发。",
+     "hw": "ESP32-C5",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/techchipnet/maricha",
+     "stars": 51,
+     "created": "2026-10-24"
+    },
+    {
+     "id": "20261117-esp32-cyd-resistive-display",
+     "kind": "hw",
+     "t": "ESP32-CYD-Resistive_display：支持多款ESP32触控显示屏",
+     "d": "为ESP32系列开发板提供触控显示屏驱动库，支持多种尺寸和类型的显示屏，简化了开发过程，但需注意兼容性问题。",
+     "hw": "ESP32-2432S028, ESP32-32E 2.8",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/chipguyhere/ESP32-CYD-Resistive_display",
+     "stars": 12,
+     "created": "2026-10-13"
+    },
+    {
+     "id": "20261117-esp-rtsp-stream",
+     "kind": "hw",
+     "t": "Esp-rtsp-stream：ESP32-S3/P4显示屏RTSP视频流播放组件",
+     "d": "该组件支持ESP32-S3或ESP32-P4开发板，可展示RTSP视频流，包括MJPEG和H.264格式，支持音频播放，但H.264解码需软件支持且仅限Baseline配置，不支持H.265。",
+     "hw": "ESP32-S3/ESP32-P4开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/chickymonkey/Esp-rtsp-stream",
+     "stars": 10,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261117-evil-mochi",
+     "kind": "hw",
+     "t": "Evil-Mochi：ESP32-C3打造多功能无线攻防利器",
+     "d": "Evil Mochi是一款基于ESP32-C3的多功能无线攻防固件，集Wi-Fi、蓝牙、红外功能于一身，配备0.96英寸OLED显示屏，内置游戏，界面友好，适合爱好者、开发者及安全研究人员探索无线技术。",
+     "hw": "ESP32-C3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/nnmeexplt/Evil-Mochi",
+     "stars": 10,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261117-inkwords",
+     "kind": "hw",
+     "t": "inkwords：ESP32-S3墨水屏背单词卡，AI编写代码",
+     "d": "墨词InkWords是一款基于ESP32-S3的墨水屏背单词卡，采用AI编写的代码，支持多种词库，通过TF卡更换，实现Leitner间隔复习功能，无需重新烧录，适合英语学习者。",
+     "hw": "ESP32-S3-ePaper-3.97开发板，TF卡",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ywfish-ops/inkwords",
+     "stars": 9,
+     "created": "2026-11-05"
+    },
+    {
+     "id": "20261117-esp32-ai-touch-doll",
+     "kind": "ai",
+     "t": "ESP32-AI-Touch-Doll：保姆级教程打造触觉娃娃",
+     "d": "保姆级教程，教你用ESP32和FSR402传感器制作触觉娃娃，包含全套源码和Operit插件，无需编程基础，轻松上手。",
+     "hw": "ESP32-S3-N16R8开发板，FSR402压力传感器",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/jiqin7/ESP32-AI-Touch-Doll",
+     "stars": 7,
+     "created": "2026-10-21"
+    },
+    {
+     "id": "20261117-circuitlab",
+     "kind": "ai",
+     "t": "circuitlab：打造互动电子学习新体验",
+     "d": "Circuit Lab 是一款开源的3D电子电路模拟器，支持Arduino、ESP32、Raspberry Pi等多种硬件，并集成AI电路控制功能。它提供丰富的电子元件和项目示例，适合电子爱好者及青少年学习电子设计，但需具备一定的电路基础知识。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/circuitlab-app/circuitlab",
+     "stars": 7,
+     "created": "2026-11-07"
+    },
+    {
+     "id": "20261117-ai-desk-display",
+     "kind": "ai",
+     "t": "ai-desk-display：桌面AI使用动画显示器",
+     "d": "将旧平板或触摸屏转化为Claude和Codex使用情况的动画展示，支持八个场景、本地渲染和ESP32触摸固件，提供AI友好定制化。技术亮点包括实时显示剩余配额、PC传感器读数和场景切换。真实限制：传感器可用性依赖硬件和操作系统，需额外显示设备。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/TonyRod116/ai-desk-display",
+     "stars": 5,
+     "created": "2026-10-22"
+    },
+    {
+     "id": "20261117-cheap-yellow-display-community",
+     "kind": "ai",
+     "t": "Cheap-Yellow-Display-Community：ESP32 CYD社区，汇聚各类显示项目",
+     "d": "ESP32 CYD社区汇聚了各种尺寸、变体的CYD显示项目，提供3D外壳、硬件修改和一键浏览器闪存的项目。社区涵盖教程和定制构建，支持者可解锁独家项目，包括未发布固件、3D CAD文件和早期访问构建。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/tushar2704/Cheap-Yellow-Display-Community",
+     "stars": 5,
+     "created": "2026-10-17"
+    },
+    {
+     "id": "20261117-stackchan-max",
+     "kind": "ai",
+     "t": "stackchan-max：桌面机器人，可更换面部，支持多种智能对话",
+     "d": "StackyChan 是一款为 M5Stack StackChan 桌面机器人定制的固件，支持面部更换、设备设置门户，并能连接 Claude 或 ChatGPT。基于 Go 语言开发，使用 LVGL 图形库，适合进阶开发者。",
+     "hw": "ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/pingywon/stackchan-max",
+     "stars": 2,
+     "created": "2026-10-05"
+    }
+   ]
   }
  ],
  "legacy": [
