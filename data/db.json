@@ -1923,6 +1923,131 @@
      "created": "2026-10-05"
     }
    ]
+  },
+  {
+   "date": "2026-11-18",
+   "items": [
+    {
+     "id": "20261118-mvg-abfahrtsdisplay-e290",
+     "kind": "hw",
+     "t": "MVG_Abfahrtsdisplay_E290：实时显示慕尼黑公交信息",
+     "d": "这是一个基于ESP32和Heltec Vision Master E290的E-Ink显示项目，专为慕尼黑公交设计。它实时显示公交信息，包括延误、取消和故障提示，支持过滤线路和方向。设置完全在浏览器中完成，无需编程知识。但需要稳定的网络连接和硬件配置，依赖MVG API的可用性。",
+     "hw": "Heltec Vision Master E290",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Fluddel94/MVG_Abfahrtsdisplay_E290",
+     "stars": 47,
+     "created": "2026-09-29"
+    },
+    {
+     "id": "20261118-esp32-xiaomi-air-purifier-matter",
+     "kind": "hw",
+     "t": "esp32-xiaomi-air-purifier-matter：为小米空气净化器3H/3C提供无云Matter固件",
+     "d": "为小米空气净化器3H和3C提供无云Matter固件，支持直接连接Matter网络，无需额外硬件，兼容多种智能家居平台，但需先备份原固件。",
+     "hw": "ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/psytraxx/esp32-xiaomi-air-purifier-matter",
+     "stars": 36,
+     "created": "2026-11-10"
+    },
+    {
+     "id": "20261118-agentcore-light",
+     "kind": "hw",
+     "t": "AgentCore-Light：开源桌面状态灯，可视化AI编码状态",
+     "d": "AgentCore-Light是一个开源的桌面状态灯项目，利用ESP32-C3和WS2812灯环、SSD1306 OLED等硬件，将Codex的工作状态和Token百分比直观地展示出来。项目旨在为用户提供一个简单易用的可视化工具，但可能需要一定的硬件焊接和编程基础。",
+     "hw": "ESP32-C3 Mini, WS2812 8灯环, SSD1306 OLED",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FPGAmaster-wyc/AgentCore-Light",
+     "stars": 23,
+     "created": "2026-05-28"
+    },
+    {
+     "id": "20261118-esphome-devices",
+     "kind": "hw",
+     "t": "esphome-devices：提供ESP32设备配置方案",
+     "d": "提供ESP32设备配置方案，包括语音助手、电子日历、触摸调光器、报警键盘、HUB75 LED矩阵和旋转拨盘控制器等，基于实际运行系统，提供真实使用反馈。",
+     "hw": "ESP32-P4、ESP32-C3、ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/gbroeckling/esphome-devices",
+     "stars": 22,
+     "created": "2026-08-03"
+    },
+    {
+     "id": "20261118-kel6-tugasnodered-esp32",
+     "kind": "hw",
+     "t": "Kel6-TugasNodeRED-ESP32：基于MQTT的智能环境监控系统",
+     "d": "开发了一套基于Node-RED和ESP32的智能环境监控系统，实现多房间环境参数实时监测和LED灯控制，技术亮点在于MQTT协议的应用，但需要优化代码以支持更多传感器。",
+     "hw": "ESP32开发板，DHT11传感器，LED灯",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fragcloud/Kel6-TugasNodeRED-ESP32",
+     "stars": 15,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261118-mindpaw",
+     "kind": "ai",
+     "t": "MindPaw：桌面四足机器狗，语音手势AI交互",
+     "d": "开源桌面四足机器狗，支持语音控制、手势识别、网页遥控、豆包人工智能对话与情感交互。技术亮点基于ESP8266微控制器，总物料成本低至¥50，全开源代码、电路图和3D打印文件。门槛需整合舵机、摄像头、语音模块等多种硬件，具备基础电子知识。",
+     "hw": "ESP8266 开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/ace-trump-tech/MindPaw",
+     "stars": 2779,
+     "created": "2026-05-26"
+    },
+    {
+     "id": "20261118-openharness",
+     "kind": "ai",
+     "t": "openharness：跨学科编程利器，ESP32助力无限可能",
+     "d": "为ESP32量身打造的开发利器，支持多学科编程，涵盖CAD、电路、机器人、游戏和音乐。TypeScript编写，功能强大，支持端到端加密，轻量级应用，但需注意硬件兼容性。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/autonomous-ai/openharness",
+     "stars": 1510,
+     "created": "2026-08-04"
+    },
+    {
+     "id": "20261118-sanotts",
+     "kind": "ai",
+     "t": "sanoTTS：超小参数神经网络语音合成",
+     "d": "sanoTTS是一款超小参数神经网络语音合成工具，支持在ESP32-S3等低成本微控制器上实时运行，无需云端或NPU支持，同时也可在浏览器中通过WebAssembly使用。它具有极低的延迟，但需要一定的编程基础来集成。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Ampixa/sanoTTS",
+     "stars": 848,
+     "created": "2026-07-11"
+    },
+    {
+     "id": "20261118-cursor-agent-status-light",
+     "kind": "ai",
+     "t": "cursor_agent_status_light：ESP32-C3打造Cursor Agent状态灯，AI编程状态一目",
+     "d": "CursorLight项目利用ESP32-C3和BLE技术，将红绿灯挂件改造成桌面状态灯，直观展示AI编程状态。项目亮点在于无需Wi-Fi，通过BLE接收指令，实现多种灯效，但需具备基础焊接技能。",
+     "hw": "ESP32-C3 SuperMini 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/JasonLam08/cursor_agent_status_light",
+     "stars": 264,
+     "created": "2026-05-25"
+    },
+    {
+     "id": "20261118-vibepulse",
+     "kind": "ai",
+     "t": "vibepulse：ESP32-S3 AMOLED助力 Claude Code & Codex，实时监控任务提醒",
+     "d": "ESP32-S3 AMOLED显示屏实时显示 Claude Code & Codex 配额、活动状态及紧急任务提醒，支持本地运行和可选加密中继。可选彩色 AMOLED 或环保纸质USB版，但纸版功能有限。",
+     "hw": "ESP32-S3 AMOLED显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/niclasvestlund-YT/vibepulse",
+     "stars": 221,
+     "created": "2026-08-12"
+    }
+   ]
   }
  ],
  "legacy": [
