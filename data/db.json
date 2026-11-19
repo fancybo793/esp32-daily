@@ -2048,6 +2048,131 @@
      "created": "2026-08-12"
     }
    ]
+  },
+  {
+   "date": "2026-11-19",
+   "items": [
+    {
+     "id": "20261119-popkastudio",
+     "kind": "hw",
+     "t": "PopkaStudio：在浏览器中设计ESP32手表屏幕，一键同步显示",
+     "d": "PopkaStudio是一个用于ESP32板屏幕界面的视觉编辑器，支持多种屏幕设计，包括圆形1.75英寸手表、7英寸ESP32-P4显示屏、方形4英寸面板以及社区贡献的3.5英寸WT32-SC01 Plus。用户可以拼凑手表表盘、应用和屏幕，如同在Figma中连接框架，按下加载按钮后，板子会运行用户制作的固件，流畅度可达每秒60帧。预览并非模型，而是编译成WebAssembly的板子自身代码，所见即所得，像素级同步显示。虽然功能强大，但",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/PopaSpinka/PopkaStudio",
+     "stars": 67,
+     "created": "2026-11-05"
+    },
+    {
+     "id": "20261119-hamster-wheel",
+     "kind": "hw",
+     "t": "hamster-wheel：桌面仓鼠轮，ESP32圆屏动画，3D打印组装，无需焊接编程",
+     "d": "这款桌面仓鼠轮采用ESP32和GC9A01圆屏，通过3D打印组件组装，无需焊接和编程即可实现仓鼠动画。项目简单易上手，适合入门级爱好者。",
+     "hw": "ESP32、GC9A01圆屏、3D打印组件",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/deadpohl/hamster-wheel",
+     "stars": 13,
+     "created": "2026-11-12"
+    },
+    {
+     "id": "20261119-xiao-147-voice-assistant",
+     "kind": "hw",
+     "t": "XIAO_147_Voice_Assistant：离线英文语音助手，LCD反馈显示",
+     "d": "基于ESP-IDF与ESP-SR，为XIAO ESP32-S3 Plus 1.47英寸屏幕板开发的离线英文唤醒与命令识别应用，无需网络和云账户，LCD界面直观反馈，但需注意与其他1.47英寸ESP板不自动兼容。",
+     "hw": "XIAO ESP32-S3 Plus 1.47英寸 JD9853A 显示板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/FaiyuetCik/XIAO_147_Voice_Assistant",
+     "stars": 12,
+     "created": "2026-09-16"
+    },
+    {
+     "id": "20261119-3ds-to-esp32",
+     "kind": "hw",
+     "t": "3ds-to-esp32：用任天堂3DS无线控制机器人，为乐趣而生。",
+     "d": "将任天堂3DS通过自制应用转换为无线控制器，读取物理按钮和圆形摇杆输入，通过WiFi发送到ESP32接入点。技术亮点包括ESP32作为AP和3DS自制应用通信。真实限制是需要构建并安装3DS应用，需Homebrew环境或CIA工具，安装过程复杂。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/robodude0395/3ds-to-esp32",
+     "stars": 11,
+     "created": "2026-06-05"
+    },
+    {
+     "id": "20261119-esp32-bike-nav-display",
+     "kind": "hw",
+     "t": "esp32-bike-nav-display：基于ESP32-S3的自行车导航显示屏，实现手机GPS数据流传输与高德地图",
+     "d": "本项目利用ESP32-S3开发板打造了一款240×240触摸显示屏的自行车导航仪，通过手机APP实现GPS数据流传输和高德地图导航，支持路线规划和实时导航。项目亮点在于使用LVGL库绘制地图和导航信息，但需要手机具备一定的性能以支持GPS数据流传输。",
+     "hw": "ESP32-S3开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/younes-makhchan/esp32-bike-nav-display",
+     "stars": 9,
+     "created": "2026-11-09"
+    },
+    {
+     "id": "20261119-cardputer-ai",
+     "kind": "ai",
+     "t": "cardputer-ai：ESP32-S3上运行的离线小型LLM聊天机器人",
+     "d": "ESP32-S3 Cardputer ADV上运行的Cardputer AI项目，实现了完全离线的LLM聊天机器人功能。它拥有8M参数，Q4权重预置在固件中，每秒处理约5个token。尽管内存有限，但Cardputer AI能够进行连贯的英语对话，回答问题并保持话题相关，即使在无网络连接的情况下也能工作。",
+     "hw": "ESP32-S3 Cardputer ADV",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/therezor/cardputer-ai",
+     "stars": 134,
+     "created": "2026-06-12"
+    },
+    {
+     "id": "20261119-esp32s3-distributed-ai",
+     "kind": "ai",
+     "t": "esp32s3-distributed-ai：基于ESP32-S3的分布式AI推理，实现56M参数LLM离线推断",
+     "d": "本项目在三个ESP32-S3板上实现了56M参数语言模型的分布式推理，采用ESP-NOW通信和Split-PLE + KV缓存技术，实现完全离线操作。但受限于单个板子的存储空间，模型分割部署成为一大挑战。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/wladimiravila/esp32s3-distributed-ai",
+     "stars": 120,
+     "created": "2026-07-30"
+    },
+    {
+     "id": "20261119-nucleoos",
+     "kind": "ai",
+     "t": "NucleoOs：打造ESP32-S3的桌面级Web操作系统",
+     "d": "NucleoOs为M5Stack Cardputer（ESP32-S3）打造了原生的固件和桌面级浏览器壳，集成离线AI助手、双语语音、游戏、安全实验室和OTA更新功能。尽管硬件资源有限，但NucleoOs依然实现了多应用操作系统的功能，但商业使用需付费授权。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/indecenti/NucleoOs",
+     "stars": 114,
+     "created": "2026-06-13"
+    },
+    {
+     "id": "20261119-tokpet",
+     "kind": "ai",
+     "t": "tokpet：AI使用情况桌面宠物",
+     "d": "Tokpet 是一款将所有AI服务使用情况统一展示的桌面宠物服务。它通过本地化服务将不同AI提供商的数据整合，并通过ESP32-S3设备上的圆形AMOLED屏幕实时显示，帮助用户直观了解自己的AI使用情况，避免超限。",
+     "hw": "ESP32-S3",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/grpcer/tokpet",
+     "stars": 106,
+     "created": "2026-05-28"
+    },
+    {
+     "id": "20261119-clawdmeter-plus",
+     "kind": "ai",
+     "t": "clawdmeter-plus：ESP32-S3驱动，AMOLED桌面显示，实时监控Claude Code使用情况及天气",
+     "d": "ESP32-S3驱动，AMOLED桌面显示，实时监控Claude Code使用情况、天气、后台代理健康状态，每日语音问候。基于开源项目Clawdmeter，提供简洁的桌面仪表盘，方便用户随时了解重要信息。",
+     "hw": "Waveshare ESP32-S3-Touch-AMOLED-2.16",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/sorryhumans/clawdmeter-plus",
+     "stars": 95,
+     "created": "2026-07-15"
+    }
+   ]
   }
  ],
  "legacy": [
