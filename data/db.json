@@ -2173,6 +2173,131 @@
      "created": "2026-07-15"
     }
    ]
+  },
+  {
+   "date": "2026-11-20",
+   "items": [
+    {
+     "id": "20261120-esp32-obd-display",
+     "kind": "hw",
+     "t": "ESP32-OBD-Display：基于ESP32-S3打造，实现OBD-II数据可视化",
+     "d": "为Astra J OPC定制开发，5寸触摸屏直观显示转速、速度、压力和温度等数据，通过BLE适配器连接OBD-II接口，支持车辆识别和错误代码读取。",
+     "hw": "Waveshare ESP32-S3-Touch-LCD-5B，ESP32-S3，Vgate iCar Pro 2S BLE",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ihmSelbst/ESP32-OBD-Display",
+     "stars": 9,
+     "created": "2026-11-09"
+    },
+    {
+     "id": "20261120-fluxface",
+     "kind": "hw",
+     "t": "FluxFace：实时电价可视化智能显示屏",
+     "d": "FluxFace是一款基于ESP32的智能LED显示屏，可实时可视化电价水平。它连接Wi-Fi，获取价格数据，同步时间，并根据配置的阈值点亮RGBW LED灯带，让您一目了然地了解电价高低。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mjarvisal/FluxFace",
+     "stars": 9,
+     "created": "2026-10-08"
+    },
+    {
+     "id": "20261120-halowatch",
+     "kind": "hw",
+     "t": "HaloWatch：基于ESP32-S3打造的高性能Wear OS风格手表固件",
+     "d": "为Waveshare ESP32-S3-Touch-AMOLED-1.75C定制开发，采用自研UI库Halo，实现60fps流畅动画，支持常亮时钟模式，功能丰富，体验接近Wear OS。",
+     "hw": "Waveshare ESP32-S3-Touch-AMOLED-1.75C",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/PopaSpinka/HaloWatch",
+     "stars": 9,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261120-catwandconnect",
+     "kind": "hw",
+     "t": "CatWandConnect：用ESP32打造互动猫玩具机器人",
+     "d": "CatWandConnect是一款开源的猫玩具机器人，利用ESP32驱动两个伺服电机控制玩具棒。它拥有独立的固件和Web界面，支持手机远程控制，无需安装应用，无需云服务，更可选配Home Assistant集成。项目支持3D打印，易于搭建，但需要一定的编程基础。",
+     "hw": "ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/vistorx/CatWandConnect",
+     "stars": 8,
+     "created": "2026-10-08"
+    },
+    {
+     "id": "20261120-cardboard-robot",
+     "kind": "hw",
+     "t": "cardboard-robot：ROS2驱动小纸壳机器人，实践节点通信与硬件桥接",
+     "d": "本项目通过ESP32-C3和MicroPython实现ROS2驱动的模块化小纸壳机器人，涵盖节点通信、话题订阅发布、服务调用等ROS2核心知识，同时提供硬件测试示例与接线说明，适合入门级ROS2学习者。",
+     "hw": "ESP32-C3",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/cisyam555/cardboard-robot",
+     "stars": 7,
+     "created": "2026-10-17"
+    },
+    {
+     "id": "20261120-esphome-waveshare-esp32-s3-audio-va",
+     "kind": "ai",
+     "t": "esphome-waveshare-esp32-s3-audio-va：基于ESPHome的智能家居语音卫星",
+     "d": "本项目为Waveshare ESP32-S3-AUDIO-Board打造，集成Home Assistant语音卫星功能，支持设备唤醒词、音乐和公告同时播放、语音定时器，以及可配置的RGB状态环。纯ESPHome配置，无需自定义固件，但需具备一定的ESPHome编程基础。",
+     "hw": "Waveshare ESP32-S3-AUDIO-Board",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/MichalZaniewicz/esphome-waveshare-esp32-s3-audio-va",
+     "stars": 94,
+     "created": "2026-07-17"
+    },
+    {
+     "id": "20261120-onnx-wakeword",
+     "kind": "ai",
+     "t": "onnx-wakeword：离线唤醒词检测，多语言支持",
+     "d": "开源离线唤醒词检测引擎，支持ONNX/TFLite，可在ESP32等设备上运行。多语言支持，可自定义唤醒词，无需上传音频，保护隐私。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/voicute/onnx-wakeword",
+     "stars": 94,
+     "created": "2026-05-30"
+    },
+    {
+     "id": "20261120-agent-buddy",
+     "kind": "ai",
+     "t": "agent-buddy：AI编程伙伴，桌面互动精灵",
+     "d": "Agent Buddy 是一款运行在 ESP32 设备或桌面上的动画桌面伙伴，它能展示你的 AI 编码代理的工作状态。与 Waveshare ESP32-S3-Touch-AMOLED-1.75-B 或 -C 或 ESP32-S3-Touch-AMOLED-2 配合使用，将你的设备变成一个能够根据你的 AI 编程代理工作状态进行反应的角色。当 GitHub Copilot、Claude Code、Codex、Grok Build、Her",
+     "hw": "Waveshare ESP32-S3-Touch-AMOLED-1.75-B / -C 或 ESP32-S3-Touch-AMOLED-2",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/DanWahlin/agent-buddy",
+     "stars": 74,
+     "created": "2026-09-11"
+    },
+    {
+     "id": "20261120-sanotts-jp",
+     "kind": "ai",
+     "t": "sanoTTS-jp：ESP32-S3上实现日本語TTS",
+     "d": "该项目在ESP32-S3上实现了559K参数的日本語TTS，支持形態素解析和アクセント推定，无需外部依赖，通过M5Stack CoreS3实现实时合成，但模型重量的使用受到用途限制。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ayutaz/sanoTTS-jp",
+     "stars": 71,
+     "created": "2026-08-27"
+    },
+    {
+     "id": "20261120-tsixom-watch-buddy-for-waveshare-esp32-s",
+     "kind": "ai",
+     "t": "Tsixom-Watch-Buddy-for-waveshare-esp32-s3-2.06-touch-amoled：",
+     "d": "这款固件让 Waveshare 2.06\" ESP32‑S3 Touch AMOLED 变身 AI 助手，支持语音录制、Speech‑to‑Text、OpenRouter 对话以及 Creative/Smart/Fast 三种模式。它自带双缓冲平滑动画引擎，无 LVGL，渲染速度快、无卡顿，并且通过 Wi‑Fi 站点配置，可存储三台网络。唯一的限制是需要联网以调用云端 AI，离线场景暂无方案。",
+     "hw": "Waveshare ESP32‑S3 Touch AMOLED 2.06\" 开发板",
+     "lv": "硬核",
+     "s": "GitHub",
+     "u": "https://github.com/Tsixom0/Tsixom-Watch-Buddy-for-waveshare-esp32-s3-2.06-touch-amoled",
+     "stars": 65,
+     "created": "2026-05-29"
+    }
+   ]
   }
  ],
  "legacy": [
