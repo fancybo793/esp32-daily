@@ -2298,6 +2298,131 @@
      "created": "2026-05-29"
     }
    ]
+  },
+  {
+   "date": "2026-11-21",
+   "items": [
+    {
+     "id": "20261121-simply-open-camper-victron-beta",
+     "kind": "hw",
+     "t": "simply-open-camper-victron-beta：简易露营车Victron显示解决方案",
+     "d": "本项目为简易露营车提供Victron系统及燃气监控的2.8英寸触摸显示屏，支持Cerbo GX通过WLAN和Victron设备、Truma LevelControl及Mopeka通过蓝牙直接连接，无需云服务，操作简便，仅需约15欧元。",
+     "hw": "ESP32-2432S028R",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/cyclemat/simply-open-camper-victron-beta",
+     "stars": 12,
+     "created": "2026-11-13"
+    },
+    {
+     "id": "20261121-ros2-android",
+     "kind": "hw",
+     "t": "ros2-android：将手机变身机器人机载ROS 2电脑",
+     "d": "ROS2 Android项目将Android手机转化为机器人的机载ROS 2计算机，运行原生ROS 2 Jazzy，无需root或容器。手机传感器作为话题发布，支持自定义节点，并与ESP32通过micro-ROS通信。技术亮点包括利用手机内置处理器、摄像头、运动传感器等硬件。限制在于需要Android手机支持，且配置micro-ROS可能有一定门槛。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/kishore-saravanan/ros2-android",
+     "stars": 7,
+     "created": "2026-10-24"
+    },
+    {
+     "id": "20261121-tab5-web-display",
+     "kind": "hw",
+     "t": "tab5-web-display：将M5Stack Tab5变身触控网页显示器",
+     "d": "本项目将M5Stack Tab5（ESP32-P4）打造成触控式网页显示器，通过PC上的无头Chromium浏览器和Tab5的硬件JPEG解码实现。内置仪表盘、时钟、笔记等功能，支持设备端WiFi设置。虽然功能丰富，但需要一定的编程基础。",
+     "hw": "M5Stack Tab5（ESP32-P4）",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/yejun/tab5-web-display",
+     "stars": 7,
+     "created": "2026-10-14"
+    },
+    {
+     "id": "20261121-googly-eyes",
+     "kind": "hw",
+     "t": "googly-eyes：ESP32-C3驱动240x240圆屏，实现眨眼、表情动画",
+     "d": "该项目使用ESP32-C3驱动两个240x240的GC9A01圆屏，实现眨眼、游动瞳孔、皱眉和多种趣味动画。虽然包含mmWave集成，但当前版本已禁用。硬件需求包括ESP32-C3 Super Mini、GC9A01圆屏模块和电源。",
+     "hw": "ESP32-C3 Super Mini，GC9A01圆屏模块",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ivannson/googly-eyes",
+     "stars": 7,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261121-crowpanel-ha",
+     "kind": "hw",
+     "t": "crowpanel-ha：将 9″ 触摸显示板变成语音助手墙面界面",
+     "d": "本固件基于 ESPHome，将 Elecrow CrowPanel Advanced 9\"（ESP32-P4）完整包装为 Home Assistant 的壁挂面板与语音助手。屏幕、触摸、背光、Wi‑Fi、扬声器和麦克风全部联通，依靠 ESPHome 的标准集成即可与 Home Assistant 通讯。通过检测唤醒词，麦克风将语音上传至 HA Assist，随后通过扬声器把答案读回。此项目最大的限制是需要在 1024×600 的 MIP",
+     "hw": "Elecrow CrowPanel Advanced 9\" (ESP32-P4)",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/vespassassina/crowpanel-ha",
+     "stars": 7,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261121-babytalk",
+     "kind": "ai",
+     "t": "babytalk：全离线语音交互，无需云服务",
+     "d": "BabyTalk 是一款为 ESP32-S3 或 ESP32-P4 设计的离线语音识别和语音合成系统，支持 Micropython 和 AtomVM。它拥有针对嘈杂环境的优化 STT 模型，并提供数据生成、现场捕捉和模型微调框架。然而，其语音到文本功能需要 6 MB 的闪存空间，这可能成为小型设备应用的限制。",
+     "hw": "ESP32-S3/ESP32-P4",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/tlack/babytalk",
+     "stars": 59,
+     "created": "2026-09-26"
+    },
+    {
+     "id": "20261121-vibe-pet",
+     "kind": "ai",
+     "t": "vibe-pet：AI 编码代理的硬件宠物伴侣",
+     "d": "Vibe Pet 是硬件桌面宠物项目，监视 AI 编码代理活动如思考、工具使用，转换为动画宠物并同步到 Wio Terminal 或 ESP32-S3。亮点包括多代理视图、桌面宠物拖动、蓝牙同步和角色切换。门槛是需要安装特定代理集成。",
+     "hw": "Wio Terminal 或 ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Seeed-Solution/vibe-pet",
+     "stars": 54,
+     "created": "2026-06-12"
+    },
+    {
+     "id": "20261121-immersive-vibration-response-skill",
+     "kind": "ai",
+     "t": "immersive-vibration-response-skill：AI驱动沉浸式震动反馈，提升互动体验",
+     "d": "面向互动游戏与具身智能，通过ESP32-S3蓝牙驱动低功率震动设备，实现异步震动反馈，增强玩家沉浸感与互动体验。需具备Python基础，并使用ESP32-S3开发板。",
+     "hw": "ESP32-S3开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ra1nyxin/immersive-vibration-response-skill",
+     "stars": 51,
+     "created": "2026-08-25"
+    },
+    {
+     "id": "20261121-kube32",
+     "kind": "ai",
+     "t": "kube32：为ESP32打造Kubernetes兼容控制平面与WebAssembly运行时",
+     "d": "kube32是一款为ESP32-S3和ESP32-S31微控制器设计的Kubernetes兼容控制平面和WebAssembly pod运行时。它支持通过Wi-Fi或USB串行管理集群，Pods由wasm3解释器执行。同一固件图像运行在每块板上，具有PSRAM的板作为控制平面运行本地kubelet，而无需PSRAM的板作为工作节点加入。然而，目前该项目仅支持特定型号的ESP32开发板。",
+     "hw": "ESP32-S3/ESP32-S31开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/arterialist/kube32",
+     "stars": 49,
+     "created": "2026-10-26"
+    },
+    {
+     "id": "20261121-esp32-tinyllm",
+     "kind": "ai",
+     "t": "esp32-tinyLLM：Rust重写，速度超越C实现",
+     "d": "ESP32-S3上运行的28.9M参数语言模型，Rust重写，速度比C实现快，仅25M参数驻留在SRAM中，其余4位量化，每秒生成10.50个token，但无法回答问题或执行指令。",
+     "hw": "ESP32-S3开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Bellman281/esp32-tinyLLM",
+     "stars": 48,
+     "created": "2026-08-02"
+    }
+   ]
   }
  ],
  "legacy": [
