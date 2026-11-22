@@ -2423,6 +2423,131 @@
      "created": "2026-08-02"
     }
    ]
+  },
+  {
+   "date": "2026-11-22",
+   "items": [
+    {
+     "id": "20261122-cyber-badge",
+     "kind": "hw",
+     "t": "cyber-badge：用ESP32-C3打造个人视频徽章",
+     "d": "ESP32-C3 Super Mini和1.69英寸TFT屏幕结合，循环播放个人视频，OLED显示屏展示姓名和滚动信息。内置特效，可连接运动传感器，体验动态效果。",
+     "hw": "ESP32-C3 Super Mini，1.69英寸TFT，OLED显示屏，LiPo电池",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/engineerdiaa/cyber-badge",
+     "stars": 55,
+     "created": "2026-10-25"
+    },
+    {
+     "id": "20261122-roboeyes-esp32-c3-emotion-display",
+     "kind": "hw",
+     "t": "RoboEyes-ESP32-C3-Emotion-Display：通过按钮切换表情的机器人眼睛显示",
+     "d": "RoboEyes项目将ESP32-C3 SuperMini、SH1106 OLED显示屏和按钮结合，实现动画机器人眼睛。通过按钮切换快乐、好奇、烦恼和悲伤表情，自动回到眨眼空闲模式。",
+     "hw": "ESP32-C3 SuperMini、128 × 64 SH1106 I²C OLED、按钮",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Yukiene404/RoboEyes-ESP32-C3-Emotion-Display",
+     "stars": 7,
+     "created": "2026-10-18"
+    },
+    {
+     "id": "20261122-sparkesp32",
+     "kind": "hw",
+     "t": "SparkESP32：为NVIDIA DGX Spark提供状态显示与电源指示",
+     "d": "SparkESP32项目为NVIDIA DGX Spark提供状态显示和电源指示功能，使用ESP32开发板和AMOLED显示屏，实现CPU、GPU负载、温度、功耗等信息实时显示，支持USB-C和Wi-Fi连接，无需网络设置，为系统监控提供直观的数据展示。",
+     "hw": "ESP32-C6 AMOLED",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/twidtwid/SparkESP32",
+     "stars": 7,
+     "created": "2026-11-21"
+    },
+    {
+     "id": "20261122-mini-gameboy",
+     "kind": "hw",
+     "t": "Mini-Gameboy：DIY ESP32复古游戏机，5款经典游戏，8位TFT显示屏",
+     "d": "基于ESP32开发模块和2.4英寸8位并行ILI9341 TFT显示屏，内置5款经典街机游戏，支持自定义显示设置和保存高分，但需注意使用3.3V电源。",
+     "hw": "ESP32开发模块，2.4英寸ILI9341 TFT显示屏，3个按键",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Yukiene404/Mini-Gameboy",
+     "stars": 7,
+     "created": "2026-10-15"
+    },
+    {
+     "id": "20261122-xabalancing",
+     "kind": "hw",
+     "t": "xabalancing：双电机平衡机器人，ESP32驱动，实现无线操控与实时PID调整",
+     "d": "这款开源ESP32自平衡机器人采用双NEMA 17步进电机，MPU6050运动感应，自定义PD+PI控制，通过定时器驱动电机脉冲。支持无线驾驶和通过网页界面进行实时PID调整。已在两种不同的机器人设计中进行了测试。项目难度适中，适合有一定硬件基础的爱好者尝试。",
+     "hw": "ESP32开发板、NEMA 17步进电机、MPU6050",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/xamechanics/xabalancing",
+     "stars": 6,
+     "created": "2026-11-11"
+    },
+    {
+     "id": "20261122-xiaochen-voice",
+     "kind": "ai",
+     "t": "xiaochen-voice：全离线家庭语音助手，端边协同秒级闭环",
+     "d": "基于ESP32-S3和香橙派边缘大脑，实现离线唤醒、语音控制家电、两级决策和自然对话的全离线家庭语音助手。技术亮点在于端边协同和全离线处理，但需要一定的编程基础。",
+     "hw": "ESP32-S3、香橙派4 Pro、ESP8266继电器",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/HBConline/xiaochen-voice",
+     "stars": 46,
+     "created": "2026-10-28"
+    },
+    {
+     "id": "20261122-esp32-android-agent",
+     "kind": "ai",
+     "t": "esp32-android-agent：本地Android视觉代理，ESP32 BLE/USB HID输入，ADB截图，",
+     "d": "本项目利用ESP32作为本地Android视觉代理，实现BLE/USB HID输入、ADB截图、浏览器工作台和可验证动作。无需Android伴侣应用或root权限，支持ADB控制模式预览功能。然而，目前仅支持英文/中文控制，可能对非英语用户造成限制。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/shenlan-ai/esp32-android-agent",
+     "stars": 40,
+     "created": "2026-10-12"
+    },
+    {
+     "id": "20261122-xiaozhi-pi-mochi",
+     "kind": "ai",
+     "t": "xiaozhi-pi-mochi：基于ESP32的麻薯聊天机器人，云端ASR，OLED表情动画，即装即用",
+     "d": "这款基于ESP32的xiaozhi-pi-mochi聊天机器人，采用云端ASR技术，无需编译，支持OLED表情动画，提供多种TTS和LLM选择，设备级性格定制，操作简单，适合入门级用户。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/hoorayman/xiaozhi-pi-mochi",
+     "stars": 33,
+     "created": "2026-06-11"
+    },
+    {
+     "id": "20261122-esp32-bluetooth-voice-agent",
+     "kind": "ai",
+     "t": "esp32-bluetooth-voice-agent：ESP32变身蓝牙语音助手，低成本实现语音交互",
+     "d": "本项目利用ESP32开发板，将其变身为一款蓝牙语音助手，通过连接手机或平板，实现语音交互功能。项目采用Go语言开发，支持与多种语音API集成，但需注意数据隐私问题。",
+     "hw": "ESP32开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/michaellee8/esp32-bluetooth-voice-agent",
+     "stars": 32,
+     "created": "2026-07-13"
+    },
+    {
+     "id": "20261122-aura-lily",
+     "kind": "ai",
+     "t": "aura-lily：桌面语音陪伴设备",
+     "d": "Aura Lily是一个开源桌面语音陪伴设备，基于ESP32-S3开发板，提供语音交互、角色状态管理和动态日程功能。技术亮点包括反射式屏幕显示、多语言支持和本地交互。限制是需要自托管服务端，并具备基本硬件配置能力。",
+     "hw": "Waveshare ESP32-S3-RLCD-4.2 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/norsizu/aura-lily",
+     "stars": 31,
+     "created": "2026-07-15"
+    }
+   ]
   }
  ],
  "legacy": [
