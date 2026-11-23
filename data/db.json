@@ -2548,6 +2548,131 @@
      "created": "2026-07-15"
     }
    ]
+  },
+  {
+   "date": "2026-11-23",
+   "items": [
+    {
+     "id": "20261123-phosphor",
+     "kind": "hw",
+     "t": "phosphor：复古桌面小物，多功能ESP32设备",
+     "d": "将Waveshare ESP32-S3-Touch-LCD-3.49显示屏变为复古桌面小物，集时钟、天气、网络收音机、计时器、像素场景等功能于一身，支持多种显示风格，安装简单，无需工具。",
+     "hw": "Waveshare ESP32-S3-Touch-LCD-3.49",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/melihkoray/phosphor",
+     "stars": 70,
+     "created": "2026-11-20"
+    },
+    {
+     "id": "20261123-spotify-deck-esp32",
+     "kind": "hw",
+     "t": "spotify-deck-esp32：便携式Spotify播放器，支持移动热点与电脑连接",
+     "d": "Spotify Deck-ESP32是一款便携式音乐播放器，采用ESP32微控制器和1.8英寸ST7735 SPI TFT屏幕，支持歌曲信息显示，包括歌名、艺术家、专辑封面等。设备可连接手机热点或家用Wi-Fi，也可通过USB连接电脑作为桌面伴侣，但需额外配置Python服务。",
+     "hw": "ESP32开发板，1.8英寸ST7735 SPI TFT屏幕",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/jayesh-cmd/spotify-deck-esp32",
+     "stars": 67,
+     "created": "2026-10-27"
+    },
+    {
+     "id": "20261123-airwriter",
+     "kind": "hw",
+     "t": "airwriter：轻松连接复古苹果打印机，实现现代设备打印",
+     "d": "AirWriter项目允许您通过AirPrint从现代设备打印到复古苹果打印机，或从复古Mac通过AppleTalk打印。只需五分钟设置，无需安装任何软件。支持彩色打印，兼容多种打印机，并支持从复古Mac或模拟器打印。硬件采用ESP32-S3，开源硬件，但需要准备相应的打印机、电缆和Wi-Fi。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/wr/airwriter",
+     "stars": 8,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261123-cute-desktop-robot",
+     "kind": "hw",
+     "t": "cute-desktop-robot：基于ESP32的桌面机器人，实现桌面和浏览器模拟，趣味十足",
+     "d": "这款基于ESP32的桌面机器人采用C++编写，拥有桌面仿真和浏览器仿真功能。它拥有丰富的表情和动画，能够跟随你的声音移动眼睛，并通过Gemini Live进行语音对话。虽然项目代码开源，但3D外壳模型受GPL-3.0协议限制。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/velxio/cute-desktop-robot",
+     "stars": 6,
+     "created": "2026-10-27"
+    },
+    {
+     "id": "20261123-alphapi-ones-4in1",
+     "kind": "hw",
+     "t": "AlphaPi-OneS-4in1：集成小智语音与多功能的桌面设备",
+     "d": "AlphaPi OneS 4in1 固件整合了小智语音助手、四款离线游戏、网络收音机、计时器等功能，支持ESP32-S2芯片，提供160x128显示屏和N32音频输出。该固件易于升级，支持手机网页后台管理，适合桌面使用。",
+     "hw": "ESP32-S2",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mastomato/AlphaPi-OneS-4in1",
+     "stars": 6,
+     "created": "2026-11-15"
+    },
+    {
+     "id": "20261123-deskhub",
+     "kind": "ai",
+     "t": "deskhub：打造桌面智能显示中心",
+     "d": "ESP32-S3-Touch-LCD-4.3B打造桌面显示中心，实时展示PC状态、日程、媒体信息，并可通过Windows伴侣软件控制，无需电脑开机即可显示时钟和天气。",
+     "hw": "ESP32-S3-Touch-LCD-4.3B",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/zacharyinserra/deskhub",
+     "stars": 99,
+     "created": "2026-11-17"
+    },
+    {
+     "id": "20261123-pytaichenko",
+     "kind": "ai",
+     "t": "pytaichenko：DIY AI语音助手，ESP32-S3唤醒词识别，与OpenAI实时交互",
+     "d": "本项目是一款DIY AI语音助手，基于ESP32-S3开发板，可识别唤醒词并与OpenAI实时API进行交互。项目包含3D打印外壳、焊接和组装步骤，固件可通过浏览器安装。虽然项目步骤详细，但对于焊接和组装有一定要求。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/feroxes/pytaichenko",
+     "stars": 10,
+     "created": "2026-10-31"
+    },
+    {
+     "id": "20261123-xiaozhi-meeting-recorder",
+     "kind": "ai",
+     "t": "xiaozhi-meeting-recorder：打造60分钟AI会议录音台，局域网断点续传，扫码查看纪要",
+     "d": "利用ESP32-S3开发板，实现60分钟会议录音，自动生成纪要，并通过二维码查看。支持Opus压缩和局域网断点续传，附赠AI避坑指南。",
+     "hw": "ESP32-S3（小智 xiaozhi-esp32）",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/ryanchenxr/xiaozhi-meeting-recorder",
+     "stars": 7,
+     "created": "2026-10-22"
+    },
+    {
+     "id": "20261123-xiaozhi-claude-pixel",
+     "kind": "ai",
+     "t": "xiaozhi-claude-pixel：为ESP32-S3带来个性化AI交互体验",
+     "d": "为立创实战派ESP32-S3开发板量身定制，小智AI资源包新增像素小怪表情和“你好 Claude”唤醒词，提升交互趣味性，需固件v2.5.2支持。",
+     "hw": "立创实战派 ESP32-S3 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/xiaomoBoy/xiaozhi-claude-pixel",
+     "stars": 7,
+     "created": "2026-10-13"
+    },
+    {
+     "id": "20261123-s3-ondevice-training",
+     "kind": "ai",
+     "t": "s3-ondevice-training：ESP32-S3芯片上训练神经网络",
+     "d": "本项目在ESP32-S3芯片上实现神经网络训练，无需电脑辅助，支持Adam优化算法，并具备双核信号分类器和声音识别功能，但受限于硬件性能，训练过程相对耗时。",
+     "hw": "ESP32-S3开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/andrisgauracs/s3-ondevice-training",
+     "stars": 7,
+     "created": "2026-11-22"
+    }
+   ]
   }
  ],
  "legacy": [
