@@ -2673,6 +2673,131 @@
      "created": "2026-11-22"
     }
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "items": [
+    {
+     "id": "20261124-beep",
+     "kind": "hw",
+     "t": "beep：粉红卫衣机器人，ESP32-S3显示屏表情",
+     "d": "3D打印机器人模型，粉红卫衣造型，搭载Waveshare ESP32-S3 AMOLED显示屏，实现表情互动，需自行打印和组装。",
+     "hw": "Waveshare ESP32-S3 AMOLED显示屏",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/softobsessing/beep",
+     "stars": 7,
+     "created": "2026-11-16"
+    },
+    {
+     "id": "20261124-esp32-audio-sugar",
+     "kind": "hw",
+     "t": "ESP32-Audio-Sugar：ESP32音频框架，打造个性化合成器引擎",
+     "d": "基于ESP32-S3的Arduino框架，支持MIDI控制乐器，提供音频传输、独立合成部分、效果、OLED界面和预设存储等功能，让自定义引擎专注于声音制作。无需样本文件或PSRAM，即可通过外部I2S DAC和USB输出立体声音频，但需要一定的编程基础。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/copych/ESP32-Audio-Sugar",
+     "stars": 6,
+     "created": "2026-10-24"
+    },
+    {
+     "id": "20261124-aiohttp",
+     "kind": "hw",
+     "t": "aiohttp：单文件异步客户端，跨平台运行，高效通信",
+     "d": "aiohttp是一个单文件异步HTTP和WebSocket客户端，支持CPython和MicroPython，可在PC调试后部署到ESP32。技术亮点包括单文件部署、超时机制、keep-alive和TLS优化。门槛是需要Python环境或ESP32硬件。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Tangerino/aiohttp",
+     "stars": 6,
+     "created": "2026-06-28"
+    },
+    {
+     "id": "20261124-py-apple-quadruped-robot-ai",
+     "kind": "hw",
+     "t": "py-apple-quadruped-robot-AI：基于强化学习，ESP32驱动四足机器人",
+     "d": "菠萝狗5开源四足机器人，采用强化学习训练运动策略，支持打印装配，ESP32主控部署，从搭建到训练一应俱全，入门级机器人爱好者也能轻松上手。",
+     "hw": "ESP32",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Deng-ge-open-source/py-apple-quadruped-robot-AI",
+     "stars": 5,
+     "created": "2026-11-15"
+    },
+    {
+     "id": "20261124-dumirror-robo",
+     "kind": "hw",
+     "t": "Dumirror_Robo：打造生动表情的DIY机器人",
+     "d": "Dumirror_Robo是一个开源Arduino库，支持在SSD1306 128×64 OLED显示屏上实现丰富的机器人表情和动画。它提供19种静态表情和10种非阻塞动画，支持自定义动画，并使用PROGMEM进行存储。虽然功能强大，但需要一定的编程基础来创建自定义动画。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/VIDAKHOSHPEY22/Dumirror_Robo",
+     "stars": 5,
+     "created": "2026-11-11"
+    },
+    {
+     "id": "20261124-lingxi-rehab-agent",
+     "kind": "ai",
+     "t": "lingxi-rehab-agent：融合多模态感知，助力脑卒中康复",
+     "d": "灵犀智伴项目基于ESP32-P4/S3，融合多模态感知、环境理解等技术，为脑卒中患者提供上肢康复训练。项目曾获国家级奖项，技术先进，但康复训练需持续进行，存在一定时间限制。",
+     "hw": "ESP32-P4, ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/weiwoking/lingxi-rehab-agent",
+     "stars": 41,
+     "created": "2026-11-17"
+    },
+    {
+     "id": "20261124-mcu-skills",
+     "kind": "ai",
+     "t": "mcu-skills：专为MCU开发量身定制的Claude Code技能库",
+     "d": "提供STM32、ESP32、ESP8266、RP2040/RP2350、nRF52和AVR等板型的嵌入式开发技能，简化了硬件知识查找，助力高效开发；但需具备一定的编程基础。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/alexex1993/mcu-skills",
+     "stars": 34,
+     "created": "2026-08-21"
+    },
+    {
+     "id": "20261124-esphome-audio-stack",
+     "kind": "ai",
+     "t": "esphome-audio-stack：实现ESP32全双工音频，支持唤醒词、语音助手和通话",
+     "d": "为ESP32-S3和ESP32-P4提供全双工音频解决方案，支持共享或独立I2S总线、TDM、AEC/AFE和回声消除麦克风音频，适用于唤醒词、语音助手和通话，无需额外硬件。",
+     "hw": "ESP32-S3、ESP32-P4",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/n-IA-hane/esphome-audio-stack",
+     "stars": 31,
+     "created": "2026-07-03"
+    },
+    {
+     "id": "20261124-home-assistant-voice-display",
+     "kind": "ai",
+     "t": "home-assistant-voice-display：Lumi，智能语音卫星，触控显示，家居自动化助手",
+     "d": "Lumi 是一款基于 ESP32-S3-Touch-AMOLED-1.75 的智能家居语音卫星设备，具备圆形 AMOLED 显示屏和触摸功能。通过 Home Assistant 完全控制，实现语音控制、状态显示、定时器等功能，但需注意其配置和设置相对复杂。",
+     "hw": "Waveshare ESP32-S3-Touch-AMOLED-1.75",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/mohoel/home-assistant-voice-display",
+     "stars": 28,
+     "created": "2026-08-12"
+    },
+    {
+     "id": "20261124-pana-companion",
+     "kind": "ai",
+     "t": "pana-companion：打造你的智能语音助手",
+     "d": "Pana项目将ESP32与Waveshare圆形显示屏结合，实现智能语音助手功能。通过Hermes Agent等AI代理，实现语音交互，实时显示操作过程。但需要具备一定的编程基础。",
+     "hw": "ESP32-S3 AMOLED 1.75",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/eriktaveras/pana-companion",
+     "stars": 28,
+     "created": "2026-10-27"
+    }
+   ]
   }
  ],
  "legacy": [
