@@ -2798,6 +2798,131 @@
      "created": "2026-10-27"
     }
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "items": [
+    {
+     "id": "20261125-esp-analogradio",
+     "kind": "hw",
+     "t": "ESP-AnalogRadio：打造便携式FM/AM/SSB无线电发射与接收",
+     "d": "本项目将ESP8266/ESP32开发板变身为一台FM/AM/SSB无线电发射与接收器，无需焊接，仅需ESP8266 D1 Mini和串口即可广播FM立体声，支持PCM 12位高保真音频，但需注意浏览器操作可能影响传输。",
+     "hw": "ESP8266 D1 Mini",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/kaboom748/ESP-AnalogRadio",
+     "stars": 72,
+     "created": "2026-11-07"
+    },
+    {
+     "id": "20261125-easypillv0",
+     "kind": "hw",
+     "t": "EasyPillV0：智能药盒，守护长辈用药安全",
+     "d": "EasyPillV0是一款基于XIAO ESP32-C3的智能药盒，通过霍尔传感器监测药盒盖子开启情况，实现用药提醒，并通过Web GUI和推送通知功能，让家人随时了解用药情况。项目虽小，但需考虑电池续航和实时时间同步等硬核问题。",
+     "hw": "XIAO ESP32-C3，霍尔传感器",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/MilosRasic98/EasyPillV0",
+     "stars": 51,
+     "created": "2026-11-06"
+    },
+    {
+     "id": "20261125-esp32s3-cam-pdx-datv-beacon",
+     "kind": "hw",
+     "t": "Esp32s3-cam-pdx-datv-beacon：单板集成DVB-S2电视信标与摄像头",
+     "d": "基于ESP32-S3相机板，实现13厘米波段DVB-S2业余电视信标，无需额外硬件，支持11种语言Web UI，集成了视频、MPEG-TS复用、DVB-S2编码等功能，但需外部混频器进行波段转换。",
+     "hw": "ESP32-S3相机板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Photoluis/Esp32s3-cam-pdx-datv-beacon",
+     "stars": 6,
+     "created": "2026-10-30"
+    },
+    {
+     "id": "20261125-jarvis-voice-assistant-freenove",
+     "kind": "hw",
+     "t": "jarvis-voice-assistant-freenove：基于Freenove ESP32-S3的智能家居语音卫星",
+     "d": "Freenove ESP32-S3 3.5英寸显示屏上运行的智能家居语音卫星，具备J.A.R.V.I.S. HUD设计，支持连续语音唤醒和动态主题定制，但需注意网络连接稳定性。",
+     "hw": "Freenove ESP32-S3 3.5\" Display (FNK0104N)",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Beast12/jarvis-voice-assistant-freenove",
+     "stars": 6,
+     "created": "2026-06-11"
+    },
+    {
+     "id": "20261125-wifi-csi",
+     "kind": "hw",
+     "t": "wifi-csi：无需摄像头，仅用WiFi即可感知人体",
+     "d": "ESP32-S3 WiFi卡通过读取2.4GHz频段信道状态信息（CSI）来感知人的存在、动作、呼吸、活动状态和3D定位，无需摄像头或可穿戴设备。技术亮点在于利用WiFi信号本身进行人体感知，但受限于单卡性能，3D定位的精度可能不高。",
+     "hw": "ESP32-S3 WiFi卡",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/sgpcard/wifi-csi",
+     "stars": 5,
+     "created": "2026-10-15"
+    },
+    {
+     "id": "20261125-aipi-lite-selfhost",
+     "kind": "ai",
+     "t": "aipi-lite-selfhost：摆脱云服务，打造独立语音助手",
+     "d": "本项目将AIPI Lite设备完全脱离厂商云服务，运行在用户自己的硬件上。通过本地化语音识别、语音合成和语言模型调用，打造一个无需订阅、无数据外泄的语音助手。但需要用户具备一定的硬件操作和服务器配置能力。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Heretikio/aipi-lite-selfhost",
+     "stars": 27,
+     "created": "2026-07-16"
+    },
+    {
+     "id": "20261125-esphome-esp32-s3-box-3-va",
+     "kind": "ai",
+     "t": "esphome-esp32-s3-box-3-va：基于LVGL和GT911触控屏的ESP32-S3-BOX-3语音助手",
+     "d": "为ESP32-S3-BOX-3打造，基于LVGL和GT911触控屏的Home Assistant语音助手，采用纯ESPHome构建，无需自定义固件，支持唤醒词、全双工音频、触控屏等功能，但资源占用较高。",
+     "hw": "ESP32-S3-BOX-3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/MichalZaniewicz/esphome-esp32-s3-box-3-va",
+     "stars": 27,
+     "created": "2026-07-18"
+    },
+    {
+     "id": "20261125-nucleoos-p4",
+     "kind": "ai",
+     "t": "NucleoOS-P4：打造ESP32-P4触控电脑",
+     "d": "NucleoOS-P4为Guition JC1060P470C ESP32-P4 7寸触控屏打造定制固件及操作系统，支持LVGL 9界面，内置应用商店，离线语音合成，提供丰富的应用和游戏，实现PC第二屏、智能家居控制等功能，但需具备一定的编程基础。",
+     "hw": "Guition JC1060P470C",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/indecenti/NucleoOS-P4",
+     "stars": 27,
+     "created": "2026-07-05"
+    },
+    {
+     "id": "20261125-vtts",
+     "kind": "ai",
+     "t": "vtts：全功能ESP32微控制器双语语音合成",
+     "d": "vtts项目实现了在ESP32-P4和ESP32-S3上运行的微型多语言语音合成，支持单语言和双语语音，无需云服务或网络，无需Linux操作系统。它集成了文本归一化、发音、int8神经网络语音和声码器等功能，运行在1.2–2.6 MB的闪存空间内，在ESP32-P4、ESP32-S3和ESP32-S3上能实现实时语音输出。然而，由于其资源占用较大，可能对一些资源受限的设备构成挑战。",
+     "hw": "ESP32-P4, ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/tuanpmt/vtts",
+     "stars": 27,
+     "created": "2026-11-15"
+    },
+    {
+     "id": "20261125-pyble",
+     "kind": "ai",
+     "t": "PyBLE：基于蓝牙低能耗的MicroPython开发环境",
+     "d": "PyBLE是一个开源的、以平板电脑为主的MicroPython IDE，通过蓝牙低能耗（BLE）协议，实现便携式固件代理和浏览器固件刷写。它无需USB串行连接、Wi-Fi配置、云账户或遥测，即可在兼容的微控制器板上编辑、传输、运行和停止MicroPython程序。然而，目前仅支持iOS和Android平台，限制了跨平台开发的应用。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/PyBLE-dev/PyBLE",
+     "stars": 26,
+     "created": "2026-07-30"
+    }
+   ]
   }
  ],
  "legacy": [
