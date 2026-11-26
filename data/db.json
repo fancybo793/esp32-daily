@@ -2923,6 +2923,131 @@
      "created": "2026-07-30"
     }
    ]
+  },
+  {
+   "date": "2026-11-26",
+   "items": [
+    {
+     "id": "20261126-civswitch-serialbridge",
+     "kind": "hw",
+     "t": "CivSwitch-SerialBridge：通过ESP32实现Nintendo Switch的USB串行桥接",
+     "d": "本桥接器利用ESP32将CivSwitch的payload发送至Nintendo Switch，无需将PC连接至同一Wi-Fi网络。ESP32创建独立Wi-Fi网络，Switch连接后，PC通过USB串行与ESP32通信，ESP32再将payload通过TCP转发至Switch。解决了PC与Switch网络隔离的问题。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/jackspence7/CivSwitch-SerialBridge",
+     "stars": 57,
+     "created": "2026-11-07"
+    },
+    {
+     "id": "20261126-oui-spy-recon-app",
+     "kind": "hw",
+     "t": "oui-spy-recon-app：手机地图实时监测周边设备",
+     "d": "OUI SPY Recon App是一款用于监测周边无人机、追踪器、摄像头等无线电设备的手机应用。它支持Android和macOS系统，未来还将支持Linux。通过该应用，用户可以在手机上实时查看周边设备的位置，并利用ESP32开发板进行数据采集。需要注意的是，目前该应用尚未支持Linux系统。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/colonelpanichacks/oui-spy-recon-app",
+     "stars": 49,
+     "created": "2026-11-24"
+    },
+    {
+     "id": "20261126-nm-cyd-c5",
+     "kind": "hw",
+     "t": "NM-CYD-C5：ESP32-C5黄屏开发板，双频Wi-Fi 6/蓝牙5/Thread/ Zigbee支持",
+     "d": "基于ESP32-C5的NM-CYD-C5黄屏开发板，内置2.8英寸TFT LCD触摸屏，支持双频Wi-Fi 6/蓝牙5/Thread/ Zigbee，兼容ESP32-Cheap-Yellow-Display，但需注意其内存容量限制。",
+     "hw": "ESP32-C5-WROOM-1，2.8英寸TFT LCD，ST7789驱动",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/RockBase-lab/NM-CYD-C5",
+     "stars": 7,
+     "created": "2026-11-09"
+    },
+    {
+     "id": "20261126-signalsweep-cyd",
+     "kind": "hw",
+     "t": "SignalSweep-CYD：便携式被动式反监控扫描仪，支持Wi-Fi和BLE信号检测",
+     "d": "SignalSweep-CYD是一款基于ESP32的便携式被动式反监控扫描仪，能够检测蓝牙LE和Wi-Fi信号，识别包括ALPR摄像头、身体摄像头、个人追踪器和远程ID无人机在内的监控设备。它具有触摸式用户界面和深度设备分析功能，但扫描过程中不发送信号，也不尝试解密任何内容。目前项目处于活跃开发状态，5GHz频段覆盖和扫描调度器等功能仍在开发中。",
+     "hw": "Seeed XIAO ESP32-C5、CYD显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/pbarsamian/SignalSweep-CYD",
+     "stars": 5,
+     "created": "2026-10-16"
+    },
+    {
+     "id": "20261126-esp32-usb-cd-player",
+     "kind": "hw",
+     "t": "esp32_usb_cd_player：ESP32打造便携式CD播放器，支持USB光驱和PCM510x DAC",
+     "d": "本项目将USB光驱连接至ESP32-S3/P4的USB Host端口，通过PCM510x DAC播放音频CD，并支持显示曲目信息及网络交互。目前支持LilyGO T-Display S3、Guition JC1060P470-V2等板子，但硬件按钮控制尚未实现。",
+     "hw": "ESP32-S3/P4、PCM510x DAC",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/kilrah/esp32_usb_cd_player",
+     "stars": 5,
+     "created": "2026-11-08"
+    },
+    {
+     "id": "20261126-huakuo-valorant-yolo-aim-helper",
+     "kind": "ai",
+     "t": "huakuo-valorant-yolo-aim-helper：实时闭环瞄准助手，突破视觉瞄准难题",
+     "d": "本项目为实时闭环瞄准助手，利用捕获卡、YOLO/ONNX检测、卡尔曼滤波等技术，实现屏幕目标实时追踪与控制。技术亮点在于将视觉瞄准问题转化为可测量、可回放、可回归的实时控制问题，但需注意，该项目仅供学习和研究使用，禁止在竞技或排位环境中使用。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/HuaTechnology/huakuo-valorant-yolo-aim-helper",
+     "stars": 13,
+     "created": "2026-11-22"
+    },
+    {
+     "id": "20261126-serialbot",
+     "kind": "ai",
+     "t": "serialbot：AI操作串口，简化嵌入式硬件验证流程",
+     "d": "serialbot 是一款轻量级的跨平台串口调试助手，内置 MCP 服务，允许 AI 代理直接操作串口进行固件烧录、读取日志和验证。它解决了嵌入式硬件验证流程中的人工干预问题，但当前处于测试阶段，功能尚不完善。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/jerry-token/serialbot",
+     "stars": 13,
+     "created": "2026-11-17"
+    },
+    {
+     "id": "20261126-hachimodock-minimind-esp32p4",
+     "kind": "ai",
+     "t": "hachimodock-minimind-esp32p4：打造离线AI桌面宠物",
+     "d": "本项目将HachimoDock桌面宠物、MiniMind模型与ESP32-P4结合，实现完全离线AI功能。通过自研模型训练、LoRA微调和量化，将模型压缩至28.6MB，在ESP32-P4上运行。但受限于ESP32-P4的内存容量，模型压缩后可能影响性能。",
+     "hw": "ESP32-P4",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/KAYOYAK/hachimodock-minimind-esp32p4",
+     "stars": 6,
+     "created": "2026-11-01"
+    },
+    {
+     "id": "20261126-weedzap",
+     "kind": "ai",
+     "t": "WeedZap：激光除草机器人，精准识别与除害",
+     "d": "WeedZap是一款基于YOLO算法的激光除草机器人，通过摄像头和定制YOLO模型识别杂草，使用激光精准烧毁。项目从手动激光试验开始，逐步发展到小型机器人，并最终采用高功率激光器。项目亮点在于精准识别和高效除害，但高功率激光器的使用需要谨慎。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Nurasylpro/Weedzap",
+     "stars": 2,
+     "created": "2026-10-28"
+    },
+    {
+     "id": "20261126-stackchan-agent",
+     "kind": "ai",
+     "t": "stackchan-agent：赋予 StackChan 智慧之眼，语音交互与自主行动",
+     "d": "为 M5Stack CoreS3 机器人打造智能大脑，集成摄像头、语音识别、头部和 STS 伺服臂，支持 OpenAI 兼容视觉模型。项目包含固件、JSON CLI 和本地语音代理，但需具备一定的编程基础。",
+     "hw": "M5Stack CoreS3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/onehumanbeing/stackchan-agent",
+     "stars": 2,
+     "created": "2026-11-05"
+    }
+   ]
   }
  ],
  "legacy": [
