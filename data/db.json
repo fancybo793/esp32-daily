@@ -3048,6 +3048,131 @@
      "created": "2026-11-05"
     }
    ]
+  },
+  {
+   "date": "2026-11-27",
+   "items": [
+    {
+     "id": "20261127-open-airzone-gateway",
+     "kind": "hw",
+     "t": "Open-Airzone-Gateway：替代Airzone云服务器，实现本地Home Assistant控制",
+     "d": "本项目为开源ESP32替代Airzone云服务器，通过MQTT协议实现本地Home Assistant控制，无需云服务、订阅和互联网连接。硬件仅需Waveshare ESP32-S3板和一根螺丝插头，无需编程和焊接，但需自行编译源码。",
+     "hw": "Waveshare ESP32-S3板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/letherman255/Open-Airzone-Gateway",
+     "stars": 6,
+     "created": "2026-11-15"
+    },
+    {
+     "id": "20261127-yoto-v3-teardown",
+     "kind": "hw",
+     "t": "yoto-v3-teardown：Yoto Player V3拆解，探索定制固件与音频播放",
+     "d": "深入拆解Yoto Player V3，揭示其使用定制固件实现音频播放，并分析AW88194智能放大器的工作原理。项目涉及Arduino草图编写，但需注意，固件更新和DSP数据包的使用受限。",
+     "hw": "ESP32",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/iamearlgrey/yoto-v3-teardown",
+     "stars": 5,
+     "created": "2026-11-02"
+    },
+    {
+     "id": "20261127-fabgl2",
+     "kind": "hw",
+     "t": "FabGL2：ESP32变身复古电脑平台",
+     "d": "FabGL2为ESP32提供图形、音频、输入和终端库，支持VGA和复合视频输出、PS/2键盘鼠标输入、多声道音频引擎、GUI、精灵游戏引擎、ANSI/VT终端和CPU模拟器。它要求ESP-IDF v6.1或更高版本，不再依赖Arduino。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fdivitto/FabGL2",
+     "stars": 5,
+     "created": "2026-11-24"
+    },
+    {
+     "id": "20261127-esp32-septic-tank-sensor",
+     "kind": "hw",
+     "t": "ESP32-Septic-Tank-Sensor：利用ESP32和ESP-NOW技术实现无线化化粪池液位监测",
+     "d": "本项目通过ESP32和ESP-NOW技术，实现无线化粪池液位监测，具有太阳能供电、电池备份、触控显示等功能。使用JSN-SR04T超声波传感器进行液位测量，并通过ESP-NOW进行数据传输，无需路由器即可实现远程监控。但项目对传感器安装位置和深度有一定要求。",
+     "hw": "一块 ESP32 开发板，JSN-SR04T超声波传感器，2.8英寸触控显示屏",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Lucas85PL/ESP32-Septic-Tank-Sensor",
+     "stars": 5,
+     "created": "2026-11-03"
+    },
+    {
+     "id": "20261127-esphome-runtime-controller",
+     "kind": "hw",
+     "t": "esphome-runtime-controller：协调语音助手、媒体、VoIP通话和定时器，实现共享优先级控制",
+     "d": "ESPHome runtime state controller，通过协调语音助手、媒体、VoIP通话和定时器，实现显示、LED和音频控制的共享优先级。解决音乐播放时来电，LED显示通话状态，但设备仍需记住音乐播放状态的问题。无需替换官方ESPHome组件，即可实现音频、通话和硬件的统一管理。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/n-IA-hane/esphome-runtime-controller",
+     "stars": 5,
+     "created": "2026-07-03"
+    },
+    {
+     "id": "20261127-smarthome-ai",
+     "kind": "ai",
+     "t": "SmartHome-AI：基于Python、OpenCV和MediaPipe的智能家居交互系统",
+     "d": "SmartHome-AI项目整合了AI、计算机视觉和嵌入式系统，支持STM32/ESP32和物联网集成，实现实时手部追踪和手势控制，但需注意其依赖较多，对开发环境有一定要求。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/n7082485-blip/SmartHome-AI",
+     "stars": 26,
+     "created": "2026-07-23"
+    },
+    {
+     "id": "20261127-meowtion",
+     "kind": "ai",
+     "t": "meowtion：智能监测猫咪健康的好帮手",
+     "d": "meowtion项目通过智能猫项圈监测猫咪的饮食习惯、活动、休息和咕噜声，利用设备上的AI技术实时分析，及时发现猫咪健康变化，帮助主人早发现疾病。项目采用ESP32作为核心，但缺乏详细的硬件信息，可能存在硬件兼容性问题。",
+     "hw": "ESP32",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/Jerome-Graves/meowtion",
+     "stars": 25,
+     "created": "2026-06-24"
+    },
+    {
+     "id": "20261127-esp32-s3-box-3-voice",
+     "kind": "ai",
+     "t": "ESP32-S3-BOX-3-Voice：打造智能家居语音控制中心",
+     "d": "为ESP32-S3打造智能家居语音控制解决方案，集成Home Assistant语音功能，入门级用户即可轻松上手，但需注意兼容性限制。",
+     "hw": "ESP32-S3开发板",
+     "lv": "入门",
+     "s": "GitHub",
+     "u": "https://github.com/derekmcauley7/ESP32-S3-BOX-3-Voice",
+     "stars": 23,
+     "created": "2026-08-16"
+    },
+    {
+     "id": "20261127-forrest-notes",
+     "kind": "ai",
+     "t": "forrest-notes：AI赋能的语音笔记设备，一键录音转写，智能整理笔记，Markdown同步GitHub/Obs",
+     "d": "ESP32-S3开发板搭载，通过OpenAI Whisper进行录音转写，利用GPT进行笔记整理，自动同步Markdown至GitHub/Obsidian。无需手机操作，一键录音转写，AI智能整理笔记，让笔记整理更高效。但需注意，同步至GitHub/Obsidian可能需要一定的网络条件和GitHub/Obsidian账号。",
+     "hw": "ESP32-S3",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/Forrest404/forrest-notes",
+     "stars": 23,
+     "created": "2026-06-20"
+    },
+    {
+     "id": "20261127-nova-bot",
+     "kind": "ai",
+     "t": "nova-bot：让云端视觉大模型驱动 ESP32 小车",
+     "d": "这是一辆由云端视觉大模型驱动的 ESP32 自主小车：摄像头采集场景，FastAPI 后端调用视觉大语言模型规划动作；编码器电机配合 PID 闭环控制，IMU 辅助定向。它还能按语音指令行动，并通过流式语音合成回应。视觉推理依赖云端后端，离线自主能力受限。",
+     "hw": "XIAO ESP32-S3 Sense、两块 ESP32、摄像头、麦克风、IMU、编码器电机",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/prasodium/nova-bot",
+     "stars": 22,
+     "created": "2026-06-10"
+    }
+   ]
   }
  ],
  "legacy": [
