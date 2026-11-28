@@ -3173,6 +3173,131 @@
      "created": "2026-06-10"
     }
    ]
+  },
+  {
+   "date": "2026-11-28",
+   "items": [
+    {
+     "id": "20261128-ai-pin-wearable-voice-assistant-xiao-esp",
+     "kind": "hw",
+     "t": "AI_Pin-Wearable_Voice_Assistant_XIAO_ESP32S3_Sense：便携式AI语音助手",
+     "d": "基于Seeed XIAO ESP32S3 Sense的便携式AI语音助手，集成OLED显示屏、RGB LED灯和OV3660摄像头，支持语音唤醒和图像识别，无需设置ESP-IDF即可使用，但需要一定的编程基础进行固件烧录。",
+     "hw": "Seeed XIAO ESP32S3 Sense、PDM麦克风、MAX98357扬声器、SSD1306 OLED显示屏、RGB LED灯、OV3660摄像头",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/idevloop/AI_Pin-Wearable_Voice_Assistant_XIAO_ESP32S3_Sense",
+     "stars": 5,
+     "created": "2026-07-12"
+    },
+    {
+     "id": "20261128-airp4",
+     "kind": "hw",
+     "t": "airp4：双频Wi-Fi安全学习平台，支持门禁感知",
+     "d": "基于ESP32-P4与RTL8720DN/BW16的双频Wi-Fi安全学习平台，集成LVGL触控UI，支持设备端WPA2握手破解与802.11帧注入工具，适用于个人学习与授权安全研究，但请勿用于非法用途。",
+     "hw": "ESP32-P4 + BW16/RTL8720DN",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/duyashuodao/airp4",
+     "stars": 5,
+     "created": "2026-07-24"
+    },
+    {
+     "id": "20261128-autonomous-mower",
+     "kind": "hw",
+     "t": "autonomous-mower：基于ESP32的自动驾驶割草机改造，融合RTK GPS、激光雷达、摄像头和设备端AI，",
+     "d": "该项目将商用割草机改造为自动驾驶机器人，采用RTK GPS、激光雷达、摄像头和设备端AI技术，实现精准割草。项目包含硬件、固件、控制软件和参数化CAD设计，但需自行测量尺寸以适应不同型号的割草机，对技术有一定要求。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/zohebzma2-cmyk/autonomous-mower",
+     "stars": 5,
+     "created": "2026-06-27"
+    },
+    {
+     "id": "20261128-esp32csi-vision",
+     "kind": "hw",
+     "t": "ESP32CSI_Vision：基于ESP32-P4的图像处理与识别库，支持多种摄像头接口与AI功能",
+     "d": "为ESP32-P4开发板提供了一套完整的图像处理库，支持RGB565捕获、MJPEG流媒体、H.264录制、JPEG格式，以及计算机视觉和ESP-DL人脸识别功能。适用于进阶开发者，需配置PSRAM和特定Arduino版本。",
+     "hw": "ESP32-P4开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/TheZeroHz/ESP32CSI_Vision",
+     "stars": 5,
+     "created": "2026-08-06"
+    },
+    {
+     "id": "20261128-esp32s3-line-follower",
+     "kind": "hw",
+     "t": "ESP32S3_Line_Follower：基于ESP32-S3的智能循线机器人",
+     "d": "采用ESP32-S3和定制PCB，集成9个红外传感器，PID控制，MPU6050辅助转向，VL53L0X避障，实现精准循线和智能避障，但调试过程可能较为复杂。",
+     "hw": "ESP32-S3开发板，定制PCB，9个红外传感器，PID控制器，MPU6050，VL53L0X",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/hoangtrkhanh/ESP32S3_Line_Follower",
+     "stars": 4,
+     "created": "2026-10-28"
+    },
+    {
+     "id": "20261128-nova-ai",
+     "kind": "ai",
+     "t": "nova-ai：基于ESP32的实时AI语音助手，实现语音交互与硬件控制",
+     "d": "NovaAI是一款开源的ESP32实时AI语音助手，利用FastAPI和Gemini Live技术，实现语音对话、硬件控制等功能。项目支持实时语音交互，但需要一定的编程基础进行硬件连接和配置。",
+     "hw": "ESP32 NodeMCU-32S，INMP441麦克风，MAX98357A放大器，4Ω扬声器，WS2812B LED灯环，940nm红外LED",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/madebyparth/nova-ai",
+     "stars": 20,
+     "created": "2026-07-08"
+    },
+    {
+     "id": "20261128-edge-cloud-vision",
+     "kind": "ai",
+     "t": "edge-cloud-vision：Edge-Cloud Vision边缘视觉参考项目",
+     "d": "这是一个ESP32项目，集成了TFLite门限、MQTT、LLM后备、时间记忆、校准计量和入门级ESP32/串行套件。项目旨在学习或课程设计，展示边缘计算、图像采集、推理、通信、云端支持和时间戳的整合。当前版本v0.6.2，重点在于标定和风险控制，以及串口和全链路的优化。",
+     "hw": "ESP32开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/RyeSama/edge-cloud-vision",
+     "stars": 19,
+     "created": "2026-10-19"
+    },
+    {
+     "id": "20261128-esp32-groq-speech-to-text",
+     "kind": "ai",
+     "t": "ESP32-Groq-Speech-to-Text：实时语音转文字，响应迅速",
+     "d": "本项目在ESP32-S3上实现了基于Groq Whisper API的实时语音转文字功能，响应时间仅需约0.3秒。它利用Groq的基于LPU的云AI技术，与传统的基于GPU的云STT服务不同，提供更快的响应速度，非常适合需要快速响应的语音命令项目。需要注意的是，虽然服务免费，但需要稳定的网络连接。",
+     "hw": "ESP32-S3开发板，INMP441麦克风模块",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/techiesms/ESP32-Groq-Speech-to-Text",
+     "stars": 19,
+     "created": "2026-09-05"
+    },
+    {
+     "id": "20261128-tomato-grading-ml",
+     "kind": "ai",
+     "t": "tomato-grading-ML：基于机器学习的实时番茄分级系统",
+     "d": "本仓库实现了一个工业多光谱光学分拣系统的数据工程、机器学习训练和固件导出流程，针对高速输送线的自动化番茄分级与分类系统。系统针对每批处理的批次都是同质的实际操作限制进行设计，即要么全是标准番茄，要么全是樱桃番茄，批次类型由操作员或上游系统在单个水果通过传感器之前预先设置。",
+     "hw": "一块 ESP32 开发板",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/pmalfa31-svg/tomato-grading-ML",
+     "stars": 18,
+     "created": "2026-07-11"
+    },
+    {
+     "id": "20261128-uncannyeyes",
+     "kind": "ai",
+     "t": "uncannyeyes：跟随你的眼睛，房间内的神秘肖像",
+     "d": "ESP32 Vision 项目利用隐藏在画框中的小摄像头，通过两个伺服电机控制背后的眼睛图案，使眼睛能够跟随房间内的人。无需应用和云端服务，只需通过网页设置。项目运行在小型板上，无需互联网连接。",
+     "hw": "Seeed Studio XIAO ESP32S3 Sense，2× SG90 微型伺服电机，5V 伺服电源",
+     "lv": "进阶",
+     "s": "GitHub",
+     "u": "https://github.com/fluxfur/uncannyeyes",
+     "stars": 18,
+     "created": "2026-11-15"
+    }
+   ]
   }
  ],
  "legacy": [
